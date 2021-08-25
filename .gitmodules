@@ -1,0 +1,6 @@
+[submodule "themes/hugo-clinic-notes"]
+	path = themes/hugo-clinic-notes
+	url = https://github.com/jmablog/hugo-clinic-notes.git
+[submodule "themes/hugo-PaperMod"]
+	path = themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
