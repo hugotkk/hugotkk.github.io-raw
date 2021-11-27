@@ -13,7 +13,8 @@ tags:
 ## Bandwidth saving
 
 * google drive sync
-* wifi in iphone11
+* any backgorund updates
+* wifi connection in other devices
 
 ## Prevent from autoupdate
 
@@ -22,7 +23,7 @@ tags:
 ## Others
 
 * firewall
-* chrome plugins
+* disable all chrome plugins
 
 # backup plan
 
@@ -33,9 +34,9 @@ tags:
 
 ## When use wc -> be careful the header, need `total - 1`
 
-## Store temporary commands / note / result in `/root/tmp`
+## Store temporary commands / note / result in a fixed location like `/root/tmp`
 
-## Even in remote host; we use `/root/tmp` to store our results then get back the result from it
+## Even in remote host; we use that fixed location to store our results then get back the result from it
 
 ```
 remote$ cat tmp
@@ -55,7 +56,7 @@ hard to copy and paste and scroll
 
 Name with `q<no>.yml` like `q10.yml` is the yml of 10<sup>th</sup> question
 
-## In same question, write all resources on same yml
+## Write all resources on same yml in same question
 
 ## Set .vimrc
 
@@ -100,8 +101,15 @@ k get po $nn -n $n
 k auth can-i --as=system:serviceaccount:$n:$nn
 ```
 
-## Keep single vim session in bash
-
 ## When working on next question, start a new vim (kill the old session)
 
-## Create (`touch`) the answer file first (they will ask you submit the answer to specfic path), vim it then put it in background (c-z)
+## Keep a single vim session in bash 
+
+* back and fore from vim and bash many times is needed
+* using multiple vim session are so confusing
+* that also why working on single yaml per question is encouraged
+
+## Create (`touch /opt/xxxxx/q11/answer`) the answer file first 
+
+* needed to submit anser to specfic file
+* just touch the file -> open it with vim -> put it in background (c-z)
