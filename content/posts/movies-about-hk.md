@@ -38,7 +38,7 @@ https://youtu.be/TgsTCzLRQcs?t=1905
 
 * a girl who said 齊上齊落(all together not one less), turn back bring people out from the council 
 * ppl should participate more...not just support them...
-* HK is not important; HERE is more important
+* HK is not important; HKER is more important
 * TW use 40 years to have democracy - need patient
 * Repressed anger as it does not help
 
