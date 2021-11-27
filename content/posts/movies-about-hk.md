@@ -23,7 +23,7 @@ https://youtu.be/TgsTCzLRQcs?t=1905
 
 ## Connection with mashipo
 
-[https://hongkongfp.com/2021/06/27/how-an-elderly-hong-kong-pro-democracy-protester-also-fought-in-vain-to-save-his-village-from-developers/](How an elderly Hong Kong pro-democracy protester also fought in vain to save his village from developers)
+[How an elderly Hong Kong pro-democracy protester also fought in vain to save his village from developers](https://hongkongfp.com/2021/06/27/how-an-elderly-hong-kong-pro-democracy-protester-also-fought-in-vain-to-save-his-village-from-developers/)
 
 * Wong understands people because he has confronted the government before in Mashipo
 * young people help them to protect his home in mashipo...so he thinks he has responsibility to protect them back
