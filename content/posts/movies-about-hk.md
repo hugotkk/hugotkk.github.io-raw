@@ -12,6 +12,8 @@ https://youtu.be/TgsTCzLRQcs?t=1905
 
 [Taipei golden horse film festival 2021](https://www.goldenhorse.org.tw/film/programme/films/detail/3117)
 
+[Trailer](https://www.youtube.com/watch?v=eT4eFCfSnbs)
+
 * two girls arrested in 721
 * one sexuel abused by HK police force and try to commit suicide
 * another young teanager insists on looking for her. 
@@ -20,6 +22,8 @@ https://youtu.be/TgsTCzLRQcs?t=1905
 # Revolution of Our Times
 
 [IMDB](https://www.imdb.com/title/tt15049118/)
+
+[Trailer](https://www.youtube.com/watch?v=gLy0QiKkD-c)
 
 ## Connection with mashipo
 
@@ -49,3 +53,9 @@ https://youtu.be/TgsTCzLRQcs?t=1905
 ## Aerial photography - protest confront with riot police at MongKok 
 
 * what is “be water”
+
+# Drifting Petals
+
+[Taipei golden horse film festival 2021](https://www.goldenhorse.org.tw/film/programme/films/detail/3097?r=en)
+
+[Trailer](https://www.youtube.com/watch?v=2np33WrHeck)
