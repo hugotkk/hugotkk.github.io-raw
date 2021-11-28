@@ -2,7 +2,9 @@
 title: "Blockchain use cases"
 date: 2021-11-26
 tags:
+- use-case
 - blockchain
+- hyperledger
 ---
 
 # Trust Over IP: Hyperledger Ursa, Indy, and Aires
@@ -52,3 +54,55 @@ https://youtu.be/1ps4PJtFRfY?t=544
 ## IBM blockchain world wire
 * world wire solution with blockchain
 * use stellar protocol
+
+# Singapore Exchange: Clearing Financial Transactions on Amazon Managed Blockchain
+
+https://www.youtube.com/watch?v=nUre2ELySdo
+
+blockchain is used to handle the payment and settlement of securities
+
+the method they used called DVP (delivery versus payment) = a way to ensure cash and securities can simultancely exchange 
+
+client can be 
+* buyer = buy securities with eth
+* seller = sell securities with eth
+
+In the architecture,
+* hyperledger = securities
+* eth client = cash
+
+transaction will came cross with both ledgers
+
+arbitrator and obersver with receive activties on chain
+
+* arbitrator = mediator = handle dispute
+* observer = regulator = do regulatory report
+
+## Pros with AWS Managed Blockchain
+
+* no need to build the ledger by themself
+* focus on the smart contract
+* a single blockchain network can effectively work cross multiple parties
+
+## An Overview on Blockchain Services from AWS
+
+https://www.youtube.com/watch?v=WAIOBeQA2QQ
+
+### Pros of blockchain network
+* ledger database (immutable transaction)
+* consenus
+* decentlization
+* smart contract
+* ease for audit 
+
+### Hyperledger fabric VS ETH
+* authentication
+* access control
+* easy to add user
+* easy to duel with settlement (bank)
+* faster than centialization
+* private ledger
+
+## use case 
+* trading
+* supply case

@@ -11,12 +11,12 @@ tags:
 
 ## Day1
 
-## Setup
+### Setup
 * https://www.eksworkshop.com/020_prerequisites/ec2instance
 * https://www.eksworkshop.com/030_eksctl/launcheks
 * https://www.eksworkshop.com/beginner/060_helm/helm_intro/install
 
-## Tasks
+### Tasks
 * [Deploy simple application](https://www.eksworkshop.com/beginner/050_deploy)
 * [Fargate](https://www.eksworkshop.com/beginner/180_fargate)
 
@@ -35,14 +35,19 @@ Also we can only fargate only. When we deploy plugins to the cluster, It will be
 * create a fargate profile which is associated with a namespace
 * deploy yml to that namespace
 
-## Cost of fargate
-
-[Fargate will be cheaper](https://aws.amazon.com/blogs/containers/theoretical-cost-optimization-by-amazon-ecs-launch-type-fargate-vs-ec2/) in some situations. 
-
 ## Pros and Con of fargate
 
-It is a micro vm so it can be scaled up quickly. (I think it is a pod)
+### can be scaled up quickly. 
 
-one fargate instance per pod
+* it is a micro vm as similar as pod
+* one fargate instance per pod
 
-But I remember that it does not well support integration with other AWS services, like efs...need to further study on it.
+## lower cost of fargate
+
+* [Fargate will be cheaper](https://aws.amazon.com/blogs/containers/theoretical-cost-optimization-by-amazon-ecs-launch-type-fargate-vs-ec2/) in some situations. 
+* no need to rent large ec2 instance. it is good if you are doing batch jobs with EKS
+* no need to maintain the ec2 instance (patch it, upgrade the kubelet)
+
+### not well integrate with other AWS services
+
+like efs?...need to further study on it.

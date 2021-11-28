@@ -1,0 +1,79 @@
+---
+title: "Hyperledger fabric"
+date: 2021-11-28
+tags:
+- blockchain
+- hyperledger
+---
+
+# Atomic cross chain swap between Hyperledger Fabric and Ethereum
+
+https://www.youtube.com/watch?v=j_j2MiAxUvY&list=PL0MZ85B_96CEmmy0C6NF52ZCMNcY1Wryf
+
+## Wait until the transaction is completely settled.
+
+## hashlock
+
+The transaction is partially complete
+
+Settle once the sender publishes the key on the blockchain.
+
+### Cons
+
+* hugo cannot refund if kevin does not response
+
+## timelock
+
+* hugo made a partial transaction that the btc can be claimed by kevin within n number of blocks
+* if the transaction is expired, hugo can claim back the fund
+
+### Cons
+* the claims need to execute manually
+
+### HTLC (Hash Time Lock Contract)
+
+Combine two locks: (and)
+
+* claim within n number of blocks
+* the key is revealed on the blockchain 
+
+## Steps in a cross chain swap
+
+Timestamp: 55:36
+
+Example: btc -> eth swap from hugo to kevin
+
+assume that Hugo has a key (secret that only Hugo will know) `1234` with hash `4567`
+
+Hugo and Kevin will not make transactions directly
+
+They will send the fund to the contract instead
+
+THe contract will hold the eth and btc for Hugo and Kevin
+
+There are 2 separate contracts
+* one is in btc (let's say `Contract A`)
+* the other is in eth (let's say `Contract B`)
+
+* hugo sent btc to the `Contract A` in btc network
+
+from: hugo
+value: 10 btc
+to: kevin
+hash: 4567
+
+* Kevin sent eth to the `Contract B` in eth network
+
+from: hugo
+value: 134 eth
+to: kevin
+lock: 9876
+
+* Hugo observed that kevin has funded eth to `Contract B`. then he will submit his key `1234` in btc network, btc send to kevin by the `Contract A` 
+* same as kevin, he submits his key `9876` in eth network, eth sent to hugo by the `Contract B`
+
+## Problem
+
+* semi-trusted
+  * We assume Hugo and Kevin can see each other on each chain
+  * if the access right is changed during the transaction...let say hugo can revoke kevin on eth network..then the transaction failed (this happens on hyperledger as it can have access control but not possible on btc and eth)
