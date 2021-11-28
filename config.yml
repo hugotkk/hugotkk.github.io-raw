@@ -1,6 +1,6 @@
 baseURL: "https://hugotkk.github.io/"
 title: Hugo
-paginate: 5
+paginate: 15
 theme: hugo-PaperMod
 
 enableInlineShortcodes: true
