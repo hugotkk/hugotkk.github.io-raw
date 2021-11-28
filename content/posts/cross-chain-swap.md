@@ -1,18 +1,21 @@
 ---
-title: "Hyperledger fabric"
+title: "Atomic cross chain swap between Hyperledger Fabric and Ethereum"
 date: 2021-11-28
 tags:
 - blockchain
 - hyperledger
+- crosschain
 ---
-
-# Atomic cross chain swap between Hyperledger Fabric and Ethereum
 
 https://www.youtube.com/watch?v=j_j2MiAxUvY&list=PL0MZ85B_96CEmmy0C6NF52ZCMNcY1Wryf
 
-## Wait until the transaction is completely settled.
+# Methods
 
-## hashlock
+## Wait until the transaction is completely settled
+
+not practical and safe
+
+## Hashlock
 
 The transaction is partially complete
 
@@ -22,7 +25,7 @@ Settle once the sender publishes the key on the blockchain.
 
 * hugo cannot refund if kevin does not response
 
-## timelock
+## Timelock
 
 * hugo made a partial transaction that the btc can be claimed by kevin within n number of blocks
 * if the transaction is expired, hugo can claim back the fund
@@ -57,17 +60,23 @@ There are 2 separate contracts
 
 * hugo sent btc to the `Contract A` in btc network
 
-from: hugo
-value: 10 btc
-to: kevin
-hash: 4567
+Transaction:
+
+| Field | Value |
+|---|---|
+| From  | hugo |
+| Value | 10btc |
+| To | kevin |
+| Hash | 4567 |
 
 * Kevin sent eth to the `Contract B` in eth network
 
-from: hugo
-value: 134 eth
-to: kevin
-lock: 9876
+| Field | Value |
+|---|---|
+| From  | kevin |
+| Value | 134eth |
+| To | hugo |
+| hash | 9876 |
 
 * Hugo observed that kevin has funded eth to `Contract B`. then he will submit his key `1234` in btc network, btc send to kevin by the `Contract A` 
 * same as kevin, he submits his key `9876` in eth network, eth sent to hugo by the `Contract B`
@@ -75,5 +84,5 @@ lock: 9876
 ## Problem
 
 * semi-trusted
-  * We assume Hugo and Kevin can see each other on each chain
-  * if the access right is changed during the transaction...let say hugo can revoke kevin on eth network..then the transaction failed (this happens on hyperledger as it can have access control but not possible on btc and eth)
+  * we assume Hugo and Kevin can see each other on each chain
+  * if the access right is changed during the transaction...let say hugo can revoke kevin on eth network..then the transaction fails (this happens on hyperledger as it can have access control but it is not possible on btc and eth)
