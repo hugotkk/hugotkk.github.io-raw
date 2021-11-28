@@ -34,7 +34,7 @@ languages:
 
 
 params:
-    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    env: production
     author: ["Hugo"]
     defaultTheme: night
     # disableThemeToggle: true
@@ -49,19 +49,6 @@ params:
     # comments: false
     images: ["papermod-cover.png"]
 
-    profileMode:
-        enabled: false
-        title: PaperMod
-        imageUrl: "#"
-        imageTitle: my image
-        # imageWidth: 120
-        # imageHeight: 120
-        buttons:
-            - name: Archives
-              url: archives
-            - name: Tags
-              url: tags
-
     homeInfoParams:
         Title: "Hugo"
         Content: >
@@ -72,36 +59,6 @@ params:
         - name: linkedin
           url: "https://www.linkedin.com/in/hugotkk"
 
-    # label:
-    #     text: "Home"
-    #     icon: icon.png
-    #     iconHeight: 35
-
-    # analytics:
-    #     google:
-    #         SiteVerificationTag: "XYZabc"
-
-    # assets:
-    #     favicon: "<link / abs url>"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
-
-    # cover:
-    #     hidden: true # hide everywhere but not in structured data
-    #     hiddenInList: true # hide on list pages and home
-    #     hiddenInSingle: true # hide on single page
-
-    # fuseOpts:
-    #     isCaseSensitive: false
-    #     shouldSort: true
-    #     location: 0
-    #     distance: 1000
-    #     threshold: 0.4
-    #     minMatchCharLength: 0
-    #     keys: ["title", "permalink", "summary", "content"]
-
 taxonomies:
     category: categories
     tag: tags
@@ -111,13 +68,6 @@ markup:
     goldmark:
         renderer:
             unsafe: true
-#     highlight:
-#         # anchorLineNos: true
-#         codeFences: true
-#         guessSyntax: true
-#         lineNos: true
-#         # noClasses: false
-#         style: monokai
 
 privacy:
     vimeo:
