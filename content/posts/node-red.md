@@ -36,11 +36,19 @@ node red pulls the data from sensors and submits to blockchain automatically
 
 * send switch on and off signal to the light bulb through dashboard
 
-## Automation (like IFFF and Apple Shortcut but in IoT version)
+## Automation (like IFFF and Apple Shortcut but in the IoT version)
 
 * monitoring the environment with sensors (like humidity and temperature)
 * trigger other IoT (like turn on the washing machine)
 
+
+## Water Utility (SCADA)
+
+https://www.youtube.com/watch?v=FCfmWnxQkoc
+
+* tanks and bump
+* bump water from the well to task 1 and then bump to tank 2
+* alert when the tank reaches the critical level
 
 # MQTT
 
@@ -53,7 +61,7 @@ lightweight network protocol for IoT
 
 * IoTs subscribe to specific topic `workshop/switch` in MQTT Broker
 * user publish `workshop/switch` to MQTT broker (via red node)
-* IoTs receive the data from MQTT broker and react to it (eg: turn on the switch...)
+* IoTs receive the data from the MQTT broker and react to it (eg: turn on the switch...)
 
 ##  MQTT Broker
 
@@ -129,3 +137,76 @@ This is not using node-red but the concept is same
 * listen to all topics from MQTT and capture it to debug node
 * trigger the event to send out (eg: clicking the wifi button) / wait for the device to publish a message to the topic (thermometer)
 * find out the payload and topic name
+
+# Enterpise Case study
+
+* [How to Build Massive IoT with Klika Tech, Wirepas and AWS](https://www.youtube.com/watch?v=GVqDQXi-Ls0)
+* [Building an End-to-End Industrial IoT (IIoT) Solution with AWS IoT - AWS Online Tech Talks](https://www.youtube.com/watch?v=arpPt40jRUw&list=WL&index=9)
+
+## Use case
+* tracking the temperature, humidity, vibration in shipping
+* pro-logistics: open the container door, turn on and turn off the light..
+* control the lighting
+* track which the conference room is used
+* locate things in office / warehouse
+
+## Flow
+
+* IoTs
+* gateways
+* MQTT Broker (aggregate all data)
+  * user application
+  * [wirepas network tools](https://www.wirepas.com/)
+  * backend
+
+* wirepas FW (RuuviTag)
+* wirepas snap
+* (AWS) wirepas service (WNT, WPE) (Dashboard) / Greengrass snap (Like Red-Node)
+
+## AWS IoT SiteWise & AWS IoT Greengrass
+
+(Depends on the device manufactory)
+* OnLogic
+* Moxa
+
+[greengrass](https://aws.amazon.com/greengrass)
+
+access point for the IoTs to send data to AWS
+
+## AWS IoT Message Broker
+ 
+AWS version of MQTT
+
+## AWS IoT Device Management 
+
+ IoT version of System Manager 
+
+* bulk registration
+* Patching
+* Monitor the health / Search
+* Integration with analytics tools
+
+## Wireless mesh network with asset tracking on site
+
+* building gateways on site to let the IoTs can send data to cloud (SiteWise)
+* the message can be repeated (extended) once they cover each other (that is why it is called a mesh network)
+* 700000 devices in one mesh network cover Oslo
+* ROI -> look at the maintanese and analytics and delivery
+
+## RuuviTag
+
+* Pressure
+* Temperature
+* Humidity
+* Accelerometer
+* Location
+
+* I2C / SPI
+
+## Steps
+
+* Build SiteWise Assets / Model
+* Build SiteWise Gateway (connect with KEPServerEX)
+* Portal -> SiteWise Montior -> Create Projects
+* IoT Core set a rule (How to process the data) to send data to analytics 
+* in analaytics there is a channel created -> use pipeline to pass the raw data to lamda and process the raw data -> store the processed data to data store -> create (SQL / Container custom code) in data sets and consumer in IoT Events (Detector model)
