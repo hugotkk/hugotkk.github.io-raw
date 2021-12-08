@@ -3,11 +3,12 @@ title: "Bluetooth"
 date: 2021-12-01
 tags:
 - study
+- bluetooth
 ---
 
 https://www.youtube.com/watch?v=1I1vxu5qIUM
 
-Transmit electromagnetic wave (binary) with different wavelength 
+Transmit an electromagnetic wave (binary) with different wavelength 
 
 eg:
 121mm = 1
@@ -27,13 +28,13 @@ it may destroy the bluetooth device if you put them inside the microwave oven (d
 
 # Data Integrity
 
-# Packet
+## Packet
 
 * Access Codes (72 bits)
 * Header (54bits)
 * Payload (vary, depends on the function)
 
-# Frequency Hopping
+## Frequency Hopping
 
 Two bluetooth devices will have a set of channels to send data
 
@@ -56,3 +57,6 @@ constant wavelength and attitude
 use the wave function to determine 0 and 1 (like sin x = 0, cos x = 1, instead of A sin x and B sin X)
 
 ![PSK Explained](https://www.tmatlantic.com/upload/images/keying_PSK.jpg)
+
+
+
