@@ -6,9 +6,9 @@ tags:
 - blog
 ---
 
-I find this markdown software when watching [this video](https://youtu.be/48RXD_jOwu8?t=328)
+I found this markdown software when watching [this video](https://youtu.be/48RXD_jOwu8?t=328)
 
-I am interested in that map and think if I can organize my markdown notes with it.
+I am interested in that map and think if I can organise my markdown notes with it.
 
 # Tutorials
 
@@ -21,8 +21,8 @@ https://www.youtube.com/watch?v=yX_Qdr9-7k
 https://www.youtube.com/watch?v=TDhTpPIjsDg
 
 * most of the features do not attract to me
-* Will prefer organizing the notes with tags not folder
+* Will prefer organising the notes with tags not folder
 * Spacemacs is better for editing. Happy with marco, fuzzy file searching, find and replace, vim keybinding and git
 * Template function (like marco)
-* Use to preview and visualize my notes but not editing
-* Graph view support tags to virtualize the notes so no need to refactor my Hugo notes
+* Use to preview and visualise my notes but not editing
+* Graph view support tags to virtualize the notes so no need to refactor my Hugo notes (Graph View > Filters > Tags)
