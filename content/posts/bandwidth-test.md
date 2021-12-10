@@ -74,6 +74,26 @@ TCP window size: 1.90 MByte (default)
 
 ## Not in same placement group and parallel 2
 
+```
+[root@ip-172-31-7-236 ~]# iperf -c 172.31.12.68 --parallel 2 -i 1 -t 2
+------------------------------------------------------------
+Client connecting to 172.31.12.68, TCP port 5001
+TCP window size: 2.00 MByte (default)
+------------------------------------------------------------
+[  4] local 172.31.7.236 port 50538 connected with 172.31.12.68 port 5001
+[  3] local 172.31.7.236 port 50536 connected with 172.31.12.68 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec   603 MBytes  5.06 Gbits/sec
+[  3]  0.0- 1.0 sec   585 MBytes  4.91 Gbits/sec
+[SUM]  0.0- 1.0 sec  1.16 GBytes  9.96 Gbits/sec
+[  4]  1.0- 2.0 sec   604 MBytes  5.07 Gbits/sec
+[  4]  0.0- 2.0 sec  1.18 GBytes  5.06 Gbits/sec
+[  3]  1.0- 2.0 sec   579 MBytes  4.85 Gbits/sec
+[SUM]  1.0- 2.0 sec  1.16 GBytes  9.92 Gbits/sec
+[  3]  0.0- 2.0 sec  1.14 GBytes  4.88 Gbits/sec
+[SUM]  0.0- 2.0 sec  2.32 GBytes  9.94 Gbits/sec
+```
+
 ## Outcome
 
 ### w/i the placement group
