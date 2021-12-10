@@ -50,3 +50,13 @@ For EKS, we need CSI driver
 # Virtual node
 
 It is AKS things, like EKS's fargate...but I cannot find the price..
+
+# 2021-12-10 updates:
+
+I have asked on Microsoft Q&A: https://docs.microsoft.com/en-us/answers/questions/659456/price-of-ake-virtual-node-and-aks-without-node-poo.html
+
+* need min 1 system node group 
+* can start / stop the cluster 
+* the VM will stop charging when the cluster is stop 
+* charge of other provisioned services like LB and Azure File are unknown...
+* virtual node will charge as container service (like fargate)
