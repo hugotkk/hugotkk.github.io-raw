@@ -13,8 +13,8 @@ https://www.youtube.com/watch?v=FfuhlF9ZYPM
 
 ## Notes
 * prove the credential without CA
-* trusted issuer (eg: gov) issues the identity token (eg: driving license) -> send it to a crypto account (like sending btc to someone)
-* on the blockchain, it shows a record that the account owns that license. (like you can check your btc balance / NFS on chain explorer)
+* trusted issuer (eg: gov) issues the identity token (eg: driving licence) -> send it to a crypto account (like sending btc to someone)
+* on the blockchain, it shows a record that the account owns that licence. (like you can check your btc balance / NFS on chain explorer)
 * anyone can request that you own that account (like an approval transaction from dapp). You can decide to share your data to what extent 
 * send the data to requester and it can be verified as it is signed by issuer
 * blockchain is used to prove the ownership of your identities
@@ -61,7 +61,7 @@ https://www.youtube.com/watch?v=nUre2ELySdo
 
 blockchain is used to handle the payment and settlement of securities
 
-the method they used called DVP (delivery versus payment) = a way to ensure cash and securities can simultancely exchange 
+the method they used called DVP (delivery versus payment) = a way to ensure cash and securities can simultaneously exchange 
 
 client can be 
 * buyer = buy securities with eth
@@ -71,9 +71,9 @@ In the architecture,
 * hyperledger = securities
 * eth client = cash
 
-transaction will came cross with both ledgers
+Transaction will come across with both ledgers
 
-arbitrator and obersver with receive activties on chain
+arbitrator and observer with receive activities on chain
 
 * arbitrator = mediator = handle dispute
 * observer = regulator = do regulatory report
@@ -82,7 +82,7 @@ arbitrator and obersver with receive activties on chain
 
 * no need to build the ledger by themself
 * focus on the smart contract
-* a single blockchain network can effectively work cross multiple parties
+* a single blockchain network can effectively work across multiple parties
 
 ## An Overview on Blockchain Services from AWS
 
@@ -90,8 +90,8 @@ https://www.youtube.com/watch?v=WAIOBeQA2QQ
 
 ### Pros of blockchain network
 * ledger database (immutable transaction)
-* consenus
-* decentlization
+* consensus
+* decentralisation
 * smart contract
 * ease for audit 
 
@@ -106,3 +106,17 @@ https://www.youtube.com/watch?v=WAIOBeQA2QQ
 ## use case 
 * trading
 * supply case
+
+# Enhanced Transparency and Frictionless Supply Chain with Blockchain
+
+https://www.youtube.com/watch?v=2NqbUb4rT88&list=WL&index=46
+
+B2B Business
+
+buy and sell order between Bottlers
+
+* visibility cross supply chain
+* reduce manual process and communicate between sellers and buyers
+* dispute resolution (smark contract) -> I think we can use TimeLock to do partial transaction
+* easy to scale
+* no need to build a different api for each system (mesh network n(n-1)/2)
