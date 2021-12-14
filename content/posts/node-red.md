@@ -4,10 +4,10 @@ date: 2021-11-28
 tags:
 - iot
 - blockchain
-- nodered
+- node-red
 ---
 
-[Official Website](https://nodered.org/)
+[Official Website](https://node-red.org/)
 
 [Playlist](https://youtube.com/playlist?list=PLcjWRSA2O5d2tI7pzamHDCkaOuir_oVYq)
 

@@ -2,7 +2,7 @@
 title: "OpenZeppelin"
 date: 2021-12-01
 tags:
-- smartcontract
+- smart-contract
 - blockchain
 ---
 
