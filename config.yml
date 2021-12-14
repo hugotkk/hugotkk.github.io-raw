@@ -25,7 +25,7 @@ languages:
         weight: 1
         menu:
             main:
-                - name: search
+                - name: Search
                   url: search/
                   weight: 10
                 - name: Tags
