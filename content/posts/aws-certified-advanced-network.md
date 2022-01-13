@@ -83,6 +83,34 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 
 ## Revision by topic
 
+### Playlists
+
+* [global accelerator](https://www.youtube.com/watch?v=DuXx0UpUKSg&list=PLcjWRSA2O5d1zQyIZ0sIdWF7PLbVmHMJJ)
+* [api gateway](https://www.youtube.com/watch?v=KqTsBi3DisE&list=PLcjWRSA2O5d079rC5oEClq7q0r3po7QKL)
+* [client vpn](https://www.youtube.com/watch?v=Bv70DoHDDCY&list=PLcjWRSA2O5d04Hxv7sl8-cyU4IXllh8n0)
+* [cloudformation](https://www.youtube.com/watch?v=iXs2picUFN0&list=PLcjWRSA2O5d1D-MC8GPkVb4veRzP7syOb)
+* [cloudfront](https://www.youtube.com/playlist?list=PLcjWRSA2O5d3J15TeQX8ze8P_wOjN9Cqu)
+* [cloudwatch](https://www.youtube.com/watch?v=WDBD3JmpLqs&list=PLcjWRSA2O5d0fbeOSlF2TTQqlVVjYkxAW&index=1&t=357s)
+* [cloudhsm](https://www.youtube.com/watch?v=hEVks207ALM&list=PLcjWRSA2O5d2yguufKSgAqaEMQDq2Gofb)
+* [cognito](https://www.youtube.com/watch?v=r1P_glQGvfo&list=PLcjWRSA2O5d1WxyOwFRdKRYnoMLzSZV65)
+* [config](https://www.youtube.com/watch?v=oBuLtfGHETY&list=PLcjWRSA2O5d2fzk7gEQC1BI7FsUf8nBU6)
+* [dx](https://www.youtube.com/watch?v=iXs2picUFN0&list=PLcjWRSA2O5d08888iKcuFy0uu0K0rDPG8)
+* [edge computing](https://www.youtube.com/watch?v=Q6OgRawyjIQ&list=PLcjWRSA2O5d2YPhKJMIfjM4pJO-efELeq)
+* [elb](https://www.youtube.com/watch?v=aKMLgFVxZYk&list=PLcjWRSA2O5d15hl5_CFN5Tp01BB2ivi9s)
+* [firehose](https://www.youtube.com/watch?v=DPT3swb6zgI&list=PLcjWRSA2O5d1MG-Kjs8ZTTqtRHBuVPRmX)
+* [guarduty](https://www.youtube.com/watch?v=Z7PePqSwysI&list=PLcjWRSA2O5d3oNak_YGAAft8lHJKmTfBq)
+* [inspector](https://www.youtube.com/watch?v=6jyGUgJqgk4&list=PLcjWRSA2O5d1erQAneG480Dtnr2eZwaff)
+* [lambda](https://www.youtube.com/watch?v=nGlc_GdvyXk&list=PLcjWRSA2O5d3Whuw1ueIvSkjGtUXOqdYN)
+* [organization](https://www.youtube.com/watch?v=uOrq8ZUuaAQ&list=PLcjWRSA2O5d35QiAS0xgq6XwwBKvNMSOg)
+* [route53](https://www.youtube.com/watch?v=E33dA6n9O7I&list=PLcjWRSA2O5d0nWA6kpX74oNw0ggL-uo1N)
+* [s3](https://www.youtube.com/watch?v=s1Tu0yKmDKU&list=PLcjWRSA2O5d1slztYOYJ9EpVGGBsZpaWd)
+* [sqs](https://www.youtube.com/watch?v=LzFuXvhA5xk&list=PLcjWRSA2O5d0ttAczLnslDSbaoXtGIU3f)
+* [ssm](https://www.youtube.com/watch?v=2efz7EH4czQ&list=PLcjWRSA2O5d2lSOKTdXmVDjPwavl5B9yW)
+* [vpc](https://www.youtube.com/watch?v=mAdYsD25GQg&list=PLcjWRSA2O5d1g5BrULl-SYfFexBYOzSsk)
+* [vpn](https://www.youtube.com/watch?v=iXs2picUFN0&list=PLcjWRSA2O5d3fzCT78J6OUTAENzeAQkGr)
+* [waf](https://www.youtube.com/watch?v=_M872LhrcD4&list=PLcjWRSA2O5d0ehod0s8S2SlSCYHbje2tg)
+* [workspace](https://www.youtube.com/watch?v=lV_PjZ4gV9s&list=PLcjWRSA2O5d0eMMBqwnJY1nkGLcv4oP3A)
+
 ### References
 
 * [accelerator - custom routing](https://aws.amazon.com/global-accelerator/features/#:~:text=for%20your%20applications.-,Custom%20routing%20accelerator,-Custom%20routing%20accelerators)
