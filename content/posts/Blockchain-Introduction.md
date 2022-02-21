@@ -114,6 +114,8 @@ user -> sale contract -> nft contract
 
 * [Contract Wizard](https://wizard.openzeppelin.com/)
 
+Common Functions
+
 * Mintable (increase supply)
 * Burnable (reduce supply)
 * Pausable (freeze the contract, for upgrade)
