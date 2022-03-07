@@ -14,20 +14,22 @@ tags:
 * need to update config when new node online - opsworks [Configure lifecycle event](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-events.html)
 * less administrative overhead: eb > cloudformation when both solutions works
 * auto healing: [opsworks](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autohealing.html), codedeploy, eb (bcoz of the asg)
-* rolling: eb, opsworks (not ideal, it is [manual deploy](https://docs.aws.amazon.com/opsworks/latest/userguide/best-deploy.html#best-deploy-rolling)), cloudformation+asg, codedeploy
-* blue/green deployment: eb (cname swap), codedeploy
+* rolling: eb, opsworks (not ideal, it is [manual deploy](https://docs.aws.amazon.com/opsworks/latest/userguide/best-deploy.html#best-deploy-rolling)), cloudformation+asg+[AutoScalingRollingUpdate policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-rollingupdate), codedeploy
+* rolling = drop traffic to n instance > deploy > allow traffic
+* in-place = deploy the deploy to all instances (parallel)
+* blue/green deployment: eb ([cname swap](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html)), codedeploy, 2x(cfn+asg+elb)+route53 or 2(cfn+asg)+elb(weighted target groups)
 * blue/green deployment and want to [delay the old asg termination](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BlueInstanceTerminationOption.html): codedeploy
-* canary deployment: codedeploy only on [lambda](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html#deployment-configuration-cloudformation-bg) / [ecs](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html#deployment-configuration-ecs), eb ([traffic splitting](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html#environments-cfg-trafficsplitting-method))
-* eb's [immutable deployment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environmentmgmt-updates-immutable.html): create 2nd asg. deploy code to new asg and create new resources in batch > delete old asg after the deployment. (kind of rolling deployment. not a blue/green)
+* canary deployment: codedeploy only on [lambda](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html#deployment-configuration-cloudformation-bg) / [ecs](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html#deployment-configuration-ecs), eb ([traffic splitting](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html#environments-cfg-trafficsplitting-method)), api gateway
+* eb's [immutable deployment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environmentmgmt-updates-immutable.html): create 2nd asg. deploy code to new asg and create new resources in batch > delete old asg after the deployment. (kind of rolling deployment. not a blue/green, the new resource will accept the traffic during the deployment)
 * a/b test for a long time: (cloudformation+asg+alb)x2+route53 weighted round robin
-* multi app, multi dependencies: docker multi platform
+* multi app, multi dependencies: use docker: cfn, eb
 * rollback by CloudWatch alarm: codedeploy, eb not work (only by health check)
-* some nodes are not update after a success codedeploy deployment: asg create new node during deployment
+* some nodes are not updated after a successful codedeploy deployment: asg create new node during deployment
 * codedeploy sucks in the lifecycle event hook (ec2 ~1hr): [script error](https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-deployments-lifecycle-event-failures)
 * codedeploy sucks at the AllowTraffic lifecycle event: [elb health check failed](https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-deployments-lifecycle-event-failures)
 * opsworks sucks at booting: [agent doesn't start or incorrect iam role in instance profile](https://docs.aws.amazon.com/opsworks/latest/userguide/common-issues-troubleshoot.html#common-issues-troubleshoot-booting)
-  * all lifecycle event skipped in codedeploy: [agent doesn't start / security group blocked the communication](https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-skipped-lifecycle-events)
-* limit the resources on cfn launching: use catalog (like a marketplace). more iam control to the cloudformation template
+* all lifecycle event skipped in codedeploy: [agent doesn't start / security group blocked the communication](https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-skipped-lifecycle-events)
+* limit the resources on cfn launching: use catalog (like a marketplace). more iam control to the cloudformation template. With cloudfromation, you cannot limit user upload what cloudformation template.
 
 ## Backup & Restore
 
@@ -40,14 +42,14 @@ tags:
 ## ASG
 
 * troubleshoot asg instance: [standby](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html) / [asg lifecycle hook](https://aws.amazon.com/premiumsupport/knowledge-center/auto-scaling-delay-termination/) (1hr only)
-* handle expected traffic spkie: scheduled scaling
+* handle predictable traffic: [scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
 * prevent scale-in: [instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
-* sending log / license register deregister: [asg lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
+* sending log / licence register deregister: [asg lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
 
 ## Data analysis / Loggings
 
 * batch jobs / reporting (like spark): EMR
-* visualize data (like BI): Redshift / Quicksight (cost effective)
+* visualise data (like BI): Redshift / Quicksight (cost effective)
 * log searching: elastic search (ES) (renamed to opensearch)
 * query S3 data: athena
 * report time slow: offload the job to other application(like lambda) with kinesis stream / scale-up the cluster with asg
@@ -56,7 +58,7 @@ tags:
 ## DB
 
 * dynamodb stream = kinesis stream (more advance)
-* throttle on dynamodb stream: limited to 2 connection at the moment. use 1 lambda > sns > other lambda(s)
+* throttle on dynamodb stream: limited to 2 connections at the moment. use 1 lambda > sns > other lambda(s)
 * dynamodb with many read: [dynamodb accelerator](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html) (like redis)
 * multi-region read & write: dynamodb global table
 * multi-region read only: aurora
@@ -68,15 +70,14 @@ tags:
 
 ## Config
 
-* [config aggreation](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html): use stackset to enable config cross accounts > assign a dedicated adminstrator > auth config aggreator (like peer connection, request at one side and accept at other account) | use org organization
-* [config organization rule](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html): can use [this](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-organization-config-rule.html) to put rules to all account in orgniazation
-* dynamodb 
+* [config aggreation](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html): use stackset to enable config cross accounts > assign a dedicated administrator > auth config aggregator (like peer connection, request at one side and accept at other account) | use org organisation
+* [config organisation rule](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html): can use [this](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-organization-config-rule.html) to put rules to all account in organisation
 
 # Application Discovery Service
 
 ## Setting up
 
-* [Discovery Connector](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-connector.html) - agentless - install on vmware center
+* [Discovery Connector](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-connector.html) - agentless - install on vmware centre
 * [Discovery Agent](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-agent.html) - agent - install on host
 
 # CodeCommit
@@ -122,7 +123,7 @@ tags:
 # Events
 
 * can send to another account
-* can send to another account in organization
+* can send to another account in organisation
 
 # Cloudwatch
 
@@ -178,7 +179,7 @@ tags:
 
 ## AMI
 
-use [ECS-optimized AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) - have container agent installed
+use [ECS-optimised AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) - have container agent installed
 
 ## loggings
 
