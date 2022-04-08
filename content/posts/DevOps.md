@@ -87,6 +87,37 @@ tags:
 * targets: branch
 * approval pool members (iam user)
 
+## [protect branches](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branch.html)
+
+## [migrate from git](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-migrate-repository-existing.html#how-to-migrate-existing-clone)
+
+* `git clone git_repo_url --mirror` to create bare repo
+* `git push codecommit_repo_url --all`
+* `git push codecommit_repo_url --tags`
+
+# CodeBuild
+
+* find the branch name in codebuild: CODEBUILD_SOURCE_VERSION
+* one codebuild can have one builspec.yml
+* data encryption: [at rest and in transit](https://docs.aws.amazon.com/codebuild/latest/userguide/security-encryption.html)
+* can use [aws managed](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) / [custom](https://aws.amazon.com/blogs/devops/how-to-use-cross-account-ecr-images-in-aws-codebuild-for-your-build-environment/) docker image at build environment
+* custom docker image can be chosen from ecr (same/cross account) or custom registry
+
+## buildspec.yml
+
+* many phases but [all are inline commmands](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax)
+* can use parameter-store and secrets-manager
+* can set "finally" block in each phase & on-failure behavior
+
+# CodeDeploy
+
+## appspec.yml
+
+* resources + hooks (ecs & lambda)
+* files + permission + hooks (ec2)
+
+## [lifecycle](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html)
+
 ## notification
 
 * targets: sns / aws chatbot
