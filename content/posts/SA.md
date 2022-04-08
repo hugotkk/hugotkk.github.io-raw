@@ -151,12 +151,20 @@ tags:
 * [permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html) - 1 permission set has multiple iam policies => associate to user / group
 * sso
   * ad (identity provider) -> aws sso -> application (github, dropbox) / aws accounts
-  * [ip sources](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) => aws sso / ad connector or aws managed ad / external ad (two way trust)
+  * [sources of identity provider](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html)
+    * aws sso
+    * ad connector
+    * aws managed ad
+    * external ad (two way trust)
   * server -> client
-  * server = adfs => create an app => config app sign-in and sign-out url
-  * client = cc => trusted idp => config idP's sign-in and sign-out url + cert
+  * server = adfs
+    * create an app
+    * config app sign-in and sign-out url
+  * client = integrated website
+    * trusted idp
+    * config idP's sign-in and sign-out url + cert
   * user login with ad's app endpoint => ad post data to app's sign-in url => app receive and decrypt the data from ad and give permission to user
-  * federation => single account only
+  * aws iam federation => single account only
 
 # storage gateway
 
