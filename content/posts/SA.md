@@ -15,6 +15,10 @@ tags:
   1. per account 
   1. per-api per-stage (methods) 
   1. per-client (usage plan)
+* three type of endpoint
+  1. edge-optimized (default) - route to nearest cloudfront
+  1. regional
+  1. private
 
 # application discovery service
 
@@ -47,9 +51,42 @@ tags:
 * cost category => filter in cost explorer (saved filter)
 * [cost budget](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) => billing alarm with foretasted charged + filtering + linked account; billing alert => amount already be charged
 
+# cf
+
+* reason of cfn with s3 [access denied errors](https://aws.amazon.com/premiumsupport/knowledge-center/s3-rest-api-cloudfront-error-403/#:~:text=If%20your%20distribution%20is%20using%20a%20REST%20API%20endpoint%2C%20verify%20that%20your%20configurations%20meet%20the%20following%20requirements%20to%20avoid%20Access%20Denied%20errors%3A)
+  * s3 block public access must turn off if no oas policy is set - because it will override the permissions that allow public read access
+  * if request pays is turn on, the request must include the payer header
+  * object cannot be kms encrypted
+
 # cfn
 
 * can use [automatic deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html) to auto deploy existing stackset to new accounts in organisation
+
+# cloudhsm
+
+* need [tcp/3389 for windows and tcp/22 for linux](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg-client-instance.html) to connect to ec2 to install cloudhsm client; tcp/2223-2225 to communicate with the cluster
+
+# cloudtrail
+
+* [best practice](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html#creating-an-organizational-trail-best-practice) to migrate to org trail
+  1. [create org trail in central account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.html)
+    1. create bucket for org (need to set bucket policy to allow member account to write to it)
+    1. enable cloudtrail feature in org
+    1. create org trail through cli
+  1. move old trail data from member accounts to org trail bucket
+  1. stop cloudtrail in member accounts and remove the old trail buckets
+
+# codecommit
+
+* data protection 
+  * use [macie](https://docs.aws.amazon.com/codecommit/latest/userguide/data-protection.html) => can help protecting data in s3
+
+# cw
+
+* [cw embeded metric format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html) => can automatrically create metric from log eventsEmbedded metric format
+* cw endpoints => monitoring.us-east-2.amazonaws.com
+  * monitoring.XXXX
+  * no az
 
 # data pipeline
 
@@ -68,10 +105,42 @@ tags:
 # ddb
 
 * support [atomic counter](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
+* local secondary index only can [create at table creation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#:~:text=Local%20secondary%20indexes%20on%20a%20table%20are%20created%20when%20the%20table%20is%20created)
+
+# eb
+
+* can stop start eb environment with [lambda](https://aws.amazon.com/premiumsupport/knowledge-center/schedule-elastic-beanstalk-stop-restart/) at scheduled time
 
 # ebs
 
 * aws [only recommend raid0](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html#:~:text=Creating%20a-,RAID%200,-array%20allows%20you)
+* [summary table for different volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#:~:text=The%20following%20is%20a-,summary,-of%20the%20use%20cases%20and%20characteristics%20of%20SSD)
+* [gp2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#EBSVolumeTypes_gp2)
+  * range: 100-16k iops 
+  * baseline: base on volume (limited by burst credits)
+  * provision: no
+* [gp3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type)
+  * range: 3k-16k iops 
+  * baseline: consistent 3k iops
+  * provision: 500iops/gb
+* [io2, io1](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html)
+  * range: 100-32k iops / 32k-64 iops (only available for nitro system )
+  * provision: io1: 50iops/gb; io2: 500iops/gb
+* io2 block express
+  * only suport with specfic instance ([R5b, X2idn, and X2iedn](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#:~:text=Note-,io2%20Block%20Express%20volumes%20are%20supported%20with%20R5b%2C%20X2idn%2C%20and%20X2iedn%20instances%20only.,-io2%20Block%20Express))
+  * range: 256k iops
+  * provision: 1000iops/gb
+* [instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) - temporary block-level storage (physicall attach to the host so not an network drive)
+* the [i/o performance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/storage-optimized-instances.html#storage-instances-diskperf) are limited by ec2 instance type. although you can use raid0 to increase iops but still have a max for that
+* queue length on ssd: [1/1000iops](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/benchmark_procedures.html)
+
+# ec2
+
+* [use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/scenarios-enis.html#creating-dual-homed-instances-with-workloads-roles-on-distinct-subnets) of dual home
+  * separate the traffic by role (frontend, backend)
+  * ha (move the eni to other instance)
+  * security appliance reason
+* eni is binding to subnet
 
 # efs
 
@@ -91,6 +160,7 @@ tags:
   * primary ep for write; reader ep for read (cluster mode disabled)
   * configuration ep for read and write like node ep (cluster mode enable)
 * [automatically cache query](https://aws.amazon.com/blogs/database/automating-sql-caching-for-amazon-elasticache-and-amazon-rds/) to elasticache for rds, aurora and redshift (use proxy)
+* [support up to 500 nodes and shards](https://aws.amazon.com/elasticache/redis/#:~:text=It%20allows%20you%20to%20scale%20your%20Redis%20Cluster%20environment%20up%20to%20500%20nodes%20and%20500%20shards)
 
 # elb
 
@@ -105,6 +175,15 @@ tags:
 # mTurk
 
 * submit a request to mTurk. outsource manual tasks like taking survey, text recognition, data migration to public
+
+# org
+
+* org features to enable
+  * all
+  * consolidated billing
+* [scp](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) is one of the aws organization feature
+  * default is [allow all](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_auth.html) => can only use deny list only
+  * use allow list => have to remove FullAWSAccess (the default allow all policy)
 
 # other
 
@@ -145,6 +224,21 @@ tags:
   3. use storage gateway (on-premise access) / fsx (ec2 access)
 * s3 encryption - [only support symmetric keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html#:~:text=Amazon%20S3%20only%20supports%20symmetric%20keys%20and%20not%20asymmetric%20keys.)
 * when [downloading encrypted s3 object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html#:~:text=that%20it%20uploads.-,When%20downloading%20an%20object,-%E2%80%94%20The%20client%20downloads), have to download the encrypted object along with a cipher blob version of the data key. client send the cipher blob to kms to get the plaintext version of data key to decrypt the object
+* [reduced redundancy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) is one of the storage class in s3 but not recommend by aws - may have a chance to lose the object
+
+# snowball
+
+* tips to increase performance
+  * [batch small file](https://docs.aws.amazon.com/snowball/latest/ug/performance.html#:~:text=Batch%20small%20files%20together)
+  * multiple copy operations at one time (2 terminals 2 cp command)
+  * connect to multiple workstation (1 snowball can connect to multiple workstation)
+* step for using snowball
+  1. start the snowball
+  1. setup workstation by download ova image and import to the vmware
+  1. use cp command (something like aws s3api cp) to copy file to snowball
+  1. can upload through gui / command line
+  1. send the device back to aws. they will import your data to s3
+* take at least 1 weeks
 
 # sso
 
@@ -192,3 +286,6 @@ tags:
   * associate with directories in each region
   * setup route53 for failover
   * setup connection string
+* [maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html#admin-maintenance) - support regular mantenance windows (eg 15:00-16:00) or manual mantenance but cannot set something like patching on tue 3:00
+*  [workspaces application manager](https://docs.aws.amazon.com/wam/latest/adminguide/what_is.html) - package manager to help installing software
+* workspaces support [Windows 10 desktop](https://aws.amazon.com/workspaces/faqs/#:~:text=2%20LTS%2C%20or-,Windows%2010%20desktop,-experiences.%20You%20can) but no Windows server
