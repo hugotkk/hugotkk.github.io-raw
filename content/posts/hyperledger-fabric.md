@@ -116,7 +116,7 @@ To execute an approved chaincode,
 * `--waitForEvent` and `peerAddresses` are needed in `peer chaincode invoke`
 * `--transient` can be used to pass an object to the chaincode
 * `--tls` means use tls to connect to the orderer but not peers
-* if tls is enabled in peers, you must connect peer with tls by `export CORE_PEER_TLS_ENABLE=true`
+* if tls is enabled in peers, you must connect peer with tls by `export CORE_PEER_TLS_ENABLED=true`
 
 To define which / how many org are required in `peer lifecycle chaincode commit` 
 * change "LifecycleEndorsement" policy in channel config
