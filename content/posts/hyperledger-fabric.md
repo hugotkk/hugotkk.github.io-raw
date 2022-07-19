@@ -21,7 +21,7 @@ tags:
 * [tls setup for orderer, peer and fabric-ca](https://hyperledger-fabric.readthedocs.io/en/release-2.2/enable_tls.html)
 * [configtx.yaml reference](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel_config.html)
 
-## Leader, Anchor (Gossip)
+# Leader, Anchor (Gossip)
 * [leader peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#configuring-leader-election)
     * it will always receive the block from orderer
     * it will then send the block to others peers
@@ -33,7 +33,7 @@ tags:
     * an anchor peer can talk with another anchor peer from different org
     * to enable this in peer, define `CORE_PEER_GOSSIP_EXTERNALENDPOINT` to expose peer to the GOSSIP channel
 
-## create channels
+# create channels
 
 * orderer system channel
   * use [configtxgen -outputBlock](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=in%20your%20logs%3A-,configtxgen%20%2Dprofile,-TwoOrgsOrdererGenesis%20%2DchannelID) to generate genesis block
@@ -43,7 +43,7 @@ tags:
   * create block with [peer channel create](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=the%20following%20command%3A-,peer%20channel%20create,-%2Do%20localhost) 
   * add peer to the channel with [peer channel join -b](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=the%20command%20below.-,peer%20channel%20join%20%2Db,-./channel%2D)
 
-## add org3
+# add org3
 
 * update `organizations/cryptogen/crypto-config-org3.yaml`
 * [generate certificates for the org3 peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#generate-the-org3-crypto-material:~:text=../../bin/cryptogen%20generate)
@@ -57,18 +57,18 @@ tags:
   * commit the change
 * [bring up new org's peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#bring-up-org3-components)
   
-## add peer
+# add peer
 
 * same as `add org` but 
 * no need to update channel config
 
-## add orderer
+# add orderer
 
 * same as `add org` but 
 * need to update both `orderer` and `application` channel config (update the `Addresses` and `Consensers` list)
 * bring up the new orderer with the latest orderer config block (don't use the original genesis.block)
 
-## service discovery
+# service discovery
 
 - [configure external endpoints](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-cli.html#configuring-external-endpoints)
 - add anchor peers to channel config 
@@ -78,7 +78,7 @@ tags:
 - [query endorsers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-cli.html#endorsers-query)
     - when the chaincode wasn't installed on the peer. it will return an error: chaincode definition wasn't found.
 
-## chaincode
+# chaincode
 
 * use [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package-example) to package the chaincode source code. 
 * no need to call `npm install` / `go mod vendor` before packaging because the package command will exclude the dependencies folders (vendors / node_modules) for you
