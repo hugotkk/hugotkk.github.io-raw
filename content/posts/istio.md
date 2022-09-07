@@ -236,7 +236,7 @@ Therefore nslookup `google.hhuge9.com` will return `192.168.0.1`
 
 But for the host name resolution, we need `ISTIO_META_DNS_CAPTURE: true`
 
-# Is it just a canonical name / A record?
+## Is it just a canonical name / A record?
 
 I doubted why `ServiceEntry` is needed. We can access the service directly without applying a config, right? It looks so useless
 
