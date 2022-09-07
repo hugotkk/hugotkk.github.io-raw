@@ -1,6 +1,6 @@
 ---
 title: "Istio Note"
-date: 2022-09-07
+date: 2022-09-06
 tags:
 - k8s
 - service-mesh
@@ -56,7 +56,7 @@ istio can bring VM into the service mesh. treat vm as a k8s pod
 * Workload Group: Deployment
 * Service Entry: Service
 
-I follow this [guide](https://istio.io/latest/docs/setup/install/virtual-machine/) to setup this up
+I follow this [guide](https://istio.io/latest/docs/setup/install/virtual-machine/) to set this up
 
 There are few options for the installation. I chose
 
@@ -65,7 +65,7 @@ There are few options for the installation. I chose
 
 ## dns
 
-Before the setup, we need to setup a dns server. VM need to know about the k8s cluster (\*.cluster.local eg: httpbin.default.svc.cluster.local).
+Before the installation, we need to setup a dns server first. VM need to know about the k8s cluster (\*.cluster.local eg: httpbin.default.svc.cluster.local).
 
 Here are some notes on setting up dnsmasq on ec2.
 
@@ -96,14 +96,14 @@ systemctl disable systemd-resolved
 systemctl stop systemd-resolved
 ```
 
-system-resolved will create a symbolic link to /etc/resolv.conf. When systemd-resolved is disable, it may disappear after the server restart. So be careful of that.
+system-resolved will create a symbolic link to /etc/resolv.conf. When systemd-resolved is disable, the resolv.conf may disappear after the server restart. So be careful of that.
 
 ## Install with revision
 
 If istio is installed with the canary method, the istiod service name will be different.
 
 * without revision: istiod.istio-system.svc.cluster.local
-* with revision: istiod-<revision>.istio-system.svc.cluster.local
+* with revision: istiod-\<revision>.istio-system.svc.cluster.local
 
 The templates at `Expose services inside the cluster via the east-west gateway` are using istiod.istio-system.svc so we have to change it manually
 
@@ -111,9 +111,8 @@ Also we have to add `--revision` when deploy the east west gateway
 
 ## Service vs ServiceEntry
 
-* vm can be selected with Service
-* ServiceEntry is not necessary
-* If we want to use ServiceEntry, [DNS proxy](https://istio.io/latest/docs/ops/configuration/traffic-management/dns-proxy/) has been to be enabled
+* the vm can be selected with Service - ServiceEntry is not necessary
+* If we want to use ServiceEntry, [DNS proxy](https://istio.io/latest/docs/ops/configuration/traffic-management/dns-proxy/) need to be enabled
 
 # Upgrade
 
@@ -166,13 +165,15 @@ To upgrade istio:
 
 # Sidecar injection
 
-* cannot enable with global config - not like mTLS - need to be apply per namespace / per pod
+* cannot enable globally - not like [mTLS](https://istio.io/latest/docs/tasks/security/authentication/authn-policy/#globally-enabling-istio-mutual-tls-in-strict-mode) - need to be apply [per namespace / per pod](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#controlling-the-injection-policy)
 * `hostNetwork: true` [in pod](https://istio.io/latest/docs/ops/common-problems/injection/) will stop the injection
 * injection can be override in pod level
 
 # Service Entry
 
 This is confusing me so much.
+
+## Why the hostname resolution does not work?
 
 My expectation: like k8s' service but it's for external services - so we are adding an A record to the k8s DNS
 
@@ -191,13 +192,13 @@ spec:
   - XXXXX
 ```
 
-Therefore, we can connect to my own mysql service with `mysql -h db.hhuge9.com` in any pod in the mesh
+Expected that I can connect to my own mysql service with `mysql -h db.hhuge9.com` at any pod in the mesh after apply this config
 
 But the result is - `db.hhuge9.com` cannot be resolved
 
-The service entry will not do anything on the dns unless we enable the [DNS proxying](https://istio.io/latest/docs/ops/configuration/traffic-management/dns-proxy/) feature
+The reason is - `ServiceEntry` will not do anything on the dns unless we enable the [DNS proxying](https://istio.io/latest/docs/ops/configuration/traffic-management/dns-proxy/) feature
 
-For example:
+When we apply this `ServiceEntry`
 
 ```
 apiVersion: networking.istio.io/v1alpha3
@@ -213,10 +214,12 @@ spec:
   - 142.250.200.14
 ```
 
-* ISTIO_META_DNS_CAPTURE - add entry to k8s dns. `google.hhuge9.com` will be resolved with the endpoints ips (142.250.200.14)
-* ISTIO_META_DNS_AUTO_ALLOCATE - allocate an internal ip (like service in k8s). `google.hhuge9.com` will be resolve with that ips
+with enabling dns proxying:
 
-We can keep ISTIO_META_DNS_AUTO_ALLOCATE in disable and assign an internal ip at the addresses field
+* `ISTIO_META_DNS_CAPTURE: true` - will add entry to k8s dns. `google.hhuge9.com` will be resolved with the endpoints ips (`142.250.200.14`)
+* `ISTIO_META_DNS_AUTO_ALLOCATE: true` - will allocate an internal ip (like service in k8s). `google.hhuge9.com` will be resolve with that ips
+
+We can leave `ISTIO_META_DNS_AUTO_ALLOCATE: false` and assign an internal ip at the addresses field
 
 ```
 ...
@@ -229,20 +232,24 @@ We can keep ISTIO_META_DNS_AUTO_ALLOCATE in disable and assign an internal ip at
   - 142.250.200.14
 ```
 
-But for the host name resolving, we need ISTIO_META_DNS_CAPTURE
+Therefore nslookup `google.hhuge9.com` will return `192.168.0.1`
 
-Also, I wonder why service entry is needed as actually we can access the service directly without a ServiceEntry, right? Is it just for a canonical name? - looks so useless
+But for the host name resolution, we need `ISTIO_META_DNS_CAPTURE: true`
 
-The Service Entry is meaningful when we want to [control the egress traffic ](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-control/#change-to-the-blocking-by-default-policy)
+# Is it just a canonical name / A record?
 
-When the REGISTRY_ONLY policy is enabled, only registered services can be accessed within the mesh. Therefore, a service entry of facebook.com will be needed if we want to access facebook inside the pod
+I doubted why `ServiceEntry` is needed. We can access the service directly without applying a config, right? It looks so useless
+
+Acutualy, It becomes useful when we want to [control the egress traffic ](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-control/#change-to-the-blocking-by-default-policy)
+
+When the `REGISTRY_ONLY` policy is enabled, only registered services can be accessed within the mesh. Therefore, a service entry of `facebook.com` will be needed if we want to access facebook inside the pod
 
 
 # AuthorizationPolicy
 
 * Useful examples can be found on [Concept > Security > Authorization policies](https://istio.io/latest/docs/concepts/security/#authorization-policies) and [Reference > Security > AuthorizationPolicy](https://istio.io/latest/docs/reference/config/security/authorization-policy/)
-* Best practise is applying allow-nothing first then apply our policies
-* allow-all and deny-all are useful in debug
+* Best practise is applying `allow-nothing` first then apply our policies
+* `allow-all` and `deny-all` are useful in debug
 
 ```
 apiVersion: security.istio.io/v1beta1
@@ -270,35 +277,33 @@ spec:
      values: ["bar"]
 ```
 
-This policy means - allow access to pod in namespace `foo` with label `httpbin` and `v1` only with the existence of
-- GET method and
-- foo: bar Header and the request is
+This policy means - allow access to the pod in namespace `foo` with label `httpbin` and `v1` with the existence of
+- GET request and
+- foo: bar header and the source is
 - from namespace `dev` or
 - with principals `cluster.local/ns/default/sa/sleep`
 
-`principal: cluster.local/ns/default/sa/sleep` means `sleep.default.svc.cluster.local`
+`principal: cluster.local/ns/default/sa/sleep` means `sleep.default.svc.cluster.local`. It is the service account name when the mtls is enabled
 
-It is the service account name when the mtls is enabled
-
-The account name can be confirmed by printing out the environment variables with `env` in the pod cli
+The account name can be confirmed by printing out the environment variables with `env` in the pod
 
 # Ingress Gateway
 
 * [http](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/)
 * [https - tls termination on proxy](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/)
-* [https - tls passthrough](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/) (tls termination on pod)
+* [https - tls termination on pod](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/) (tls passthrough)
 
 # Egress Gateway
 
 * [http](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-gateway/#egress-gateway-for-http-traffic)
 * [https](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-gateway/#egress-gateway-for-https-traffic)
-* [initial the request with http but connect to target with https](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/)
+* [initial the request with http but connect to the target with https](https://istio.io/latest/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/)
 
 # Traffic Management
 
 Most of the examples can be found on [here](https://istio.io/latest/docs/tasks/traffic-management/)
 
-* Fault Injection - return 500 / add delay
-* Traffic Shifting - eg: 50% to v1 50% to v2 - good for canary / blue green deployment / AB testing
+* Fault Injection - like: return 500 / add delay to the requests
+* Traffic Shifting - eg: 50% to v1; 50% to v2 - good for canary / blue green deployment / AB testing
 * Circuit Breaking - exclude the pods if face consecutive 5XX error / set max connections
 * Mirror - mirror the traffic. good for logging / testing / monitoring
