@@ -7,7 +7,7 @@ tags:
 - prometheus
 ---
 
-# Installation
+## Installation
 
 * [Prometheus & the related components](https://prometheus.io/download/) (eg: pushgateway, blackbox_exporter, alertmanager) - scrape engine - it's better to look at the `README.md` and  `Dockerfile` on their github repo to get the information about the [docker](https://github.com/prometheus/prometheus#docker-images) setup
 * [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) - for visualization; drawing graphs
@@ -17,7 +17,7 @@ tags:
 
 * [kube-prometheus-stack](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) (eks) - included grafana and prometheus
 
-# References
+## References
 
 * [docker-compose.yml](https://grafana.com/docs/grafana-cloud/quickstart/docker-compose-linux/) for prometheus and node exporter
 * [grafana.ini](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/)
@@ -26,12 +26,12 @@ tags:
 * [web-config.yml](https://prometheus.io/docs/prometheus/latest/configuration/https/) - tls and basic auth settings - pass `--web.config.file` when starting the binary. This works on any prometheus related products eg: prometheus, node_exporter, alertmanager
 * [prometheus query functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 
-# Grafana Dashboards
+## Grafana Dashboards
 
 * [cadvisor](https://grafana.com/grafana/dashboards/893-main/)
 * [node-exporter](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
 
-# Prometheus
+## Prometheus
 
 * Customise the [storage](https://prometheus.io/docs/prometheus/latest/storage/#operational-aspects) config
 * [Setup an alert](https://prometheus.io/docs/tutorials/alerting_based_on_metrics/)
@@ -42,7 +42,7 @@ can reduce the loading on a single prometheus server.
 * [Snapshot](https://prometheus.io/docs/prometheus/latest/querying/api/#snapshot) (backup)
 * [EC2 host discovery](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#ec2_sd_config) - use for dynamically adding the ec2 instances as the scrape targets
 
-## Thanos
+### Thanos
 
 To archive the HA, third-party solutions like thanos will be needed. 
 
@@ -62,7 +62,7 @@ Queries will add an additional layer to the system. Instead of obtaining the dat
 
 Thus, with the queries, prometheus instances can logically group into different shards / replicas.
 
-# Grafana
+## Grafana
 
 * [Provision dashboards](https://grafana.com/docs/grafana/latest/administration/provisioning/#dashboards) and [Data sources](https://grafana.com/docs/grafana/latest/administration/provisioning/#data-sources)
 * But we can't provision the users, orgs, alerts

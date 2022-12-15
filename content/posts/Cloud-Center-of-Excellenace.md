@@ -15,14 +15,14 @@ https://www.youtube.com/watch?v=mUTGdSA60Ao
 * characteristic for the team member
 * best practice
 
-# Characteristic
+## Characteristic
 
 * driving the organisation forward
 * has ability to stand up - open-minded
 * be confident why and how to do it - clear minded / big picture thinkers
 * diverse and cross-functional
 
-# Skill Set
+## Skill Set
 
 * Cost management
 * Project Management (Transparent)
@@ -31,7 +31,7 @@ https://www.youtube.com/watch?v=mUTGdSA60Ao
 * Application
 * Security (IAM, Policy, Firewall)
 
-# Best Practise
+## Best Practise
 
 * Keep passion & excitement
 * Start small (5-7 ppl in a team)
@@ -45,7 +45,7 @@ https://www.youtube.com/watch?v=mUTGdSA60Ao
 * Gain transparency (everyone knows the progress...why you do that...)
 
 
-# Notes
+## Notes
 
 * cloud makes anything as code -> code makes things more transparent -> the complexity of the project is reduced
 * many jobs can be automated through cloud and they are automatically documented as code

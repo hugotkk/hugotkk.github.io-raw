@@ -5,7 +5,7 @@ tags:
 - blockchain
 ---
 
-# Notes
+## Notes
 
 * installation - [curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.7 1.5.3](https://hyperledger-fabric.readthedocs.io/en/release-2.2/install.html#:~:text=curl%20%2DsSL%20https%3A//bit.ly/2ysbOFE%20%7C%20bash%20%2Ds%20%2D%2D%202.2.7%201.5.3)
 * to start a basic test network (two org, 1 application channel)
@@ -21,7 +21,7 @@ tags:
 * [tls setup for orderer, peer and fabric-ca](https://hyperledger-fabric.readthedocs.io/en/release-2.2/enable_tls.html)
 * [configtx.yaml reference](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel_config.html)
 
-# Leader, Anchor (Gossip)
+## Leader, Anchor (Gossip)
 * [leader peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#configuring-leader-election)
     * it will always receive the block from orderer
     * it will then send the block to others peers
@@ -33,7 +33,7 @@ tags:
     * an anchor peer can talk with another anchor peer from different org
     * to enable this in peer, define `CORE_PEER_GOSSIP_EXTERNALENDPOINT` to expose peer to the GOSSIP channel
 
-# create channels
+## create channels
 
 * orderer system channel
   * use [configtxgen -outputBlock](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=in%20your%20logs%3A-,configtxgen%20%2Dprofile,-TwoOrgsOrdererGenesis%20%2DchannelID) to generate genesis block
@@ -43,7 +43,7 @@ tags:
   * create block with [peer channel create](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=the%20following%20command%3A-,peer%20channel%20create,-%2Do%20localhost) 
   * add peer to the channel with [peer channel join -b](https://hyperledger-fabric.readthedocs.io/en/release-2.2/create_channel/create_channel.html#creating-an-application-channel:~:text=the%20command%20below.-,peer%20channel%20join%20%2Db,-./channel%2D)
 
-# add org3
+## add org3
 
 * update `organizations/cryptogen/crypto-config-org3.yaml`
 * [generate certificates for the org3 peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#generate-the-org3-crypto-material:~:text=../../bin/cryptogen%20generate)
@@ -57,18 +57,18 @@ tags:
   * commit the change
 * [bring up new org's peer](https://hyperledger-fabric.readthedocs.io/en/release-2.2/channel_update_tutorial.html#bring-up-org3-components)
   
-# add peer
+## add peer
 
 * same as `add org` but 
 * no need to update channel config
 
-# add orderer
+## add orderer
 
 * same as `add org` but 
 * need to update both `orderer` and `application` channel config (update the `Addresses` and `Consensers` list)
 * bring up the new orderer with the latest orderer config block (don't use the original genesis.block)
 
-# service discovery
+## service discovery
 
 - [configure external endpoints](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-cli.html#configuring-external-endpoints)
 - add anchor peers to channel config 
@@ -78,7 +78,7 @@ tags:
 - [query endorsers](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-cli.html#endorsers-query)
     - when the chaincode wasn't installed on the peer. it will return an error: chaincode definition wasn't found.
 
-# chaincode
+## chaincode
 
 * use [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package-example) to package the chaincode source code. 
 * no need to call `npm install` / `go mod vendor` before packaging because the package command will exclude the dependencies folders (vendors / node_modules) for you
@@ -125,7 +125,7 @@ To define which / how many org are required to endorse in `peer chaincode invoke
 * change "Endorsements" policy in channel config
 * use `--signature-policy` to approve and commit the chaincode. this will override the channel config
 
-# fabric-ca-client
+## fabric-ca-client
 
 * fabric-ca-client will look at the `fabric-ca-client-config.yml` and msp (user identity) at the `$FABRIC_CA_CLIENT_HOME` folder. 
 * by setting up this environment variable, you could run commands with that user identity directly without enrollment
@@ -161,7 +161,7 @@ To define which / how many org are required to endorse in `peer chaincode invoke
   * update the crl - [fabric-ca-client gencrl](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html#revoking-a-certificate-or-identity:~:text=fabric%2Dca%2Dclient%20revoke%20%2De%20peer1%20%2D%2Dgencrl)
   * renew the cert - [fabric-ca-client reenroll](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html#reenrolling-an-identity)
 
-# fabric-ca-server
+## fabric-ca-server
 
 * use `fabric-ca-server init -b` to generate the dummy server config. They will be stored in `$FABRIC_CA_HOME`
 * update `csr.cn`, `csr.names`, `csr.hosts`, `ca.name`, `tls.enabled` in `$FABRIC_CA_HOME/fabric-ca-server-config.yaml`
@@ -184,7 +184,7 @@ To define which / how many org are required to endorse in `peer chaincode invoke
   * start ca with `fabric-ca-server start -b admin:adminpw -u http://<enrollmentID>:<secret>@<parentserver>:<parentport>`
   * to enroll a peer with intermediate ca. you need to concat root ca + intermediate certs for the org definition and msp (user identity)
 
-# Note for exam
+## Note for exam
 
 * [remote desktop environment](https://itnext.io/cks-cka-ckad-changed-terminal-to-remote-desktop-157a26c1d5e)
   * XFCE 4.14

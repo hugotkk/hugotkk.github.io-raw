@@ -5,14 +5,14 @@ tags:
 - blockchain
 ---
 
-# Resources
+## Resources
 
 * [Hyperledger Fabric](https://www.youtube.com/watch?v=iTV89Tqfmgk&list=PLcjWRSA2O5d0os20SjN3Q_21PeVdpKHxy)
 * [Solidity](https://www.youtube.com/playlist?list=PLcjWRSA2O5d0CrOBe2i1oLThyQhFWo19H)
 
-# Notes
+## Notes
 
-## what is blockchain 
+### what is blockchain 
 
 ![blockchain](https://www.euromoney.com/learning/~/media/0E855B86EDF04F3C8EABAFC42917C8C6.png?la=en&hash=B67568B63CBB2C0C7311DE742F5B9E48E86DC8B9)
 
@@ -23,54 +23,54 @@ tags:
 
 ![Star Network](http://webpage.pace.edu/ms16182p/networking/star2.gif)
 
-## How to use it
+### How to use it
 
-## How it work
+### How it work
 
 * use cryptography methods to ensure the integrity of a public writable database
 * proof of work, proof of stake, proff
 
-## How to implement 
+### How to implement 
 
 * solidity
 * node.js
 * truffle
 * web3.js
 
-## Any product (e.g crypto currency/ nft)
+### Any product (e.g crypto currency/ nft)
 
-### Networks
+#### Networks
 
 * [Use Cases](/posts/blockchain-use-case)
 
-#### Public
+##### Public
 
 * [btc](https://www.blockchain.com/explorer)
 * [eth](https://etherscan.io/)
 * [bsc (binance smark contract)](https://bscscan.com/)
 
-#### Private (have acl)
+##### Private (have acl)
 
 * each parties setup servers to join the blockchain network
 * all parties hold the data but they can set access right to the data
 
 * [Hyperledger Fabric](https://www.hyperledger.org/use/fabric)
 
-### Decentralized Storage
+#### Decentralized Storage
 
 * [IPFS](https://ipfs.io/)
 
-### Staking
+#### Staking
 
-### CrowdSale
+#### CrowdSale
 
 user -> sale contract -> nft contract
 
-### Lottery
+#### Lottery
 
 * [ashisherc/advanced-solidity-lottery-application](https://github.com/ashisherc/advanced-solidity-lottery-application)
 
-### NFT
+#### NFT
 
 * [Auction](https://forum.openzeppelin.com/t/any-sample-of-auction-that-combines-with-erc721/6876) ([dutch](https://solidity-by-example.org/app/dutch-auction/) and [English](https://solidity-by-example.org/app/english-auction/))
 * [mint](https://github.com/ProjectOpenSea/opensea-creatures)
@@ -82,7 +82,7 @@ user -> sale contract -> nft contract
 * [scv.finance](https://scv.finance/market)
 * [La Collection](https://lacollection.io/gallery)
 
-### Swap / Farming
+#### Swap / Farming
 
 * ask people input proportion of coin into the pool, like eth:bnb. so people can trade between eth and bnb
 * use Oracles for pricing...a smart contract which referencing different sources from other swap exchange & their coin pair pool size
@@ -90,7 +90,7 @@ user -> sale contract -> nft contract
 * [pancakeswap(bsc)](https://pancakeswap.finance/swap)
 * [uniswap(eth)](https://info.uniswap.org/)
 
-## What is ECR20 721 1155
+### What is ECR20 721 1155
 
 ![ECR20 vs ECR721](http://maikotrindade.github.io/public/img/nonfungibletable.png)
 
@@ -102,13 +102,13 @@ user -> sale contract -> nft contract
 
 ![ECR115 Batch](https://miro.medium.com/max/698/1*53Ovjtik7_YWB5yKFm9XsQ.png)
 
-## What is smart contract
+### What is smart contract
 
 * [Code stored on blockchain](https://www.ibm.com/topics/smart-contracts)
 
-# Demo
+## Demo
 
-## NFT Contract
+### NFT Contract
 
 * [NFT Example](https://scv.finance/nft/bsc/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D/10000586756)
 
@@ -124,7 +124,7 @@ Common Functions
 * Timelock
 * Votes
 
-### [NFT metadata](https://meta.polkamon.com/meta?id=10000586756)
+#### [NFT metadata](https://meta.polkamon.com/meta?id=10000586756)
 
 ```
 {
@@ -190,7 +190,7 @@ Common Functions
 }
 ```
 
-### [Read Contract](https://bscscan.com/token/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D?a=10000586756#readContract)
+#### [Read Contract](https://bscscan.com/token/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D?a=10000586756#readContract)
 
 * Owner account: [0xaB111a3EaFE79b3110162d0e8b6FF1102ed25E2A](https://scv.finance/nft/user/0xaB111a3EaFE79b3110162d0e8b6FF1102ed25E2A?tab=in-wallet)
 * token id: [10000586756](https://scv.finance/nft/bsc/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D/10000586756)
@@ -202,7 +202,7 @@ Functions:
 * getRoleMember (6)
 * ownerOf (11)
 
-## [Write Contract](https://bscscan.com/token/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D?a=10000586756#writeContract)
+### [Write Contract](https://bscscan.com/token/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D?a=10000586756#writeContract)
 
 Functions:
 * burn (2)
@@ -211,21 +211,21 @@ Functions:
 * safeTranferFrom
 * setTokenURI
 
-## Wallet
+### Wallet
 
 * [wordphase - BIP39](https://iancoleman.io/bip39/)
 
-### Connect from browser
+#### Connect from browser
 
 * [PancakeSwap](https://pancakeswap.finance/swap)
 * [Remix IDE](https://remix.ethereum.org/)
 * [bscscan.com](https://bscscan.com/token/0x85F0e02cb992aa1F9F47112F815F519EF1A59E2D?a=10000586756#writeContract)
 
-### Contract deployment
+#### Contract deployment
 
 * [Code Example](https://github.com/hugotkk/Solidity-Course-Project/blob/main/deploy_lottery.js)
 * will need a wallet and [Blockchain endpoint](https://infura.io/)
 
-# References
+## References
 
 * https://www.euromoney.com/learning/~/media/0E855B86EDF04F3C8EABAFC42917C8C6.png?la=en&hash=B67568B63CBB2C0C7311DE742F5B9E48E86DC8B9

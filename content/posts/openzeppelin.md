@@ -6,11 +6,11 @@ tags:
 - blockchain
 ---
 
-# Upgradable contract
+## Upgradable contract
 
 https://www.youtube.com/watch?v=kWUDTZhxKZI&list=WL&index=19
 
-## proxy pattern
+### proxy pattern
 
 user interact with the proxy contract
 
@@ -19,7 +19,7 @@ the proxy will point to another smart contract
 When upgrading the contract, the admin of the proxy contract points the proxy to another smart contract
 storage
 
-## Implementation
+### Implementation
 
 * Transparent
 * UUPS

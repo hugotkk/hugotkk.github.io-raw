@@ -7,13 +7,13 @@ tags:
 - hyperledger
 ---
 
-## Pros with AWS Managed Blockchain
+### Pros with AWS Managed Blockchain
 
 * no need to build the ledger by themself
 * focus on the smart contract
 * a single blockchain network can effectively work cross multiple parties
 
-## An Overview on Blockchain Services from AWS
+### An Overview on Blockchain Services from AWS
 
 https://www.youtube.com/watch?v=WAIOBeQA2QQ
 
@@ -23,7 +23,7 @@ https://www.youtube.com/watch?v=WAIOBeQA2QQ
 * smart contract
 * ease for audit 
 
-# Hyperledger Fabric VS eth
+## Hyperledger Fabric VS eth
 * authentication
 * access control
 * private ledger

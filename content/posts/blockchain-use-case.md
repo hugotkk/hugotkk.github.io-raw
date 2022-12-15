@@ -7,11 +7,11 @@ tags:
 - hyperledger
 ---
 
-# Trust Over IP: Hyperledger Ursa, Indy, and Aires
+## Trust Over IP: Hyperledger Ursa, Indy, and Aires
 
 https://www.youtube.com/watch?v=FfuhlF9ZYPM
 
-## Notes
+### Notes
 * prove the credential without CA
 * trusted issuer (eg: gov) issues the identity token (eg: driving licence) -> send it to a crypto account (like sending btc to someone)
 * on the blockchain, it shows a record that the account owns that licence. (like you can check your btc balance / NFS on chain explorer)
@@ -22,14 +22,14 @@ https://www.youtube.com/watch?v=FfuhlF9ZYPM
 * hacking personal accounts become useless -> not cost effective, you can hack a single person each time
 * stealing / leading personal data is useless -> no proof, no one will accept
 
-## Example
+### Example
 [british columbia](https://www2.gov.bc.ca/gov/content/home)
 
-# Comprehensive review of 21 use cases of Hyperledger
+## Comprehensive review of 21 use cases of Hyperledger
 
 https://youtu.be/VQTARQSuUFU?t=1440
 
-## Use cases (some are still in proof of concept)
+### Use cases (some are still in proof of concept)
 
 1. end to end tracking (supply chain, different parties can participate eg: bank insurance company consultant retail...)
 2.identity management - eg: allow 3rd parties to access your data with requests, prevent fraud, credit checking, hash your passport/fingerprint so you can verify it is your identity
@@ -38,24 +38,24 @@ https://youtu.be/VQTARQSuUFU?t=1440
 5. tokenisations - cross parties reward program(asiamiles), assets management (use in trading, convert different kinds of assets like house stock cash to token)
 6. immutable record- law enforcement investigation, accounting, credit check, insurance claim, medical history, law...
 
-# Hyperledger Fabric Business Use Cases
+## Hyperledger Fabric Business Use Cases
 
 https://youtu.be/1ps4PJtFRfY?t=544
 
-## IBM food trust
+### IBM food trust
 * safety
 * sustainability
 * cost optimization (inventory / transportation )
 * tracking
 
-## Tradelens -> (supply chain for trading)
+### Tradelens -> (supply chain for trading)
 * costs 1.8T / year -> potential saving ~10% costs
 
-## IBM blockchain world wire
+### IBM blockchain world wire
 * world wire solution with blockchain
 * use stellar protocol
 
-# Singapore Exchange: Clearing Financial Transactions on Amazon Managed Blockchain
+## Singapore Exchange: Clearing Financial Transactions on Amazon Managed Blockchain
 
 https://www.youtube.com/watch?v=nUre2ELySdo
 
@@ -78,24 +78,24 @@ arbitrator and observer with receive activities on chain
 * arbitrator = mediator = handle dispute
 * observer = regulator = do regulatory report
 
-## Pros with AWS Managed Blockchain
+### Pros with AWS Managed Blockchain
 
 * no need to build the ledger by themself
 * focus on the smart contract
 * a single blockchain network can effectively work across multiple parties
 
-## An Overview on Blockchain Services from AWS
+### An Overview on Blockchain Services from AWS
 
 https://www.youtube.com/watch?v=WAIOBeQA2QQ
 
-### Pros of blockchain network
+#### Pros of blockchain network
 * ledger database (immutable transaction)
 * consensus
 * decentralisation
 * smart contract
 * ease for audit 
 
-### Hyperledger fabric VS ETH
+#### Hyperledger fabric VS ETH
 * authentication
 * access control
 * easy to add user
@@ -103,11 +103,11 @@ https://www.youtube.com/watch?v=WAIOBeQA2QQ
 * faster than centialization
 * private ledger
 
-## use case 
+### use case 
 * trading
 * supply case
 
-# Enhanced Transparency and Frictionless Supply Chain with Blockchain
+## Enhanced Transparency and Frictionless Supply Chain with Blockchain
 
 https://www.youtube.com/watch?v=2NqbUb4rT88&list=WL&index=46
 

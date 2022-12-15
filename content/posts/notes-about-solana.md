@@ -7,18 +7,18 @@ tags:
 - nft
 ---
 
-# Useful links
+## Useful links
 
-## Explorer
+### Explorer
 
 * [solana explorer](https://explorer.solana.com/)
 
-## NFT marketplace
+### NFT marketplace
 
 * [solanart](https://solanart.io/)
 * [solasea](https://solsea.io/)
 
-## Good articles to understand the concept of solana
+### Good articles to understand the concept of solana
 
 * [Solana NFT 101](https://twitter.com/pencilflip/status/1506310957588430861)
 * [Solana’s Token Program, Explained](https://pencilflip.medium.com/solanas-token-program-explained-de0ddce29714)
@@ -29,7 +29,7 @@ In the Solana world, data will be stored in different accounts. Accounts will be
 
 Common tasks eg: creating token / nft can be done with some universal solana programs ([spl Token program](https://spl.solana.com/token), [metaplex](https://docs.metaplex.com/)) on solana network. Developers don't need to write their own solana program. This makes things become more standard. People write their own business logic by extending the functions of those universal programs but won't start from zero.
 
-# Notes
+## Notes
 
 * [solfaucet](https://solfaucet.com/) can claim free SOL (devnet) for development
 * Most of the people use [metaplex](https://docs.metaplex.com/) to create nft

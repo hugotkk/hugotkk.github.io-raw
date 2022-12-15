@@ -10,7 +10,7 @@ tags:
 - converter
 ---
 
-# Checker
+## Checker
 
 - [nslookup](https://www.nslookup.io/)
 - [MX Toolbox](https://mxtoolbox.com/SuperTool.aspx) - mx, spx, dkim, dmac record, blacklist
@@ -18,11 +18,11 @@ tags:
 - [who.is](https://who.is/) - domain lookup
 - [SSL Labs](https://www.ssllabs.com/ssltest/) - check ssl setting
 
-# Calculator
+## Calculator
 
 - [Kubernetes Instance Calculator](https://learnk8s.io/kubernetes-instance-calculator)
 
-# Converter
+## Converter
 
 - [Convert 500 Megabytes to Bytes](https://www.flightpedia.org/convert/500-megabytes-to-bytes.html)
 - [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)

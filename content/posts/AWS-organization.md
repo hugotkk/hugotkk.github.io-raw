@@ -7,7 +7,7 @@ tags:
 - orgnaization
 ---
 
-# aws org
+## aws org
 
 * o = organization = it9
 * r = root = root

@@ -10,13 +10,13 @@ I found this markdown software when watching [this video](https://youtu.be/48RXD
 
 I am interested in that map and think if I can organise my markdown notes with it.
 
-# Tutorials
+## Tutorials
 
-## How To Use VIM Bindings in Obsidian | Beginners Guide
+### How To Use VIM Bindings in Obsidian | Beginners Guide
 
 https://www.youtube.com/watch?v=yX_Qdr9-7k
 
-## I Tried Obsidian Note Taking for a Week... (MD App Review, Tips, Features, Guide, and Setup)
+### I Tried Obsidian Note Taking for a Week... (MD App Review, Tips, Features, Guide, and Setup)
 
 https://www.youtube.com/watch?v=TDhTpPIjsDg
 

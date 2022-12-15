@@ -8,13 +8,13 @@ tags:
 - opsworks
 ---
 
-# OpsWorks
+## OpsWorks
 
 * stack = cookbooks
 * layer = frontend, backend, api, rds (how to config to instance)
 * app = source code. can deploy and redeploy
 
-## Stack
+### Stack
 
 * I am exploring [this cookbook](https://docs.aws.amazon.com/opsworks/latest/userguide/gettingstarted-linux-explore-cookbook.html) from aws
 * The [nodejs demo cookbook repo](https://github.com/aws-samples/opsworks-linux-demo-cookbook-nodejs) does not include its dependencies
@@ -32,12 +32,12 @@ nodejs_demo
 
 To run this cookbook, we set `nodejs_demo::default` in the layer
 
-## Docker Support
+### Docker Support
 
 * eb -> multi docker / docker + elb
 * opsworks -> ecs with [linux + ec2](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html)
 
-## Layer
+### Layer
 
 * auto-healing = restart the instance when losing connection with opsworks agent
 * elb
@@ -51,7 +51,7 @@ To run this cookbook, we set `nodejs_demo::default` in the layer
 * elb service layer
 * ecs cluster layer
 
-## App
+### App
 
 * source code
 * env
@@ -61,7 +61,7 @@ To run this cookbook, we set `nodejs_demo::default` in the layer
 
 source code are placed at /svr/<app_name>
 
-## Instance Types
+### Instance Types
 
 * 24/7 = normal instance
 * time = start at specific period
@@ -71,9 +71,9 @@ Behaviors on auto-healing between these two instance type
 * ebs-backed = re-create the instance
 * instance = stop and start
 
-## Issue
+### Issue
 
-### Instances are stuck in booting 
+#### Instances are stuck in booting 
 
 Reason: incorrect instance iam role
 

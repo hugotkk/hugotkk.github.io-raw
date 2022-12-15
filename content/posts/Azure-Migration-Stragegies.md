@@ -12,19 +12,19 @@ https://www.youtube.com/watch?v=tj3F0tX8eyc
 
 6:26 - 5 steps
 
-# Assess
+## Assess
 
-## Cloud Economic Assessment (8:20)
+### Cloud Economic Assessment (8:20)
 
 understand resources needed on-premise (mem, storage, bandwidth)
 
-# Plan
+## Plan
 
 * use cloud adoption framework (10:45)
 
-# Migrate
+## Migrate
 
-## Cloud Migration Strategies (4:30)
+### Cloud Migration Strategies (4:30)
 
 * Rehost - create vm on cloud and move application to it
 
@@ -32,7 +32,7 @@ understand resources needed on-premise (mem, storage, bandwidth)
 
 * Rearchitech & rebuild - Microservice
 
-## 5-week migration process (17:00)
+### 5-week migration process (17:00)
 
 * Week T-3 plan
 * Week T-2 build
@@ -40,46 +40,46 @@ understand resources needed on-premise (mem, storage, bandwidth)
 * Week T-0 go migration and cleanup
 * Week T+1 transition
 
-## Use azure migrate (17:59)
+### Use azure migrate (17:59)
 
-## Setup migration Centre of Excellence (CoE) (20:18)
+### Setup migration Centre of Excellence (CoE) (20:18)
 
-# Goven & Manage 
+## Goven & Manage 
 
-## Monitor/ automation
+### Monitor/ automation
 
-## Five discipline of cloud governance (21:51)
+### Five discipline of cloud governance (21:51)
 
 principles on how to manage / goven
 
-### Cost management 
+#### Cost management 
 
 * Bill insight / report
 
-### Security baseline
+#### Security baseline
 
 * Patch manager
 * Compliance software
 
-### Resource consistency 
+#### Resource consistency 
 
 * Configuration Management (ansible)
 * Infrastructure as code (terraform)
 * Immutable application(container)
 
-### Identity baseline 
+#### Identity baseline 
 
 * IAM policy
 * Zero trust approach
 
-### Deployment acceleration 
+#### Deployment acceleration 
 
 * Automation tools (scripts, ansible)
 * Pipeline (jenkins)
 
-# Optimise
+## Optimise
 
-## Unifycloud - cloud pilot
+### Unifycloud - cloud pilot
 
 * Static Code Analytics
 * Cost Management

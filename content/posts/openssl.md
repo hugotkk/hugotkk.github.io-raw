@@ -9,21 +9,21 @@ tags:
   - openssl
 ---
 
-# Procedures
+## Procedures
 
 * create private key
 * create csr  (distinguished_name)
 * sign csr by CA (x509v3)
 
-# Commands
+## Commands
 
-## Gen private key
+### Gen private key
 ```
 openssl genrsa \
 -out ca.key
 ```
 
-## Self signed crt
+### Self signed crt
 ```
 openssl req -x509 \
 -config openssl.cnf
@@ -32,7 +32,7 @@ openssl req -x509 \
 -key ca.key
 ```
 
-## gen csr
+### gen csr
 ```
 openssl req \
 -config openssl.cnf
@@ -41,7 +41,7 @@ openssl req \
 -key server.key
 ```
 
-## sign crt
+### sign crt
 ```
 openssl x509 \
 -extfile openssl.cnf \
@@ -56,38 +56,38 @@ openssl x509 \
 * When the CA is first time to sign a cert, you need to create serial file ca.crl with -CAcreateserial
 * Next time we sign a new cert, we will need to update the serial file with -CAserial ca.crl
 
-## Outputs
+### Outputs
 
-### Inspect the cert / key
+#### Inspect the cert / key
 
 ```
 openssl rsa -in ca.key -noout -text
 openssl x509 -in ca.crt -noout -text
 ```
 
-### extract the pub key
+#### extract the pub key
 
 ```
 openssl rsa -in ca.key -pubout
 openssl x509 -in ca.crt -noout -pubkey
 ```
 
-### Verify
+#### Verify
 
-#### crt is issue by ca
+##### crt is issue by ca
 
 ```
 openssl verify -CAfile ca.crt server.crt
 ```
 
-#### key and crt are match (modulus)
+##### key and crt are match (modulus)
 
 ```
 openssl rsa -in ca.key -nout -modulus | openssl md5
 openssl x509 -in ca.crt -nout -modulus | openssl md5
 ```
 
-# trust self signned ca
+## trust self signned ca
 
 we need to place the ca.crt to a location and call command below to trusted the cert (the programme will create a soft link)
 
@@ -105,7 +105,7 @@ two output should be same
 CAxxxx <- Capital in CA, lowercase in next word
 -in -out <- represent the module
 
-#  Config
+##  Config
 
 ```
 cp /etc/ssl/openssl.cnf openssl.cnf

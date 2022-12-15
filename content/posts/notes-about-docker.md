@@ -5,7 +5,7 @@ tags:
 - docker
 ---
 
-# Self-document from Dockerfile
+## Self-document from Dockerfile
 
 Most of the containers are not very well-documented. It makes it hard to find out the information about the container from docker hub and github's README.
 
@@ -31,7 +31,7 @@ For [php:8-apache-buster](https://github.com/docker-library/php/blob/cc901e9594f
 * apache config: /etc/apache2/conf-available/docker-php.conf
 * document root: /var/www/html/
 
-# Analyse the disk usage of docker
+## Analyse the disk usage of docker
 
 ```
 docker system df -v
@@ -39,7 +39,7 @@ docker system df -v
 
 https://docs.docker.com/engine/reference/commandline/system_df/
 
-# Keep containers running during the docker upgrade / systemctl stop dockerd
+## Keep containers running during the docker upgrade / systemctl stop dockerd
 
 ```
 vi /etc/docker/daemon.json
@@ -53,7 +53,7 @@ vi /etc/docker/daemon.json
 ```
 
 
-# Change default address pool
+## Change default address pool
 
 The address pool may conflict with the internal network. We can override it via daemon.json
 
@@ -70,7 +70,7 @@ The address pool may conflict with the internal network. We can override it via 
 
 https://forums.docker.com/t/docker-default-address-pool-customization-question/112969
 
-# Useful links
+## Useful links
 
 * [install docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)

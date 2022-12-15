@@ -8,7 +8,7 @@ tags:
 - networking
 ---
 
-# Resources
+## Resources
 
 * [Exam Landing Page](https://aws.amazon.com/certification/certified-advanced-networking-specialty)
 * [Sample Questions](https://d1.awsstatic.com/training-and-certification/docs-advnetworking-spec/AWS-Certified-Advanced-Networking-Specialty_Sample-Questions.pdf)
@@ -17,7 +17,7 @@ tags:
 * [udemy mock exam](https://www.udemy.com/course/aws-certified-advanced-networking-specialty-ans/)
 * [whizlabs test & hand-on labs](https://www.whizlabs.com/learn/course/aws-advanced-networking-speciality)
 
-# TODO
+## TODO
 
 * [X] take notes
 * [X] revision
@@ -28,11 +28,11 @@ tags:
 * [X] examtopic
 * [X] udemy quiz + exercise
 
-# Revision 
+## Revision 
 
 The numbers below are the page no of the udemy course's pdf: AWS Certified Networking Specialty Slides v1.1.
 
-## Summary
+### Summary
 
 * DNS (151)
 * Advanced Networking (188)
@@ -46,12 +46,12 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * Troubleshooting in DX (626)
 * Gateway Load Balancer (816)
 
-## Q & A
+### Q & A
 
 * ALB (677)
 * DX (625)
 
-## Good to know
+### Good to know
 
 * SG (46)
 * BYOIP (90)
@@ -61,7 +61,7 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * AWS Site-to-Site VPN (403)
 * Network Load Balancer (656)
 
-## Comparisons
+### Comparisons
 
 * private, public and EIP (33)
 * IPv4, IPv6 (36)
@@ -71,7 +71,7 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * Cloudfront function vs lambda@edge (703)
 * AWS global accelerator vs Cloudfront (711)
 
-## Exam Essential
+### Exam Essential
 
 * VPC Fundamentals (67)
 * Advanced VPC (190)
@@ -81,9 +81,9 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * Firewall (806)
 * Gateway Load Balancer (817)
 
-## Revision by topic
+### Revision by topic
 
-### Playlists
+#### Playlists
 
 * [global accelerator](https://www.youtube.com/watch?v=DuXx0UpUKSg&list=PLcjWRSA2O5d1zQyIZ0sIdWF7PLbVmHMJJ)
 * [api gateway](https://www.youtube.com/watch?v=KqTsBi3DisE&list=PLcjWRSA2O5d079rC5oEClq7q0r3po7QKL)
@@ -111,7 +111,7 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * [waf](https://www.youtube.com/watch?v=_M872LhrcD4&list=PLcjWRSA2O5d0ehod0s8S2SlSCYHbje2tg)
 * [workspace](https://www.youtube.com/watch?v=lV_PjZ4gV9s&list=PLcjWRSA2O5d0eMMBqwnJY1nkGLcv4oP3A)
 
-### References
+#### References
 
 * [accelerator - custom routing](https://aws.amazon.com/global-accelerator/features/#:~:text=for%20your%20applications.-,Custom%20routing%20accelerator,-Custom%20routing%20accelerators)
 * [accelerator - custom routing](https://docs.aws.amazon.com/global-accelerator/latest/dg/work-with-custom-routing-accelerators.html)
@@ -217,9 +217,9 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 * [vpc peering with cidr overlap](https://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html)
 * [vpc with subnet overlapping](https://sxw.medium.com/solving-aws-vpc-overlapping-cidr-connectivity-9ecc2509c5cb)
 
-### VPC Fundamentals (17)
+#### VPC Fundamentals (17)
 
-#### What is TCP/IP?
+##### What is TCP/IP?
 
 <details>
 <summary>Answer</summary>
@@ -232,7 +232,7 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 </p>
 </details>
 
-#### What is OSI? (306)
+##### What is OSI? (306)
 
 <details><summary>Answer</summary><p>
 <li>application</li>
@@ -243,19 +243,19 @@ The numbers below are the page no of the udemy course's pdf: AWS Certified Netwo
 <li>link</li>
 <li>physical</li>
 </p></details>
-#### How to calculate the no of address in a CIDR (like 192.168.0.1/28)? (18)
+##### How to calculate the no of address in a CIDR (like 192.168.0.1/28)? (18)
 
 <details><summary>Answer</summary><p>
 2^(32-28)=16
 </p></details>
 
-#### Can we override the main route table in VPC? (26)
+##### Can we override the main route table in VPC? (26)
 
 <details><summary>Answer</summary><p>
 override it at subnet level
 </p></details>
 
-#### Which IPs are reserved for a vpc? (29)
+##### Which IPs are reserved for a vpc? (29)
 
 <details><summary>Answer</summary><p>
 <p>5</p>
@@ -266,47 +266,47 @@ override it at subnet level
 <li>last=broadcast</li>
 </p></details>
 
-#### What is the default behaviour of SG (inbound and outbound)? (46)
+##### What is the default behaviour of SG (inbound and outbound)? (46)
 
 <details><summary>Answer</summary><p>
 <li>inbound: block all</li>
 <li>outbound: allow all</li>
 </p></details>
 
-#### How is the NAT gateway charged? (59)
+##### How is the NAT gateway charged? (59)
 
 <details><summary>Answer</summary><p>
 <li>hourly charge</li>
 <li>data transfer fee</li>
 </p></details>
 
-#### Can we apply SG on a NAT gateway? (59)
+##### Can we apply SG on a NAT gateway? (59)
 
 <details><summary>Answer</summary><p>
 no
 </p></details>
 
-#### What is the port range NAT gateway needs for outbound connection? (59)
+##### What is the port range NAT gateway needs for outbound connection? (59)
 
 <details><summary>Answer</summary><p>
 1024-65535
 </p></details>
 
-#### Why don't we need cross-AZ failover in NAT ? (62)
+##### Why don't we need cross-AZ failover in NAT ? (62)
 
 <details><summary>Answer</summary><p>
 because if az down, nat and app are down too
 </p></details>
 
-#### What is the most important setting to setup NAT with EC2? (63)
+##### What is the most important setting to setup NAT with EC2? (63)
 
 <details><summary>Answer</summary><p>
 disable the source and destination check
 </p></details>
 
-### Advanced VPC (72)
+#### Advanced VPC (72)
 
-#### What is the limitation of adding a secondary CIDR? (79)
+##### What is the limitation of adding a secondary CIDR? (79)
 
 <details><summary>Answer</summary><p>
 <li>aws defines cidr in 3 classes. <s>172 169 10</s><b>192.168 172.16 10.0</b></li>
@@ -315,7 +315,7 @@ disable the source and destination check
 <li><b>5ipv4 1ipv6</b></li>
 </p></details>
 
-#### How many private, public and elastic ip and sg can one ENI have? (81, 85)
+##### How many private, public and elastic ip and sg can one ENI have? (81, 85)
 
 <details><summary>Answer</summary><p>
 <li>private - depends on the instance type</li>
@@ -323,14 +323,14 @@ disable the source and destination check
 <li><s>elastic - 1</s><b>1 eip per private ip</b></li>
 </p></details>
 
-#### What is the use case of dual home setup with multiple ENIs? (84)
+##### What is the use case of dual home setup with multiple ENIs? (84)
 
 <details><summary>Answer</summary><p>
 <li>1 eni for internal traffic</li>
 <li>1 eni for internet traffic</li>
 </p></details>
 
-#### What are the prerequisites of BYOIP? (89, 90)
+##### What are the prerequisites of BYOIP? (89, 90)
 
 <details><summary>Answer</summary><p>
 <li>you should own that ip</li>
@@ -340,7 +340,7 @@ disable the source and destination check
 <li><b>ipv4: /24; ipv6: /48 pub; /56 pri</b></li>
 </p></details>
 
-#### What type of Flow Logs can we capture from a VPC? (92)
+##### What type of Flow Logs can we capture from a VPC? (92)
 
 <details><summary>Answer</summary><p>
 <li>vpc</li>
@@ -348,59 +348,59 @@ disable the source and destination check
 <li>eni</li>
 </p></details>
 
-#### Where does the Flow Logs Action field come from? (97)
+##### Where does the Flow Logs Action field come from? (97)
 
 <details><summary>Answer</summary><p>
 security group / nacl
 </p></details>
 
-#### What type of record cannot be captured in a flow log? (98)
+##### What type of record cannot be captured in a flow log? (98)
 
 <details><summary>Answer</summary><p>
 <li>traffic from aws dns / metadata</li>
 <li><b>dhcp, windows licence activation server</b></li>
 </p></details>
 
-#### What can be the source & target of a VPC Traffic Mirror? (102, 105)
+##### What can be the source & target of a VPC Traffic Mirror? (102, 105)
 
 <details><summary>Answer</summary><p>
 <li>source: eni</li>
 <li>target: eni, nlb</li>
 </p></details>
 
-#### What port does the VPC Traffic Mirror require? (105)
+##### What port does the VPC Traffic Mirror require? (105)
 
 <details><summary>Answer</summary><p>
 <b>udp 4789</b>
 </p></details>
 
-#### How to set a custom domain / dns on an EC2 instance? (113)
+##### How to set a custom domain / dns on an EC2 instance? (113)
 
 <details><summary>Answer</summary><p>
 change the dhcp-option
 </p></details>
 
-### VPC DNS and DHCP
+#### VPC DNS and DHCP
 
-#### What does enableDNSSupport do? (117)
+##### What does enableDNSSupport do? (117)
 
 <details><summary>Answer</summary><p>
 resolve the dns
 </p></details>
 
-#### What does enableDNSHostname do? (117)
+##### What does enableDNSHostname do? (117)
 
 <details><summary>Answer</summary><p>
 assign hostname to the ec2 instance
 </p></details>
 
-#### How to resolve the hostname in VPC peering and TGW? (132)
+##### How to resolve the hostname in VPC peering and TGW? (132)
 
 <details><summary>Answer</summary><p>
 enable dns support
 </p></details>
 
-#### How to resolve the hostname in Hybrid cloud (AWS to on-premise, on-premise to AWS) (old & new way)? (132-150)
+##### How to resolve the hostname in Hybrid cloud (AWS to on-premise, on-premise to AWS) (old & new way)? (132-150)
 
 <details><summary>Answer</summary><p>
 <p>old:</p>
@@ -411,30 +411,30 @@ enable dns support
 <li>on-premise -> aws: setup inbound endpoint, forward query to that endpoint in on-premise dns</li>
 </p></details>
 
-### VPC Network Performance and Optimization
+#### VPC Network Performance and Optimization
 
-#### Formula of throughput (154)
+##### Formula of throughput (154)
 
-#### What is Jumbo frame? (154)
+##### What is Jumbo frame? (154)
 
 <details><summary>Answer</summary><p>
 MTU > 1500 (9001 / 8500)
 </p></details>
 
-#### What is Path MTU Discovery? (155)
+##### What is Path MTU Discovery? (155)
 
 <details><summary>Answer</summary><p>
 check the max MTU support between 2 routes
 </p></details>
 
-#### What are the advantages of using placement group - cluster (162)
+##### What are the advantages of using placement group - cluster (162)
 
 <details><summary>Answer</summary><p>
 low latency
 higher bandwidth
 </p></details>
 
-#### What is the bandwidth limitation between VPC, EC2 instances, VPN and DX (179-183)?
+##### What is the bandwidth limitation between VPC, EC2 instances, VPN and DX (179-183)?
 
 <details><summary>Answer</summary><p>
 <li>vpc = 100%</li>
@@ -445,37 +445,37 @@ higher bandwidth
 <li>dx (vgw/tgw) = 1/10/100gbps</li>
 </p></details>
 
-### VPC Peering
+#### VPC Peering
 
-#### What is the limitation of VPC Peering? (207)
+##### What is the limitation of VPC Peering? (207)
 
 <details><summary>Answer</summary><p>
 non-transitive cannot access igw, nat, vpn, peer, gateway endpoint
 </p></details>
 
-### TGW
+#### TGW
 
-#### What is the difference between vgw and tgw? (211)
+##### What is the difference between vgw and tgw? (211)
 
 <details><summary>Answer</summary><p>
 vgw is non-transitive cannot access igw, nat, vpn, peer, gateway endpoint
 </p></details>
 
-#### what attachments does TGW support? (211)
+##### what attachments does TGW support? (211)
 
 <details><summary>Answer</summary><p>
 vpn vpc tgw <b>dxgw</b>
 </p></details>
 
-#### What is the special route in TGW? (230) 
+##### What is the special route in TGW? (230) 
 
 <details><summary>Answer</summary><p>
 <b>custom route table for each tgw attachment</b>
 </p></details>
 
-### VPC Endpoint
+#### VPC Endpoint
 
-#### How many types of VPC endpoint? What is the difference between them? (258)
+##### How many types of VPC endpoint? What is the difference between them? (258)
 
 <details><summary>Answer</summary><p>
 <li>interface = has eni attached</li>
@@ -484,81 +484,81 @@ vpn vpc tgw <b>dxgw</b>
 <li>all has vpc endpoint policy</li>
 </p></details>
 
-#### Can on-premises network access to the gateway endpoint with VPN/DX? (273)
+##### Can on-premises network access to the gateway endpoint with VPN/DX? (273)
 
 <details><summary>Answer</summary><p>
 no
 </p></details>
 
-#### What kind of source can be used in a private link? (281)
+##### What kind of source can be used in a private link? (281)
 
 <details><summary>Answer</summary><p>
 nlb and alb
 </p></details>
 
-#### How to use hostname in interface endpoint? (288)
+##### How to use hostname in interface endpoint? (288)
 
 <details><summary>Answer</summary><p>
 enable private dns
 </p></details>
 
-#### How to use the interface endpoint without private DNS? (290)
+##### How to use the interface endpoint without private DNS? (290)
 
 <details><summary>Answer</summary><p>
 use the dns name with "region"
 </p></details>
 
-#### When should we use a private link? When should we use VPC Peering (297)
+##### When should we use a private link? When should we use VPC Peering (297)
 
 <details><summary>Answer</summary><p>
 <li>Many clients need to access the service from different accounts (>125)</li>
 <li>use peering when there are many services that need to be accessed</li>
 </p></details>
 
-### AWS Site-to-Site VPN
+#### AWS Site-to-Site VPN
 
-#### What port does IPsec need? (309)
+##### What port does IPsec need? (309)
 
 <details><summary>Answer</summary><p>
 udp/500
 </p></details>
 
-#### Range of public and private ASN (313)
+##### Range of public and private ASN (313)
 
 <details><summary>Answer</summary><p>
 <li><b>0-65525</b></li>
 <li><b>64512-65534</b></li>
 </p></details>
 
-#### 4 common BGP Param for routing (319)
+##### 4 common BGP Param for routing (319)
 
 <details><summary>Answer</summary><p>
 <li>weight as_path med</li>
 <li>local-preference</li>
 </p></details>
 
-#### What type of VPN does AWS support Site-to-Site VPN? (327)
+##### What type of VPN does AWS support Site-to-Site VPN? (327)
 
 <details><summary>Answer</summary><p>
 ipsec
 </p></details>
 
-#### What routing method does AWS support in Site-to-Site VPN? (329)
+##### What routing method does AWS support in Site-to-Site VPN? (329)
 
 <details><summary>Answer</summary><p>
 bgp / static
 </p></details>
 
-#### What port is required in VPN for NAT-T? (335)
+##### What port is required in VPN for NAT-T? (335)
 
 <details><summary>Answer</summary><p>
 udp/4500
 </p></details>
 
 
-### VPN Tunnels and Routing 
+#### VPN Tunnels and Routing 
 
-#### How to set Active/Active tunnel (351)
+##### How to set Active/Active tunnel (351)
 
 <details><summary>Answer</summary><p>
 <li><s>advertise the same prefix. use BGP and ECMP for load balancing</s> <- this will cause the traffic to go randomly</li>
@@ -566,181 +566,181 @@ udp/4500
 <li>or use AS_PATH or MED to control the traffic from aws</li>
 </p></details>
 
-#### What is DPD? Port to send messages? default timeout? timeout action? (354)
+##### What is DPD? Port to send messages? default timeout? timeout action? (354)
 
 <details><summary>Answer</summary><p>
 dead peer detection. detect the dead peer tunnel. 30s. action: <b>clear,</b> restart, none
 </p></details>
 
-#### How to prevent a tunnel from terminating due to inactivity (355)
+##### How to prevent a tunnel from terminating due to inactivity (355)
 
 <details><summary>Answer</summary><p>
 ping the aws network each 5 seconds to prevent idle tunnel
 </p></details>
 
-#### How to monitor the tunnel status? (357)
+##### How to monitor the tunnel status? (357)
 
 <details><summary>Answer</summary><p>
 set alarm with cloudwatch metrics
 </p></details>
 
 
-### DX
+#### DX
 
-#### What is the fibre mode of DX? (450)
+##### What is the fibre mode of DX? (450)
 
 <details><summary>Answer</summary><p>
 single
 </p></details>
 
-#### what is the data link requirement of DX (450)
+##### what is the data link requirement of DX (450)
 
 <details><summary>Answer</summary><p>
 fibre 802.1vlan LX
 </p></details>
 
-#### What are the requirements for a customer router? (450)
+##### What are the requirements for a customer router? (450)
 
 <details><summary>Answer</summary><p>
 bgp
 </p></details>
 
-#### What is the port of BGP? (457)
+##### What is the port of BGP? (457)
 
 <details><summary>Answer</summary><p>
 179/tcp
 </p></details>
 
-#### What is BFD? How to enable it? (458)
+##### What is BFD? How to enable it? (458)
 
 <details><summary>Answer</summary><p>
 <s>auto failover dx is enabled by default. enable it on the customer router</s>
 <b>lower the failure detection time</b>
 </p></details>
 
-#### How long does it take for failover with and without BFD? (458, 597, 598)
+##### How long does it take for failover with and without BFD? (458, 597, 598)
 
 <details><summary>Answer</summary><p>
 300ms * 3times = 1s
 <b>default 30s * 3 = 90s; DPD = method to detect the failure (for ipsec+bgp). BFD = method to lower the failure detection (for bgp)</b>
 </p></details>
 
-#### How can a user whitelist the ips range from AWS? (459)
+##### How can a user whitelist the ips range from AWS? (459)
 
 <details><summary>Answer</summary><p>
 whitelist the ip in ip-range.json
 </p></details>
 
-#### How many VIF can a hosted connection have? (465)
+##### How many VIF can a hosted connection have? (465)
 
 <details><summary>Answer</summary><p>
 1
 </p></details>
 
-#### What Ip type does DX support? (498)
+##### What Ip type does DX support? (498)
 
 <details><summary>Answer</summary><p>
 ipv4 and ipv6
 </p></details>
 
-#### How many route prefixes can the public vif advertise? (503)
+##### How many route prefixes can the public vif advertise? (503)
 
 <details><summary>Answer</summary><p>
 1000
 </p></details>
 
-#### How many route prefixes can a private vif advertise? (507)
+##### How many route prefixes can a private vif advertise? (507)
 
 <details><summary>Answer</summary><p>
 100
 </p></details>
 
-#### What is the limitation of vif and vgw location? (507)
+##### What is the limitation of vif and vgw location? (507)
 
 <details><summary>Answer</summary><p>
 in the same region
 </p></details>
 
-#### What service cannot access inside a VPC with DX? (510)
+##### What service cannot access inside a VPC with DX? (510)
 
 <details><summary>Answer</summary><p>
 nat, nat + igw, peered vpc, gateway endpoint <b>,dns</b>
 </p></details>
 
-#### What is the usage of DX gateway? (517)
+##### What is the usage of DX gateway? (517)
 
 <details><summary>Answer</summary><p>
 connect dx and vpc in any regions (pri/transit vif)
 </p></details>
 
-#### How many vif can a DX connection have? (526)
+##### How many vif can a DX connection have? (526)
 
 <details><summary>Answer</summary><p>
 50(pub + pri)
 </p></details>
 
-#### How many transit vif can a DX connection have? (547)
+##### How many transit vif can a DX connection have? (547)
 
 <details><summary>Answer</summary><p>
 1(transit)
 </p></details>
 
-#### How many DX gateways can a vif have? (530)
+##### How many DX gateways can a vif have? (530)
 
 <details><summary>Answer</summary><p>
 1
 </p></details>
 
-#### How many vif can a DX gateway connect to? (530)
+##### How many vif can a DX gateway connect to? (530)
 
 <details><summary>Answer</summary><p>
 30
 </p></details>
 
-#### How many vgw can a DX gateway have? (526,547)
+##### How many vgw can a DX gateway have? (526,547)
 
 <details><summary>Answer</summary><p>
 10
 </p></details>
 
-#### How many tgw can a Dx gateway have? (538)
+##### How many tgw can a Dx gateway have? (538)
 
 <details><summary>Answer</summary><p>
 3
 </p></details>
 
-#### What is the charge for using Dx gateway? (533)
+##### What is the charge for using Dx gateway? (533)
 
 <details><summary>Answer</summary><p>
 no
 </p></details>
 
-#### How many routes can be advised per TGW through the DX gateway? (539)
+##### How many routes can be advised per TGW through the DX gateway? (539)
 
 <details><summary>Answer</summary><p>
 100 (bgp)
 </p></details>
 
-#### what is ECMP (251, 556) - only support BGP
+##### what is ECMP (251, 556) - only support BGP
 
 <details><summary>Answer</summary><p>
 load balancing between different dx connection the same dx location
 </p></details>
 
-#### how to setup Active-Active with public vif and public ASN (554, 558)
+##### how to setup Active-Active with public vif and public ASN (554, 558)
 
 <details><summary>Answer</summary><p>
 <li>advertise same prefix route</li>
 <li>use ECMP (by aws)</li>
 </p></details>
 
-#### how to setup Active-Active with private vif and public ASN (558)
+##### how to setup Active-Active with private vif and public ASN (558)
 
 <details><summary>Answer</summary><p>
 no
 </p></details>
 
-#### how to setup Active-Passive with public vif and public ASN (561)
+##### how to setup Active-Passive with public vif and public ASN (561)
 
 <details><summary>Answer</summary><p>
 <li>advertise same prefix route</li>
@@ -748,25 +748,25 @@ no
 <li>local-pref for outgoing traffic to aws</li>
 </p></details>
 
-#### how to setup Active-Passive with public vif and public ASN (561)
+##### how to setup Active-Passive with public vif and public ASN (561)
 
 <details><summary>Answer</summary><p>
 advertise more specific prefix route
 </p></details>
 
-#### how to constrain the adviser routes to on-premises with public vif (567)
+##### how to constrain the adviser routes to on-premises with public vif (567)
 
 <details><summary>Answer</summary><p>
 on-premises routes advertise the bgp communities to ask aws to advertise specific routes only (region / inter-region / global)
 </p></details>
 
-#### how to filter the adviser routes from aws in on-premises with public vif (567)
+##### how to filter the adviser routes from aws in on-premises with public vif (567)
 
 <details><summary>Answer</summary><p>
 based on the bgp communities from aws. it tells where the route comes from
 </p></details>
 
-#### what is the routing policy with private vif (577, 582)
+##### what is the routing policy with private vif (577, 582)
 
 <details><summary>Answer</summary><p>
 <li>advise more specific route </li>
@@ -774,31 +774,31 @@ based on the bgp communities from aws. it tells where the route comes from
 <li>bgp-communities</li>
 </p></details>
 
-#### What is LAG? (584)
+##### What is LAG? (584)
 
 <details><summary>Answer</summary><p>
 aggregate the dx connection to a larger bandwidth
 </p></details>
 
-#### How many DX connections can a LAG have? (584)
+##### How many DX connections can a LAG have? (584)
 
 <details><summary>Answer</summary><p>
 4
 </p></details>
 
-#### What is the bandwidth requirement of a LAG? (584)
+##### What is the bandwidth requirement of a LAG? (584)
 
 <details><summary>Answer</summary><p>
 same bandwidth and on the same customer device
 </p></details>
 
-#### What is the operation connection attribute in LAG? (589)
+##### What is the operation connection attribute in LAG? (589)
 
 <details><summary>Answer</summary><p>
 <b>no of connection that aws treating the LAG is up and running</b>
 </p></details>
 
-#### how to increase the resiliency of DX? (3 methods) (590)
+##### how to increase the resiliency of DX? (3 methods) (590)
 
 <details><summary>Answer</summary><p>
 <li>multi device (development)</li>
@@ -807,36 +807,36 @@ same bandwidth and on the same customer device
 <li><b>one more -> dx over vpn</b></li>
 </p></details>
 
-#### how to encrypt DX traffic? (2 methods) (601)
+##### how to encrypt DX traffic? (2 methods) (601)
 
 <details><summary>Answer</summary><p>
 <li>dx over vpn (ipsec)</li>
 <li>macsec</li>
 </p></details>
 
-#### When will the Dx connection be charged? (Hosted and Dedicated connection)  (621)
+##### When will the Dx connection be charged? (Hosted and Dedicated connection)  (621)
 
 <details><summary>Answer</summary><p>
 <li>dedicated: once aws create the connection for you (aws did their job, give you the LOA)</li>
 <li>hosted: once you accept the connection</li>
 </p></details>
 
-#### What will be charged in Dx? (615)
+##### What will be charged in Dx? (615)
 
 <details><summary>Answer</summary><p>
 <li>data out and port charge</li>
 </p></details>
 
-#### Who will be charged for the DTO fee? (622)
+##### Who will be charged for the DTO fee? (622)
 
 <details><summary>Answer</summary><p>
 the resource owner to send out the traffic
 </p></details>
 
 
-### ELB
+#### ELB
 
-#### What Layer ALB, CLB, NLB, GLB  belong to? (639) 
+##### What Layer ALB, CLB, NLB, GLB  belong to? (639) 
 
 <details><summary>Answer</summary><p>
 <li>alb 7</li>
@@ -845,7 +845,7 @@ the resource owner to send out the traffic
 <li>glb 3</li>
 </p></details>
 
-#### What protocol does ALB, CLB, NLB, GLB support? (641)
+##### What protocol does ALB, CLB, NLB, GLB support? (641)
 
 <details><summary>Answer</summary><p>
 <li>alb http https</li>
@@ -854,26 +854,26 @@ the resource owner to send out the traffic
 <li>glb ip</li>
 </p></details>
 
-#### Why does NLB have less latency than ALB? (652)
+##### Why does NLB have less latency than ALB? (652)
 
 <details><summary>Answer</summary><p>
 do not need to read the packets (we only check the ip port and protocol)
 </p></details>
 
-#### What kind of target can be used in the ALB and NLB target group? (653)
+##### What kind of target can be used in the ALB and NLB target group? (653)
 
 <details><summary>Answer</summary><p>
 <li>alb: ip ec2 lambda</li>
 <li>nlb: ip ec2</li>
 </p></details>
 
-#### What kind of protocol is supported in the health check? (653)
+##### What kind of protocol is supported in the health check? (653)
 
 <details><summary>Answer</summary><p>
 tcp
 </p></details>
 
-#### What are the connection idle timeouts of ALB, NLB, CLB? (657)
+##### What are the connection idle timeouts of ALB, NLB, CLB? (657)
 
 <details><summary>Answer</summary><p>
 <li>alb 60</li>
@@ -881,14 +881,14 @@ tcp
 <li>clb 60</li>
 </p></details>
 
-#### What routing algorithm supported by ALB, NLB, CLB (659)
+##### What routing algorithm supported by ALB, NLB, CLB (659)
 
 <details><summary>Answer</summary><p>
 <li>alb, clb: least outstanding, round-robin</li>
 <li>nbl: <s>hash</s> flow<b> hash</b></li>
 </p></details>
 
-#### How to keep the client ip in ALB, NLB (671, 672)
+##### How to keep the client ip in ALB, NLB (671, 672)
 
 <details><summary>Answer</summary><p>
 alb<b> & clb</b>: x-forward<b>ed-For</b>
@@ -896,13 +896,13 @@ nlb: <b>proxy protocol 2</b>
 <b>clb: proxy protocol 1</b>
 </p></details>
 
-#### How to keep the client on the same instance for a period of time? (661)
+##### How to keep the client on the same instance for a period of time? (661)
 
 <details><summary>Answer</summary><p>
 sticky session
 </p></details>
 
-#### What is Cross-Zone Load Balancing? (663)
+##### What is Cross-Zone Load Balancing? (663)
 
 <details><summary>Answer</summary><p>
 <li>by default enabled in alb, the traffic are load balanced to all instances evenly </li>
@@ -910,23 +910,23 @@ sticky session
 <li><b>disabled in clb (api), enabled in clb (console)</b></li>
 </p></details>
 
-#### What is SNI and which ELB does it support? (667)
+##### What is SNI and which ELB does it support? (667)
 
 <details><summary>Answer</summary><p>
 <li>sni = <s>domain name in cert</s><b>multi ssl certs in one web server</b></li>
 <li>alb and nlb support it</li>
 </p></details>
 
-#### What is Connection Draining (670)
+##### What is Connection Draining (670)
 
 <details><summary>Answer</summary><p>
 remove opening connections from died instance (auto scaling group)
 </p></details>
 
 
-### Cloudfront
+#### Cloudfront
 
-#### What services / source can be Cloudfront's origin? (683)
+##### What services / source can be Cloudfront's origin? (683)
 
 <details><summary>Answer</summary><p>
 <li>any public ip</li>
@@ -934,13 +934,13 @@ remove opening connections from died instance (auto scaling group)
 <li>media package and mediastore container</li>
 </p></details>
 
-#### Why public access is needed in cloudfront's origin (683)
+##### Why public access is needed in cloudfront's origin (683)
 
 <details><summary>Answer</summary><p>
 Cloudfront does the health check from the internet
 </p></details>
 
-#### What is the origin group (687)
+##### What is the origin group (687)
 
 <details><summary>Answer</summary><p>
 <li><b><s>primary & secondary of group of origin for failover</s></b></li>
@@ -948,41 +948,41 @@ Cloudfront does the health check from the internet
 <li>create a origin group, select primary & secondary origin, then select the group in cloudfront origin</li>
 </p></details>
 
-#### How to change custom header / behaviour in Cloudfront? (698)
+##### How to change custom header / behaviour in Cloudfront? (698)
 
 <details><summary>Answer</summary><p>
 use lambda@edge or cloudfront <s>action</s><b>function</b>
 </p></details>
 
-#### How to restrict the content to specific geolocation? (696)
+##### How to restrict the content to specific geolocation? (696)
 
 <details><summary>Answer</summary><p>
 <li>map the origin to geolocation <b>the allow / block list</b></li>
 <li>choose either whitelist / blacklist and the countries for restriction</li>
 </p></details>
 
-#### What is AWs global accelerator? What does it work (709)
+##### What is AWs global accelerator? What does it work (709)
 
 <details><summary>Answer</summary><p>
 use anycast(2ips). will send traffic to aws edge locations and then reach to your service through aws backbone network
 </p></details>
 
-#### What is the difference between AWS global accelerator and cloudfront? (711)
+##### What is the difference between AWS global accelerator and cloudfront? (711)
 
 <details><summary>Answer</summary><p>
 cloudfront only supports http / https. accelerator using a transport layer so it can be udp <b>volip mqtt</b>
 </p></details>
 
-### Route53
+#### Route53
 
-#### What is the longest and shortest TTL in route53 (721)
+##### What is the longest and shortest TTL in route53 (721)
 
 <details><summary>Answer</summary><p>
 <li>60s </li>
 <li>24hr</li>
 </p></details>
 
-#### What are the alias targets in route53 (724)
+##### What are the alias targets in route53 (724)
 
 <details><summary>Answer</summary><p>
 <li>s3</li>
@@ -995,13 +995,13 @@ cloudfront only supports http / https. accelerator using a transport layer so it
 <li>other route53 record<b>(same hosted zone)</b></li>
 </p></details>
 
-#### How to bind an RDS DB instance in route53 (748)
+##### How to bind an RDS DB instance in route53 (748)
 
 <details><summary>Answer</summary><p>
 cname
 </p></details>
 
-#### Routing Policies in Route53? (725)
+##### Routing Policies in Route53? (725)
 
 <details><summary>Answer</summary><p>
 <li>simple</li>
@@ -1013,28 +1013,28 @@ cname
 <li>geoproximty</li>
 </p></details>
 
-#### How does Route53 perform the health check in a private VPC? (732)
+##### How does Route53 perform the health check in a private VPC? (732)
 
 <details><summary>Answer</summary><p>
 setup a health check with cloudwatch alert 
 </p></details>
 
-#### How to setup hybrid DNS (754)
+##### How to setup hybrid DNS (754)
 
 <details><summary>Answer</summary><p>
 use route53 <s>forwarder</s><b>resolver</b>. create outbound(forward on-premise domain query to on-premise dns) and inbound (for on-premise <s>forwarder</s>resolver to forward the query to aws vpc domain) endpoint
 </p></details>
 
-#### How does AWS ensure the HA in route53? (807)
+##### How does AWS ensure the HA in route53? (807)
 
 <details><summary>Answer</summary><p>
 <li>random sharding</li>
 <li>anycast striping</li>
 </p></details>
 
-### Network firewall
+#### Network firewall
 
-#### What layer SG, NACL, network firewall, WAF, shield?
+##### What layer SG, NACL, network firewall, WAF, shield?
 
 <details><summary>Answer</summary><p>
 <li>sg = <s>7</s> <b>3/4</b></li>
@@ -1044,27 +1044,27 @@ use route53 <s>forwarder</s><b>resolver</b>. create outbound(forward on-premise 
 <li>shield = 3</li>
 </p></details>
 
-#### What is the VPC level in SG and NACL? (766)
+##### What is the VPC level in SG and NACL? (766)
 
 <details><summary>Answer</summary><p>
 <li>sg = <s>vpc</s> <b>instance</b></li>
 <li>nacl = subnet </li>
 </p></details>
 
-#### When should we use nacl instead of sg? (768, 769)
+##### When should we use nacl instead of sg? (768, 769)
 
 <details><summary>Answer</summary><p>
 to block something (sg cannot block traffic)
 </p></details>
 
-#### When should we use WAF instead of lacl ? (770)
+##### When should we use WAF instead of lacl ? (770)
 
 <details><summary>Answer</summary><p>
 <li>block many ips / handle ddos </li>
 <li><b>block ip for the application cloudfront / alb behind</b></li>
 </p></details>
 
-#### Stateless and stateful of sg, nacl, network firewall, shield? (773)
+##### Stateless and stateful of sg, nacl, network firewall, shield? (773)
 
 <details><summary>Answer</summary><p>
 <li>sg = stateful</li>
@@ -1073,78 +1073,78 @@ to block something (sg cannot block traffic)
 <li>shield = stateless</li>
 </p></details>
 
-#### How can a SYN cookie prevent DDos in packet flooding?
+##### How can a SYN cookie prevent DDos in packet flooding?
 
-### Gateway Load balancer
+#### Gateway Load balancer
 
-#### what is the use case of gateway load balancer (813)
+##### what is the use case of gateway load balancer (813)
 
 <details><summary>Answer</summary><p>
 applicane (ip ec2)
 </p></details>
 
-#### what port does gateway load balancer need for GENEVE (817)
+##### what port does gateway load balancer need for GENEVE (817)
 
 <details><summary>Answer</summary><p>
 GENEVE <s>UDP</s> 6081
 </p></details>
 
 
-### Other
+#### Other
 
-#### Centralised VPC Interface endpoint 295
-#### access s3 with endpoint
-#### use a private link to access a web server (NLB/EC2)
-#### VPC peering connections (125)
-#### VPC peering allows using Security group (301)
-#### how many ip can BYOIP bring in (90)
-#### How many VPC CIDRs can a VPC have? (72)
-#### dns of vpc .2 169.254.169.253 (117)
-#### Why is edge location safe? (711)
-#### What must be enabled to use route53 in vpc?
+##### Centralised VPC Interface endpoint 295
+##### access s3 with endpoint
+##### use a private link to access a web server (NLB/EC2)
+##### VPC peering connections (125)
+##### VPC peering allows using Security group (301)
+##### how many ip can BYOIP bring in (90)
+##### How many VPC CIDRs can a VPC have? (72)
+##### dns of vpc .2 169.254.169.253 (117)
+##### Why is edge location safe? (711)
+##### What must be enabled to use route53 in vpc?
 
 Demo (266)
 
-# Hand-on Labs
+## Hand-on Labs
 
 https://www.whizlabs.com/learn/course/aws-advanced-networking-speciality/195
 
-## EC2
+### EC2
 * [ ] 30
 
-## CloudFront
+### CloudFront
 * [ ] 1
 * [ ] 2
 * [ ] 10
 
-## ALB
+### ALB
 * [ ] 3
 * [ ] 4
 * [ ] 5
 
-## WAF
+### WAF
 * [ ] 11
 * [ ] 12
 
-## ACL
+### ACL
 * [ ] 18
 * [ ] 29
 
-## VPN
+### VPN
 * [ ] 21
 
-## Endpoint
+### Endpoint
 * [ ] 23
 * [ ] 24
 * [ ] 25
 
-## Flow Log
+### Flow Log
 * [ ] 26
 
-## Container
+### Container
 * [ ] 28
 
-# VPCs Connectivities
+## VPCs Connectivities
 
 * [Transit gateway peering attachments](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-peering.html)
 * [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
@@ -1160,7 +1160,7 @@ https://www.whizlabs.com/learn/course/aws-advanced-networking-speciality/195
 
 Private Link is something like tgw peer but for specific service only. It can cross regions and accounts.
 
-#  Scope
+##  Scope
 
 | Resource | Scope  |
 | ---      | ---    |
@@ -1171,17 +1171,17 @@ Private Link is something like tgw peer but for specific service only. It can cr
 | Route53  | VPC    |
 | NAT      | Subnet |
 
-# Common Pattern
+## Common Pattern
 
 * Routing (582)
 
-## Site-to-Site Connection routing
+### Site-to-Site Connection routing
 
 * Static - Active/ Active Tunnels (349)
 * Static - Active/ Passive Tunnels (350)
 * Dynamic - Active/ Active Tunnels (351)
 
-## TGW
+### TGW
 
 * Centralised NAT gateway (241)
 * Centralised NAT instance (243)
@@ -1190,9 +1190,9 @@ Private Link is something like tgw peer but for specific service only. It can cr
 * Hybrid VPN (247)
 * Hybrid DX (248)
 
-## VPC Peering
+### VPC Peering
 
-### Failed cases
+#### Failed cases
 
 | Page | Title                              |
 |  --- | ---                                |
@@ -1200,9 +1200,9 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  208 | from DX or VPN                     |
 |  209 | to IGW                             |
 
-## Site-to-site VPN / DX with VGW
+### Site-to-site VPN / DX with VGW
 
-### Use cases
+#### Use cases
 
 | Page | Title                                      |
 |  --- | ---                                        |
@@ -1211,7 +1211,7 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  363 | Multiple Site-to-site Connection with VGW  |
 |  365 | Redundant VPN connections for HA           |
 
-### Failed cases
+#### Failed cases
 
 | Page | Title                                    |
 |  --- | ---                                      |
@@ -1220,7 +1220,7 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  343 | Site-to-site VPN to VPC Peering          |
 |  344 | Site-to-site VPN to VPC Gateway endpoint |
 
-### Successful cases
+#### Successful cases
 
 | Page | Title                                          |
 |  --- | ---                                            |
@@ -1228,17 +1228,17 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  345 | Site-to-site VPN to VPC Interface endpoint     |
 |  345 | Site-to-site VPN to on-premise NAT to Internet |
 
-## Site-to-site VPN with TGW
+### Site-to-site VPN with TGW
 
 | Page | Title                                     |
 | ---  | ---                                       |
 | 362  | Multiple Site-to-site Connection with TGW |
 
-## VPN CloudHub
+### VPN CloudHub
 
 * 369
 
-## EC2 Based VPN
+### EC2 Based VPN
 
 | Page | Title                                   |
 |  --- | ---                                     |
@@ -1247,7 +1247,7 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  378 | Horizontal scaling - VPN EC2 per subnet |
 |  379 | Horizontal scaling - Split traffic      |
 
-## Transit VPC
+### Transit VPC
 
 | Page | Title                                          |
 |  --- | ---                                            |
@@ -1256,9 +1256,9 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  398 | global regions with multiple Transit Hub (GRE) |
 |  549 | Direct Connect and Transit VPC                 |
 
-## DX
+### DX
 
-### Use cases
+#### Use cases
 
 | Page | Title                                    |
 |  --- | ---                                      |
@@ -1268,42 +1268,42 @@ Private Link is something like tgw peer but for specific service only. It can cr
 |  594 | Dual locations with DX connection backup |
 |  602 | VPN over DX                              |
 
-### Failed cases
+#### Failed cases
 
 | Page | Title                                   |
 |  --- | ---                                     |
 |  530 | DX Gateway with multiple customer sites |
 |  542 | DX Gateway with multiple TGWs           |
 
-### Successful cases
+#### Successful cases
 
 | Page | Title                                   |
 | ---  | ---                                     |
 | 546  | DX Gateway with multiple customer sites |
 
-## Network Firewall
+### Network Firewall
 
-### Use cases
+#### Use cases
 
 * Centralised: single firewall subnet / vpc. connect with tgw (791)
 * Distributed: firewall subnet per vpc (790)
 
-# Limitation
+## Limitation
 
 [VPC Limit](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
 
-## Peering
+### Peering
 
 VPC Peering: 125
 
-## Routing
+### Routing
 
 | Resource     | Limit |
 | ---          |   --- |
 | Private VIFs |   100 |
 | Public VIFs  |  1000 |
 
-## MTU (159)
+### MTU (159)
 
 | Resource     | Limit |
 | ---          |   --- |
@@ -1317,13 +1317,13 @@ VPC Peering: 125
 | IGW          |  1500 |
 | VPN          |  1500 |
 
-## Bandwidth
+### Bandwidth
 
 * [Quotas for your TGW](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-quotas.html)
 * [Aggregated throughput limit for VGW](https://aws.amazon.com/vpn/faqs/)
 * [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) 
 
-### VPC (180)
+#### VPC (180)
 
 | Resource    | Limit         |
 | ---         | ---           |
@@ -1334,7 +1334,7 @@ VPC Peering: 125
 | VGW         | 1.25Gbps      |
 | VGW (to DX) | depends on DX |
 
-### TGW
+#### TGW
 
 * 1 VPN can have 2 tunnels
 
@@ -1345,11 +1345,11 @@ VPC Peering: 125
 | TGW        | 50Gbps             |
 | VPN tunnel | 1.25Gbps           |
 
-### VPN Tunnel
+#### VPN Tunnel
 
 1.25Gbps
 
-### EC2
+#### EC2
 
 * [100G networking in AWS, a network performance deep dive](https://toonk.io/aws-network-performance-deep-dive/index.html)
 
@@ -1364,14 +1364,14 @@ EC2 network performance rules:
 | igw              |   50% |
 | dx               |   50% |
 
-#### Single Flow
+##### Single Flow
 
 | Situation           | Limit  |
 | ---                 | ---    |
 | w/i placement group | 10Gbps |
 | other               | 5Gbps  |
 
-#### Aggregated
+##### Aggregated
 
 * [General Purpose Network Performance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose-instances.html#general-purpose-network-performance)
 

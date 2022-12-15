@@ -6,7 +6,7 @@ tags:
   - hugo
 ---
 
-# Resources
+## Resources
 | Topic | Resource |
 | --- | --- |
 | Menu | https://www.youtube.com/watch?v=E6bhmixcR5k |

@@ -7,12 +7,12 @@ tags:
 - bandwidth
 ---
 
-# Objective
+## Objective
 
 * Test if the ec2 can reach 10Gbps bandwidth in same placement group
 * Test if the 10Gbps is the limited by the ec2 instance type or aws
 
-## AWS Limit
+### AWS Limit
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html
 
@@ -23,26 +23,26 @@ in single-flow traffic,
 
 flow = worker (thread) in the network driver. depends on the ec2 instance type.
 
-### EC2 Instance Type Limit
+#### EC2 Instance Type Limit
 
 https://aws.amazon.com/ec2/instance-types/m5/
 
 m5.8xlarge can reach 10Gbps
 
-# Setup
+## Setup
 
 Created 3 m5.8xlarge instances which can reach 10Gbps bandwidth each (i use spot)
 
 * 2 in same placement group
 * 1 in other subnet
 
-## Tool
+### Tool
 
 * iperf ([BENCHMARK NETWORK THROUGHPUT](https://ec2-immersionday.workshop.aws/benchmark-network-throughput.html))
 
-# Test
+## Test
 
-## Not in same placement group and parallel 1
+### Not in same placement group and parallel 1
 
 ```
 [root@ip-172-31-33-28 ~]# iperf -c 172.31.12.68 --parallel -i 2 -t 2
@@ -58,7 +58,7 @@ TCP window size:  812 KByte (default)
 iperf: ignoring extra argument -- 2
 ```
 
-## In same placement group and parallel 1
+### In same placement group and parallel 1
 
 ```
 [root@ip-172-31-7-236 ~]# iperf -c 172.31.12.68 --parallel -i 2 -t 2
@@ -72,7 +72,7 @@ TCP window size: 1.90 MByte (default)
 [  3]  0.0- 2.0 sec  2.22 GBytes  9.54 Gbits/sec
 ```
 
-## Not in same placement group and parallel 2
+### Not in same placement group and parallel 2
 
 ```
 [root@ip-172-31-7-236 ~]# iperf -c 172.31.12.68 --parallel 2 -i 1 -t 2
@@ -94,9 +94,9 @@ TCP window size: 2.00 MByte (default)
 [SUM]  0.0- 2.0 sec  2.32 GBytes  9.94 Gbits/sec
 ```
 
-## Outcome
+### Outcome
 
-### w/i the placement group
+#### w/i the placement group
 
 | Flow | Bandwidth/Flow | Bandwidth |
 |  --- | ---            | ---       |
@@ -109,7 +109,7 @@ But the traffic splits 50%,50% in double-flow traffic.
 
 Therefore, 10Gbps is the max bandwidth of the m5.8xlarge.
 
-### outside the placement group
+#### outside the placement group
 
 | Flow | Bandwidth/Flow | Bandwidth |
 |  --- | ---            | ---       |

@@ -8,7 +8,7 @@ tags:
 - sa
 ---
 
-# api
+## api
 
 * [api gateway throttling limits](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html#apigateway-how-throttling-limits-are-applied) 
   1. aws throttling limit (region level) 
@@ -20,7 +20,7 @@ tags:
   1. regional
   1. private
 
-# application discovery service
+## application discovery service
 
 * for migration planning
 * connection type
@@ -29,12 +29,12 @@ tags:
   * [Migration Hub import](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html) => import the details directly
 
 
-# asg
+## asg
 
 * will [automatically tag the instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html#:~:text=The%20Auto%20Scaling%20group%20automatically%20adds%20a%20tag%20to%20instances%20with%20a%20key%20of%20aws%3Aautoscaling%3AgroupName%20and%20a%20value%20of%20the%20Auto%20Scaling%20group%20name.) by default
 * [cooldown will start after last instances launched](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html#:~:text=With%20multiple%20instances%2C%20the%20cooldown%20period%20(either%20the%20default%20cooldown%20or%20the%20scaling%2Dspecific%20cooldown)%20takes%20effect%20starting%20when%20the%20last%20instance%20finishes%20launching%20or%20terminating.) if there are multiple instance scale at the moment
 
-# athena
+## athena
 
 * [performance tunning](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/) 
   1. partition data
@@ -44,7 +44,7 @@ tags:
   5. prevent select * 
   6. use limit by ([guide for columnar](https://blog.matthewrathbone.com/2019/11/21/guide-to-columnar-file-formats.html))
 
-# billing
+## billing
 
 * cost allocation tags - [tags](https://www.youtube.com/watch?v=AmvMEP_eUck) will show in the cost & usage report
 * [budget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html) - create alert if cost exceed the budget
@@ -64,7 +64,7 @@ tags:
   * refund
   * forecast
 
-# cf
+## cf
 
 * access control
   * cf + waf + elb, it should be [cf (set custom header) > waf (validate the rule) > alb](https://aws.amazon.com/blogs/security/how-to-enhance-amazon-cloudfront-origin-security-with-aws-waf-and-aws-secrets-manager/#:~:text=In%20this%20blog%20post%2C%20you,it%20sends%20to%20your%20origin)
@@ -75,15 +75,15 @@ tags:
   * if request pays is turn on, the request must include the payer header
   * object cannot be kms encrypted
 
-# cfn
+## cfn
 
 * can use [automatic deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html) to auto deploy existing stackset to new accounts in organisation
 
-# cloudhsm
+## cloudhsm
 
 * need [tcp/3389 for windows and tcp/22 for linux](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg-client-instance.html) to connect to ec2 to install cloudhsm client; tcp/2223-2225 to communicate with the cluster
 
-# cloudtrail
+## cloudtrail
 
 * [best practice](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html#creating-an-organizational-trail-best-practice) to migrate to org trail
   1. [create org trail in central account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.html)
@@ -93,16 +93,16 @@ tags:
   1. move old trail data from member accounts to org trail bucket
   1. stop cloudtrail in member accounts and remove the old trail buckets
 
-# codecommit
+## codecommit
 
 * data protection 
   * use [macie](https://docs.aws.amazon.com/codecommit/latest/userguide/data-protection.html) => can help protecting data in s3
 
-# codedeploy
+## codedeploy
 
 * need to connect to s3 and codedeploy endpoints
 
-# cw
+## cw
 
 * [cw embedded metric format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html) => can automatrically create metric from log
 * cw endpoints => monitoring.us-east-2.amazonaws.com
@@ -110,7 +110,7 @@ tags:
   * no az
 * treats each unique combination of dimensions as a [separate metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#:~:text=CloudWatch%20treats%20each%20unique%20combination%20of%20dimensions%20as%20a%20separate%20metric%2C%20even%20if%20the%20metrics%20have%20the%20same%20metric%20name), even if the metrics have the same metric name
 
-# data pipeline
+## data pipeline
 
 * [components](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html)
   1. pipeline definition 
@@ -122,24 +122,24 @@ tags:
 * [use resources in multiple regions](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-manage-region.html)
 * only supported in limited region
 
-# data sync
+## data sync
 
 * use for transfer data between on-premise and aws or between aws service
 * support cross-region (s3 <=> s3, efx <=> efx, efs <=> efs) sync
 * [source location](https://docs.aws.amazon.com/datasync/latest/userguide/configure-source-location.html)
 * [destination location](https://docs.aws.amazon.com/datasync/latest/userguide/create-destination-location.html)
 
-# ddb
+## ddb
 
 * support [atomic counter](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html)
 * local secondary index only can [create at table creation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#:~:text=Local%20secondary%20indexes%20on%20a%20table%20are%20created%20when%20the%20table%20is%20created)
 
-# eb
+## eb
 
 * can stop start eb environment with [lambda](https://aws.amazon.com/premiumsupport/knowledge-center/schedule-elastic-beanstalk-stop-restart/) at scheduled time
 * doesn't support HTTPS_PROXY
 
-# ebs
+## ebs
 
 * aws [only recommend raid0](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html#:~:text=Creating%20a-,RAID%200,-array%20allows%20you)
 * [summary table for different volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#:~:text=The%20following%20is%20a-,summary,-of%20the%20use%20cases%20and%20characteristics%20of%20SSD)
@@ -167,7 +167,7 @@ tags:
   * io1, io2 => db
   * st1 (hdd) => large sequential workloads like data / log processing (EMR, ETL, data warehouse)
   * sc1 => save costs
-# ec2
+## ec2
 
 * [use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/scenarios-enis.html#creating-dual-homed-instances-with-workloads-roles-on-distinct-subnets) of dual home
   * separate the traffic by role (frontend, backend)
@@ -176,7 +176,7 @@ tags:
 * eni is binding to subnet
 * [eni](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) - when creating the eni, it inherits the public ipv4 address attribute from subnet
 
-# efs
+## efs
 
 * HA - [regional replication](https://aws.amazon.com/blogs/aws/new-replication-for-amazon-elastic-file-system-efs/) => notice that it means multi az not multi regions
 * cross region backup
@@ -190,7 +190,7 @@ tags:
 * efs can deliver sub or low single digit millisecond latencies with [> 10gbps through and 500k iops](https://docs.aws.amazon.com/efs/latest/ug/performance.html#:~:text=Amazon%20EFS%20delivers%20more%20than%2010%20gibibytes%20per%20second%20(GiBps)%20of%20throughput%20over%20500%2C000%20IOPS%2C%20and%20sub%2Dmillisecond%20or%20low%20single%20digit%20millisecond%20latencies.)
 * launching instance is limited by [the number of vcpu running per account per region running](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#:~:text=On%2DDemand%20Instance%20limits%20are%20managed%20in%20terms%20of%20the%20number%20of%20virtual%20central%20processing%20units%20(vCPUs))
 
-# elasticache
+## elasticache
 
 * [caching strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Strategies.html#Strategies.WithTTL)
   * lazy load - set cache when select from db
@@ -203,11 +203,11 @@ tags:
 * [automatically cache query](https://aws.amazon.com/blogs/database/automating-sql-caching-for-amazon-elasticache-and-amazon-rds/) to elasticache for rds, aurora and redshift (use proxy)
 * [support up to 500 nodes and shards](https://aws.amazon.com/elasticache/redis/#:~:text=It%20allows%20you%20to%20scale%20your%20Redis%20Cluster%20environment%20up%20to%20500%20nodes%20and%20500%20shards)
 
-# elb
+## elb
 
 * classic load balancer only support [at most one subnet per az](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-internal-load-balancer.html)
 
-# iam
+## iam
 
 * set [SAML session tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_abac-saml.html) for access control (add attribute to idp metadata)
 * [policy to deny access on specific region](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html#example-scp-deny-region) - deny all except the global service
@@ -216,15 +216,15 @@ tags:
 * [group name limit](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) is 128 characters
 * [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_disable-perms.html#:~:text=Temporary%20security%20credentials%20are%20valid%20until%20they%20expire) are valid until they expire
 
-# mTurk
+## mTurk
 
 * submit a request to mTurk. outsource manual tasks like taking survey, text recognition, data migration to public
 
-# opsworks
+## opsworks
 
 * [setup custom recipe to config the application with other aws services information](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services.html) => [solid example for adding redis cluster connection information to rail application](https://docs.aws.amazon.com/opsworks/latest/userguide/other-services-redis.html)
 
-# org
+## org
 
 * org features to enable
   * all
@@ -233,7 +233,7 @@ tags:
   * default is [allow all](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_auth.html) => can only use deny list only
   * use allow list => have to remove FullAWSAccess (the default allow all policy)
 
-# other
+## other
 
 * [Public Data Sets](https://aws.amazon.com/about-aws/whats-new/2008/12/03/public-data-sets-on-aws-now-available/) - data set for public access. [more details](https://aws.amazon.com/opendata/open-data-sponsorship-program/)
 * [fileb://](https://aws.amazon.com/blogs/developer/best-practices-for-local-file-parameters/) is supported in 
@@ -249,16 +249,16 @@ tags:
 * [migrate ibm db2 luw to rds (mysql postgresql)](https://aws.amazon.com/blogs/database/aws-database-migration-service-and-aws-schema-conversion-tool-now-support-ibm-db2-as-a-source/)
 * [iot monitor](https://docs.aws.amazon.com/iot/latest/developerguide/monitoring_overview.html) can check whether the rule has been executed
 
-# rds 
+## rds 
 
 * [RMAN restore isn't supported for Amazon RDS for Oracle DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.RMAN.html#Appendix.Oracle.CommonDBATasks.BackupArchivedLogs) (RMAN is an backup and store tool for oracle db)
 
-# route53
+## route53
 
 * [health check](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) must respond with 2xx or 3xx. support tcp and http
 * support [DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-configure-dnssec.html)
 
-# s3
+## s3
 
 * access control to object c (account c) from request user a (account a) and s3 bucket (account b)
   1. check the [iam role in account a](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-auth-workflow-bucket-operation.html)
@@ -277,11 +277,11 @@ tags:
 * when [downloading encrypted s3 object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html#:~:text=that%20it%20uploads.-,When%20downloading%20an%20object,-%E2%80%94%20The%20client%20downloads), have to download the encrypted object along with a cipher blob version of the data key. client send the cipher blob to kms to get the plaintext version of data key to decrypt the object
 * [reduced redundancy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) is one of the storage class in s3 but not recommend bylaws - may have a chance to lose the object
 
-# secret manager
+## secret manager
 
 * set [RotationSchedule](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/) to schedule an auto rotation (to run a custom lambda) the rds password 
 
-# snowball
+## snowball
 
 * tips to increase performance
   * [batch small file](https://docs.aws.amazon.com/snowball/latest/ug/performance.html#:~:text=Batch%20small%20files%20together)
@@ -295,7 +295,7 @@ tags:
   1. send the device back to aws. they will import your data to s3
 * take at least 1 weeks
 
-# sso
+## sso
 
 * [permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html) - 1 permission set has multiple iam policies => associate to user / group
 * sso
@@ -315,7 +315,7 @@ tags:
   * user login with ad's app endpoint => ad post data to app's sign-in url => app receive and decrypt the data from ad and give permission to user
   * aws iam federation => single account only
 
-# storage gateway
+## storage gateway
 
 * need to download ova and import the vm to create a endpoint to bridge on-premise and aws
 * storage gateway type
@@ -325,16 +325,16 @@ tags:
   * file => smb / nfs
   * tape => [tape backup software](https://aws.amazon.com/storagegateway/features/#:~:text=Tape%20Gateway%20presents%20an%20iSCSI,your%20tape%2Dbased%20backup%20workflows.)
 
-# support
+## support
 
 * [paid support plans](https://aws.amazon.com/premiumsupport/faqs/#:~:text=How%20many%20users%20can%20open%20technical%20support%20cases%3F) allow unlimited number of users to open technical support cases
 
-# swf
+## swf
 
 * [swf vs step function](https://aws.amazon.com/swf/faqs/#:~:text=When%20should%20I%20use%20Amazon%20SWF%20vs.%20AWS%20Step%20Functions%3F): use step function first. if does not fit => swf
 * use case: [processing large product catalogue using Amazon Mechanical Turk](https://aws.amazon.com/swf/faqs/#:~:text=the%20failed%20chunks.-,Use%20case%20%232,-%3A%20Processing%20large%20product)
 
-# vpc
+## vpc
 
 * [5 sg / eni](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#:~:text=cannot%20exceed%201%2C000.-,Security%20groups%20per%20network%20interface,-5)
 * for dx, need to [enabled route propagation](https://aws.amazon.com/premiumsupport/knowledge-center/routing-dx-private-virtual-interface/#:~:text=Verify%20that%20you%27ve%20enabled%20route%20propagation%20to%20your%20subnet%20route%20tables)
@@ -342,7 +342,7 @@ tags:
 * [tenancy vpc](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vpc.html#:~:text=Elastic%20Beanstalk%20doesn%27t%20support%20proxy%20settings%20like%20HTTPS_PROXY%20for%20configuring%20a%20web%20proxy) will determine the instance tenancy by default.
 * for vpce, need to ensure the [private dns option](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html) is enabled
 
-# worksplace
+## worksplace
 
 * use [connection aliases](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) for cross-region workspaces redirection
   * create connection alias

@@ -9,38 +9,38 @@ tags:
 
 https://www.youtube.com/watch?v=j_j2MiAxUvY&list=PL0MZ85B_96CEmmy0C6NF52ZCMNcY1Wryf
 
-# Methods
+## Methods
 
-## Wait until the transaction is completely settled
+### Wait until the transaction is completely settled
 
 not practical and safe
 
-## Hashlock
+### Hashlock
 
 The transaction is partially complete
 
 Settle once the sender publishes the key on the blockchain.
 
-### Cons
+#### Cons
 
 * hugo cannot refund if kevin does not response
 
-## Timelock
+### Timelock
 
 * hugo made a partial transaction that the btc can be claimed by kevin within n number of blocks
 * if the transaction is expired, hugo can claim back the fund
 
-### Cons
+#### Cons
 * the claims need to execute manually
 
-### HTLC (Hash Time Lock Contract)
+#### HTLC (Hash Time Lock Contract)
 
 Combine two locks: (and)
 
 * claim within n number of blocks
 * the key is revealed on the blockchain 
 
-## Steps in a cross chain swap
+### Steps in a cross chain swap
 
 Timestamp: 55:36
 
@@ -81,7 +81,7 @@ Transaction:
 * Hugo observed that kevin has funded eth to `Contract B`. then he will submit his key `1234` in btc network, btc send to kevin by the `Contract A` 
 * same as kevin, he submits his key `9876` in eth network, eth sent to hugo by the `Contract B`
 
-## Problem
+### Problem
 
 * semi-trusted
   * we assume Hugo and Kevin can see each other on each chain

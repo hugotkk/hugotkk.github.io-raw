@@ -7,7 +7,7 @@ tags:
 - eb
 ---
 
-# eb
+## eb
 
 ```
 eb init

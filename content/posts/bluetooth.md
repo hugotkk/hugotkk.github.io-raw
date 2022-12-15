@@ -26,31 +26,31 @@ like the power of a microwave oven is too large for bluetooth.
 
 it may destroy the bluetooth device if you put them inside the microwave oven (danger)
 
-# Data Integrity
+## Data Integrity
 
-## Packet
+### Packet
 
 * Access Codes (72 bits)
 * Header (54bits)
 * Payload (vary, depends on the function)
 
-## Frequency Hopping
+### Frequency Hopping
 
 Two bluetooth devices will have a set of channels to send data
 
 They will change the channels frequently
 
-## Error Detection
+### Error Detection
 
-## Noise Filtering
+### Noise Filtering
 
-# Data Transmit
+## Data Transmit
 
-## Frequency Shift Keying
+### Frequency Shift Keying
 
 carrier wave adjusts the wavelength to send 0 and 1
 
-## Phase Shift Keying
+### Phase Shift Keying
 
 constant wavelength and attitude
 

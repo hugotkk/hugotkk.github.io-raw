@@ -7,9 +7,9 @@ tags:
 - config
 ---
 
-# config aggregator
+## config aggregator
 
-## aggreagate all account under organization
+### aggreagate all account under organization
 
 * enable service role in organization
 * set up iam with
@@ -20,22 +20,22 @@ tags:
 
 from management account or delegated admin to use this option
 
-## aggreagate specfic account
+### aggreagate specfic account
 
 * authorization
 
-# cfn stackset
+## cfn stackset
 
 add stack to stackset = deploy stack
 delete stack from stackset = delete the stack
 
-## organziation
+### organziation
 
 use managed service mode
 enable service role in organization
 change choose account in organization
 
-## other discount
+### other discount
 
 use iam service role
 

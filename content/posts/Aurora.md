@@ -9,24 +9,24 @@ tags:
 - database
 ---
 
-# RDS Read Replica
+## RDS Read Replica
 
 * cross AZ: OK
 * cross region: OK
 * **promote / point-in-time recovery / restore from snapshot** will create a new db instance which is not in my expectation. When DR, user need to update dns / db endpoint in application
 
-## Aurora
+### Aurora
 
-### Pros over non-aurora rds
+#### Pros over non-aurora rds
 
 * read replica auto scaling
 * failover (failover master to read replica in same region)
 * multi-az by default
 * endpoint for writer and reader instance (also custom endpoint)
 
-### Cons in aurora
+#### Cons in aurora
 
-#### Bad integration in cross-region read replica
+##### Bad integration in cross-region read replica
 
 For example:
 
@@ -61,11 +61,11 @@ This is not mentioned in aws doc. I found the [answer](https://repost.aws/questi
 
 So AWS created [Aurora Global Database](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-connecting.html) to solve these drawbacks. But it does not support on small db instance type!
 
-## aurora serverless
+### aurora serverless
 
 * [features](https://aws.amazon.com/rds/aurora/pricing/)
 
-### Pros
+#### Pros
 
 * scale up quickly (v1: 1min, v2: immediately)
 * scale down quickly (v1: 15min, v2: 1min)
@@ -73,7 +73,7 @@ So AWS created [Aurora Global Database](https://docs.aws.amazon.com/AmazonRDS/la
 * MySQL & PostgreSQL compatible
 * no need to manage the cluster
 
-### Cons
+#### Cons
 
 * price 30% higher than same power's ec2 instance
 * cannot cross-region

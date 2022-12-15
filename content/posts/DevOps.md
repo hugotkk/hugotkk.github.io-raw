@@ -6,9 +6,9 @@ tags:
 - devops
 ---
 
-# DevOps choices
+## DevOps choices
 
-## Deployment
+### Deployment
 * faster boot time - opsworks slower; ami faster
 * using chef - opsworks
 * need to update config when new node online - opsworks [Configure lifecycle event](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-events.html)
@@ -31,22 +31,22 @@ tags:
 * all lifecycle event skipped in codedeploy: [agent doesn't start / security group blocked the communication](https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-skipped-lifecycle-events)
 * limit the resources on cfn launching: use catalog (like a marketplace). more iam control to the cloudformation template. With cloudfromation, you cannot limit user upload what cloudformation template.
 
-## Backup & Restore
+### Backup & Restore
 
 * cross region efs backup: lambda: (at region1) use ec2 with efs mount put data to region2 s3 -> (region2) ec2 with efs mount pull data from s3
 
-## Cloudformation
+### Cloudformation
 
 * work as teams / multi tiers (network, security, application): [nested stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#aws-properties-stack--examples) / [importvalue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
 
-## ASG
+### ASG
 
 * troubleshoot asg instance: [standby](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html) / [asg lifecycle hook](https://aws.amazon.com/premiumsupport/knowledge-center/auto-scaling-delay-termination/) (1hr only)
 * handle predictable traffic: [scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
 * prevent scale-in: [instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 * sending log / licence register deregister: [asg lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
 
-## Data analysis / Loggings
+### Data analysis / Loggings
 
 * batch jobs / reporting (like spark): EMR
 * visualise data (like BI): Redshift / Quicksight (cost effective)
@@ -55,7 +55,7 @@ tags:
 * report time slow: offload the job to other application(like lambda) with kinesis stream / scale-up the cluster with asg
 * apache hive ~= aws glue
 
-## DB
+### DB
 
 * dynamodb stream = kinesis stream (more advance)
 * throttle on dynamodb stream: limited to 2 connections at the moment. use 1 lambda > sns > other lambda(s)
@@ -68,34 +68,34 @@ tags:
 * data inconsistency in dynamodb: need to use [strong consistent read](add)
 * DB security: [auth with iam](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
 
-## Config
+### Config
 
 * [config aggreation](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html): use stackset to enable config cross accounts > assign a dedicated administrator > auth config aggregator (like peer connection, request at one side and accept at other account) | use org organisation
 * [config organisation rule](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html): can use [this](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-organization-config-rule.html) to put rules to all account in organisation
 
-# Application Discovery Service
+## Application Discovery Service
 
-## Setting up
+### Setting up
 
 * [Discovery Connector](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-connector.html) - agentless - install on vmware centre
 * [Discovery Agent](https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-agent.html) - agent - install on host
 
-# CodeCommit
+## CodeCommit
 
-## approval rule (pull request)
+### approval rule (pull request)
 
 * targets: branch
 * approval pool members (iam user)
 
-## [protect branches](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branch.html)
+### [protect branches](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branch.html)
 
-## [migrate from git](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-migrate-repository-existing.html#how-to-migrate-existing-clone)
+### [migrate from git](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-migrate-repository-existing.html#how-to-migrate-existing-clone)
 
 * `git clone git_repo_url --mirror` to create bare repo
 * `git push codecommit_repo_url --all`
 * `git push codecommit_repo_url --tags`
 
-# CodeBuild
+## CodeBuild
 
 * find the branch name in codebuild: CODEBUILD_SOURCE_VERSION
 * one codebuild can have one builspec.yml
@@ -103,36 +103,36 @@ tags:
 * can use [aws managed](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) / [custom](https://aws.amazon.com/blogs/devops/how-to-use-cross-account-ecr-images-in-aws-codebuild-for-your-build-environment/) docker image at build environment
 * custom docker image can be chosen from ecr (same/cross account) or custom registry
 
-## buildspec.yml
+### buildspec.yml
 
 * many phases but [all are inline commmands](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-syntax)
 * can use parameter-store and secrets-manager
 * can set "finally" block in each phase & on-failure behavior
 
-# CodeDeploy
+## CodeDeploy
 
-## appspec.yml
+### appspec.yml
 
 * resources + hooks (ecs & lambda)
 * files + permission + hooks (ec2)
 
-## [lifecycle](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html)
+### [lifecycle](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html)
 
-## notification
+### notification
 
 * targets: sns / aws chatbot
 * event: any activities (push, merge, delete branch...)
 
-## trigger
+### trigger
 
 * targets: sns / lambda
 * event: push branches or tags
 
-# api gateway
+## api gateway
 
 * can do canary deploy
 
-## targets
+### targets
 
 * lambda
 * step functions
@@ -141,53 +141,53 @@ tags:
 * sqs
 * kinesis data stream
 
-# config
+## config
 
 * trigger type: configuration changes / periodic
 * scope: aws resource > ec2:securitygroup
 
-## notifications
+### notifications
 
 * Settings > Delivery method > sns topic - give you all changes (summary)
 * Settings > Amazon Cloudwatch Events rule - good for watching specific resource config change
 
-# Events
+## Events
 
 * can send to another account
 * can send to another account in organisation
 
-# Cloudwatch
+## Cloudwatch
 
-## create alarm from logs
+### create alarm from logs
 
 * logs > metric filter > metric > alarm > sns
 
-## send logs to other place for analysis
+### send logs to other place for analysis
 
 * logs > subscription filter > lambda (cannot cross account, kinesis can) > s3 > athena
 * logs > subscription filter > kinesis firehose > s3 > athena
 * logs > subscription filter > kinesis stream > kinesis firehose > s3 > athena
 
-# Kinesis
+## Kinesis
 
 * kinesis stream -> real time data stream (like enhanced version of DYNAMODB Stream) for analysis / aggregation
 * kinesis stream firehose -> for storage (s3) but can do some pre-processing
 
-## Supported Writer & Reader
+### Supported Writer & Reader
 
 * [aws sdk / agent / library (KPL)](https://docs.aws.amazon.com/streams/latest/dev/building-producers.html) > stream > [library (client) / firehose / lambda](https://docs.aws.amazon.com/streams/latest/dev/building-consumers.html)
 * [aws sdk / agent / stream / CloudWatch event / CloudWatch logs](https://docs.aws.amazon.com/firehose/latest/dev/basic-write.html) > firehose > [S3 / ES / Redshift / MongoDB / Splunk](https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html) 
 
-# Security
+## Security
 
 * GuardDuty: threat detection
 * Macie: data level eg: s3
 * Security Hub: give advises / integrated with different aws products like 
 * inspector: cvs scanning / hardending (cis)
 
-# S3 
+## S3 
 
-## Cross account replication
+### Cross account replication
 
 * AcctA BuckA
 * AcctB BuckB
@@ -199,20 +199,20 @@ tags:
 * bucket policy in acctB
   * allow roleA to replica and put object to buckB
 
-# Cloudformation
+## Cloudformation
 
-## Custom Resource
+### Custom Resource
 
 * [bind to lambda / sns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html#aws-resource-cloudformation-customresource--examples)
 * need to handle the [create / update / delete event from the stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref.html)
 
-# ECS
+## ECS
 
-## AMI
+### AMI
 
 use [ECS-optimised AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) - have container agent installed
 
-## loggings
+### loggings
 
 * container log - [awslogs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) - need container agent
 * system log - [cloudwatch agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html)
