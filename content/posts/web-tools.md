@@ -1,5 +1,5 @@
 ---
-title: "Useful web tools"
+title: "Web Tools"
 date: 2022-12-15
 tags:
 - web
