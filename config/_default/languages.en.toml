@@ -8,7 +8,6 @@ rtl = false
 title = "Hugo's IT journal"
 description = "Explore an IT enthusiast's personal journal sharing insights on DevOps, AWS, Kubernetes, Docker, and more - learn, grow, and stay updated in the tech world."
 logo = "image.jpg"
-description = ""
 # copyright = "Copy, _right?_ :thinking_face:"
 
 dateFormat = "2006-01-02"
