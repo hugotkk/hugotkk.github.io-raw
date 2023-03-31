@@ -9,27 +9,40 @@ tags:
 - iam
 ---
 
-# Public Access Object Setup with ACL & Bucket Policy:
 
-## Using ACL:
+## How to host a static website on S3
 
-1. Disable block public access ACL.
-1. Select objects and make them public.
-1. Add "everyone" with read permission in object's ACL section (public-read).
-1. Update ACL via CLI.
+### Concepts
 
-## Using Bucket Policy:
+#### Block Public Access
+* Prevent any public access in ACL or bucket policy.
+#### Object Ownership
+* Ensure that all objects are owned by the bucket owner and disable ACLs.
+* Choose between 
+  * disabling ACL
+  * enabling ACL while keeping ownership the same as the bucket owner by default but it can be overrided by the object writer
+  * enabling ACL while keeping ownership the same as the object writer
+#### Static Website Hosting
+* Set a default index page and error page.
+* Provide a URL for access. (not same as the s3 URL)
+#### Access Control
+* Use ACL to control access rights on an object level.
+* Note that enabling ACL may cause varied object ownership in shared buckets.
+* Use bucket policy to control access at the bucket level.
+* Keep in mind that bucket policies only apply to objects owned by the bucket owner.
 
-1. Disable block public access bucket policy.
-1. Allow everyone to get objects by updating bucket policy.
-1. Specify object tags in bucket policy.
+## Steps
 
-# Additional Notes:
+* Configure Static Website Hosting in Properties
+* Disable Object Ownership in Permissions
+* Enable public access With ACL
+  * Disable block public access of ACL in the Permissions.
+  * Go to Objects, select objects, then click "make public using ACL" (This can be done by AWS CLI as well).
+* Or via Bucket Policy
+  * Disable block public access of bucket policy in the Permissions.
+  * Create a bucket policy that allows everyone to get objects.
 
-1. Enabling ACL may cause varied object ownership in shared buckets.
-1. Bucket policies only apply to objects owned by bucket owner.
-1. Bucket ownership feature ensures all objects are owned by bucket owner and ACLs are disabled.
-1. S3 Access Points simplify policy management by attaching policy to access point.
-1. Access point policy overrides existing bucket policies for granular control.
-1. Using S3 Access Points reduces risk of policy errors/inconsistencies.
-
+## Access Points
+* Simplify policy management by attaching a policy to an access point.
+* Use Access point policy to override existing bucket policies for granular control.
+* Use S3 Access Points to reduce the risk of policy errors or inconsistencies.
