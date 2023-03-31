@@ -63,6 +63,7 @@ enableCodeCopy = true
   showAuthorsBadges = false
   showWordCount = false
   showSummary = false
+  showComments = true
   sharingLinks = [ ]
 
 [list]
