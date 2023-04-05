@@ -41,7 +41,8 @@ tags:
     * Primarily for service-to-service communication.
     * Browser-to-service not widely supported.
 * Protocol:
-    * Built on HTTP/2 and HTTPS only.
+    * Built on HTTP/2
+    * client -> ALB: HTTPS only; ALB -> target: HTTP/HTTPS
 
 # WebSocket
 
