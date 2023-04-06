@@ -54,4 +54,5 @@ If the answer is not relevant:
 
 * Unreliable answers when out of token window or lacking data
 * Verification of results needed
-* Inability to reply in markdown format
+* ~~Inability to reply in markdown format~~
+  * We can ask GPT to output in code block format for copying.
