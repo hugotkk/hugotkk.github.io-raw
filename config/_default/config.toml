@@ -6,6 +6,7 @@ theme = "blowfish"
 baseURL = "https://hugotkk.github.com/"
 defaultContentLanguage = "en"
 
+enableGitInfo = true
 enableRobotsTXT = true
 paginate = 12
 summaryLength = 30
