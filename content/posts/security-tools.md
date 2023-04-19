@@ -25,11 +25,11 @@ tags:
 * Hashicorp Vault
 * AWS Secret Manager
 
-## Vulnerability Scanner:
+## Vulnerability Scanner
 
 * OpenVAS
 
-## Web Security Scanner:
+## Web Security Scanner
 
 * Acunetix
 * OWASP ZAP
