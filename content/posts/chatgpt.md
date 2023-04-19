@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT"
+title: "Maximizing Productivity and Learning with GPT-4: Use Cases and Best Practices"
 date: 2023-03-31
 tags:
 - ai

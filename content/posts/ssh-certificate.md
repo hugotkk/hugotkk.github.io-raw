@@ -1,5 +1,5 @@
 ---
-title: "SSH Cerificate"
+title: "Secure and Simplified SSH Key Management with Certificate Authority (CA)"
 date: 2023-04-06
 tags:
 - ssh
