@@ -1,5 +1,5 @@
 ---
-title: "Understanding OAuth 2.0: An Overview with Amazon Cognito Implementation"
+title: "Understanding OAuth 2.0: Explore with Amazon Cognito"
 date: 2023-04-06
 tags:
 - cloud
@@ -15,36 +15,40 @@ tags:
 * OAuth 2.0 provides authorization using ID token.
 * OIDC provides authentication using access token.
 * SAML2 provides both authentication and authorization.
-* OAuth 2.0 allows users to log in, agree to the OAuth permission grant, and generate an access token (like an API key).
-* Access tokens have permission to access the API (resource server), but they are not related to the user's identity.
-* Access tokens can be renewed using a refresh token.
-* ID tokens can show who the user is.
-* For example, when logging into a website with Google, Google will generate an access token for the user, which the website can use to call APIs to get the user's email and name. The browser cookie will link the user with the access and refresh token.
+### OAuth 2.0 
+  * allows users to log in, agree to the OAuth permission grant, and generate an access token (like an API key).
+  * Access tokens have permission to access the API (resource server), but they are not related to the user's identity.
+  * Access tokens can be renewed using a refresh token.
+  * ID tokens can show who the user is.
+  * For example, when logging into a website with Google, Google will generate an access token for the user, which the website can use to call APIs to get the user's email and name. The browser cookie will link the user with the access and refresh token.
 
 ## Amazon Cognito
 
-* User pools can integrate with ALB and API Gateway
-* Identity pools can manage access control on AWS resources such as S3 and DynamoDB
-* User mapping can associate IAM roles with specific users or groups
-* By default, user mapping maps into authenticated and unauthenticated IAM roles
-* Rules can be configured to assign specific IAM roles based on conditions (e.g., specific attributes or group membership)
-* With an ID token obtained through Amazon Cognito, temporary AWS access keys and secrets can be obtained using aws get-credentials-for-identity. These AWS credentials can be used to access AWS resources.
-* The authentication process involves:
-    * Clicking the login button and redirecting to the authorize URL
-    * Entering login credentials on the Cognito login page
-    * Redirecting to a specified redirect URL upon successful authentication
-    * Making additional requests to obtain access tokens and refresh tokens depending on the grant type
-    * Using the authorized code obtained from the initial request to obtain access tokens and refresh tokens if the grant type is `authorization_code`
-    * Including the `response_type=token` parameter in the authorization request if the grant type is implicit, which returns the access token and refresh token directly in the response without additional requests to the token URL.
-* Authenticated role selection
-    - Amazon Cognito user pools come with two default roles: Unauthenticated and Authenticated.
-    - Role selection allows for different roles to be assigned to authenticated users.
-    - "Choose role with rules" allows for rules to be set based on the JWT.
-    - The following attributes can be referenced in the JWT: phone, email, username, default attributes, and custom attributes.
-    - To reference the default and custom attributes in the IAM policy, the authorize scope needs to include "profile".
-    - Users are allowed to be assigned to groups, and each group can be assigned multiple IAM roles.
-    - `cognito:roles` and `cognito:preferred_role` will be added to the JWT token when "Choose role from token" is used to grant permission to user.
-    - `cognito:groups` can also be found in the JWT if the user is in a group.
+
+- User pools can integrate with ALB and API Gateway.
+- Identity pools can manage access control on AWS resources such as S3 and DynamoDB.
+- User mapping can associate IAM roles with specific users or groups.
+- By default, user mapping maps into authenticated and unauthenticated IAM roles.
+- Rules can be configured to assign specific IAM roles based on conditions (e.g., specific attributes or group membership).
+- With an ID token obtained through Amazon Cognito, temporary AWS access keys and secrets can be obtained using `aws get-credentials-for-identity`. These AWS credentials can be used to access AWS resources.
+
+### Authentication Process
+  - Clicking the login button and redirecting to the authorize URL.
+  - Entering login credentials on the Cognito login page.
+  - Redirecting to a specified redirect URL upon successful authentication.
+  - Making additional requests to obtain access tokens and refresh tokens depending on the grant type.
+  - Using the authorized code obtained from the initial request to obtain access tokens and refresh tokens if the grant type is `authorization_code`.
+  - Including the `response_type=token` parameter in the authorization request if the grant type is implicit, which returns the access token and refresh token directly in the response without additional requests to the token URL.
+
+### Authenticated Role Selection
+  - Amazon Cognito user pools come with two default roles: Unauthenticated and Authenticated.
+  - Role selection allows for different roles to be assigned to authenticated users.
+  - "Choose role with rules" allows for rules to be set based on the JWT.
+  - The following attributes can be referenced in the JWT: phone, email, username, default attributes, and custom attributes.
+  - To reference the default and custom attributes in the IAM policy, the authorize scope needs to include "profile".
+  - Users are allowed to be assigned to groups, and each group can be assigned multiple IAM roles.
+  - `cognito:roles` and `cognito:preferred_role` will be added to the JWT token when "Choose role from token" is used to grant permission to user.
+  - `cognito:groups` can also be found in the JWT if the user is in a group.
 
 ## Lab1: Cognito Identity Pool
 
