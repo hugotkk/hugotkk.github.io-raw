@@ -110,6 +110,23 @@ sudo systemctl restart docker
 - To ensure data consistency across nodes, use a distributed file system like GlusterFS or NFS, or a cloud-based storage service like Amazon EFS or Google Cloud Storage.
 - When using a distributed file system or cloud-based storage service, the volume/local mount point is shared across all nodes in the Swarm, ensuring that all nodes have access to the same data.
 
+## iptables
+
+* Docker uses iptables for traffic routing
+* Be cautious when restarting iptables service to avoid overriding Docker's rules
+* Services like firewalld or ufw may interfere with Docker's iptables rules
+* Turning off iptables may have side effects
+
+* Routing in iptables forwards published ports/container subnets to NAT table
+* NAT table routes traffic between containers
+* Docker host defaults to IPv4 forwarding enabled, making containers public on subnets
+* Docker host can be used as router to access container directly
+
+* Example: Limiting access to specific IPs for Node.js container with port 80 and published port 8080 on Docker host
+  * Dropping port 8080 in firewalld won't work; traffic is forwarded to NAT table
+  * Dropping container port 80 in Docker's custom chain (DOCKER_USER) will work but it will also block all traffic into the container, not just from outside Docker host
+
+
 ## Useful links
 
 * [install docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
