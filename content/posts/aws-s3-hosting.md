@@ -67,3 +67,21 @@ tags:
 * Or via Bucket Policy
   * Disable block public access of bucket policy in the Permissions.
   * Create a bucket policy that allows everyone to get objects.
+
+## Integrate with CloudFront
+
+Instead of using static website hosting or making S3 public, we can use CloudFront to host a static web host with S3. 
+
+Here's how:
+
+1. Create a distribution and S3 origin.
+2. To define the index page, set the root object in the distribution level for requesting `/`.
+3. We can use a private S3 bucket and use Origin Access Control to grant permission for CloudFront to access the bucket. OAI (Origin Access Identity) is now considered legacy, and it's recommended to use Origin Access Control instead.
+4. We can control policies for caching and manage headers, cookies, and query strings:
+    - Viewer
+    - Viewer + CloudFront
+    - Viewer + Exclude
+    - Specific (filter from Viewer + CloudFront)
+5. Add or remove headers, CORS, and security headers.
+6. Add a whitelist or blacklist Geo Restriction to restrict access based on geography.
+
