@@ -58,8 +58,6 @@ Prometheus supports a range of binary operators with different precedence levels
 
 Have to use right after the select (before any function call)
 
-### Vector matching
-
 ### Vector Matching
 
 - Vector <ops> scalar:
