@@ -36,7 +36,7 @@ Prometheus supports four metric types:
 3. Histogram: Provides `<metric_name>_bucket`, `<metric_name>_sum`, `<metric_name>_count`. Use `histogram_quantile()` for server-side quantile calculation (e.g.: `http_request_duration_seconds`)
 4. Summary: Similar to Histogram, but quantiles are calculated client-side (application). Thus, it cannot be further aggregated.
 
-## promsql
+## promql
 
 ### Operator Precedence
 
