@@ -32,7 +32,7 @@
 
 
  [[footer]]
-   name = "Article"
+   name = "Articles"
    pageRef = "posts"
    weight = 10
 
