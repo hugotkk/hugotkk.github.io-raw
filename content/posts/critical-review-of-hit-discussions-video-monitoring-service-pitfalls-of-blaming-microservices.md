@@ -6,7 +6,7 @@ tags:
 - case-study
 ---
 
-A recent article on Prime Video Tech describes their approach to scaling up their audio-video monitoring service and reducing costs by 90%.
+A recent article on Prime Video Tech describes their approach to [scaling up their audio-video monitoring service and reducing costs by 90%](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90).
 
 This blog post aims to critically analyze the article and address some issues and misconceptions.
 
