@@ -21,7 +21,7 @@ tags:
 ## Calculator
 
 - [Kubernetes Instance Calculator](https://learnk8s.io/kubernetes-instance-calculator)
-
+- [EC2 Price](https://instances.vantage.sh)
 ## Converter
 
 - [Convert 500 Megabytes to Bytes](https://www.flightpedia.org/convert/500-megabytes-to-bytes.html)
@@ -30,3 +30,5 @@ tags:
 - [JSON to Go](https://mholt.github.io/json-to-go/) - Convert JSON to golang struct
 - [HKT to GMT](https://savvytime.com/converter/hkt-to-gmt)
 - [watt to kwh](https://www.rapidtables.com/calc/electric/watt-to-kwh-calculator.html)
+- [jwk generator](https://mkjwk.org/)
+- [jwk encoder / decoder](https://dinochiesa.github.io/jwt/)
