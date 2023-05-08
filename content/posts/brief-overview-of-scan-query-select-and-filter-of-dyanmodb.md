@@ -1,5 +1,6 @@
 ---
 title: "Brief Overview of Scan, Query, Select, and Filter of DyanmoDB"
+date: 2023-05-08
 tags:
 - cloud
 - aws
