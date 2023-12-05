@@ -92,52 +92,69 @@ In QEMU, there are many ways to achieve the same thing with different parameters
 
 For clarity, I prefer to convert the parameters to their shortcut forms:
 
-```
+```bash
 -hda = -drive
 -cdrom = -drive
 -drive = -blockdev -device
 ```
 
-```
+```bash
 -audio = -audiodev -device
 -nic = -netdev -device
 ```
 
 For example:
-```
+
+```bash
 -drive file=linux.img,format=qcow2,if=virtio
 ```
+
 is equivalent to:
-```
+
+```bash
 -hda linux.img
 ```
 
 And:
-```
+
+```bash
 -drive file=cloud-init.img,media=cdrom,if=virtio
 ```
+
 is the same as:
-```
+
+```bash
 -hda cloud-init.img
 ```
 
 Also:
-```
+
+```bash
 -chardev socket,id=char0,path=u1-serial,server=on,wait=off
 -serial chardev:char0
 ```
+
 can be shortened to:
-```
+
+```bash
 -serial unix:u1-serial,server,nowait
 ```
 
 Furthermore:
+
+```bash
+-netdev bridge,id=hn0 
+-device virtio-net-pci,netdev=hn0,id=nic1
 ```
--netdev bridge,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
-tap,helper=/usr/local/libexec/qemu-bridge-helper,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
+
+```bash
+-netdev tap,helper=/usr/local/libexec/qemu-bridge-helper,id=hn0 
+-device virtio-net-pci,netdev=hn0,id=nic1
 ```
+
 are equivalent to:
-```
+
+```bash
 -nic bridge,model=virtio-net-pci
 ```
 
@@ -155,20 +172,20 @@ To create a network using libvirt, configure it with a DHCP server using dnsmasq
 
 Creates the network temporarily
 
-```
+```bash
 virsh create <network-config>
 ```
 
 Creates the network permanently and ensures the network starts automatically
 
-```
+```bash
 virsh define <network-config>
 virsh net-autostart <network>
 ```
 
 Starts the defined network
 
-```
+```bash
 virsh start <network>
 ```
 
@@ -210,7 +227,7 @@ For DHCP, if an existing one is available, that's good, but if you need one for 
 
 For those not using libvirt, here's a snippet to create a temporary DHCP server with 
 
-```
+```bash
 dnsmasq --interface=br0 --bind-interfaces --dhcp-range=172.20.0.2,172.20.255.254
 ```
 
@@ -239,14 +256,16 @@ Virt-viewer can be utilized for both VNC and Spice connections.
 
 Ensure that X11 forwarding is enabled on ssh server in the `/etc/ssh/sshd_config` file.
 On client, this can be activated with
-```
+
+```bash
 ssh -X
 ```
 
 Since I'm using macOS, I have installed XQuartz as X11 Client.
 
 For the lab purposes, I'm using the root account, so I use
-```
+
+```bash
 sudo -E bash
 ```
 to maintain the $DISPLAY variables for X11.
@@ -261,18 +280,18 @@ Most of the commands for Spice are mentioned in the official user manual, which 
 
 For instance, to start Spice, use the command:
 
-```
--vga qxl \
--spice port=3001 \
--soundhw hda \
--device virtio-serial \
--chardev spicevmc,id=vdagent,debug=0,name=vdagent \
+```bash
+-vga qxl
+-spice port=3001
+-soundhw hda
+-device virtio-serial
+-chardev spicevmc,id=vdagent,debug=0,name=vdagent
 -device virtserialport,chardev=vdagent,name=com.redhat.spice.0
 ```
 
 Then, connect to the Spice server using:
 
-```
+```bash
 remote-viewer spice://127.0.0.1:3001
 ```
 
@@ -294,7 +313,7 @@ There are different ways to connect to serial/console, and I'll list those I hav
 
 Commands for connecting to serial/console:
 
-```
+```bash
 -serial unix:u1-serial,server,nowait
 -serial stdio,server,nowait
 -serial pty,server,nowait
@@ -303,19 +322,19 @@ Commands for connecting to serial/console:
 
 To connect to serial from socket:
 
-```
+```bash
 socat - UNIX-CONNECT:u1-serial
 ```
 
 To connect to serial from telnet:
 
-```
+```bash
 telnet host port
 ```
 
 To connect to serial from pty:
 
-```
+```bash
 screen /dev/pts/2
 ```
 
@@ -323,7 +342,7 @@ However, this can be messy for me. The style is often broken as it doesn't resol
 
 Setting `export TERM=screen-256color` improves the color issue but doesn't resolve the newline problem.
 
-Stdio:
+stdio:
 
 - Useful for running QEMU in the foreground (without `--daemonize`) for quick testing.
 
@@ -334,33 +353,42 @@ Stdio:
 Software Packages:
 
 For QEMU:
-```
+
+```bash
 apt install -y qemu-kvm
 ```
 
 For libvirt:
-```
+
+```bash
 apt install -y qemu-kvm libvirt-daemon-system virtinst
 ```
 
 To create cloud-init ISO:
-```
+
+```bash
 apt install -y genisoimage
 ```
 
 Cloud Image:
-```
+
+```bash
 wget https://download.opensuse.org/repositories/Cloud:/Images:/Leap_15.5/images/openSUSE-Leap-15.5.x86_64-1.0.0-NoCloud-Build1.143.qcow2
 ```
 
 Disk Image:
-```
+
+```bash
 qemu-img create -b openSUSE-Leap-15.5.x86_64-1.0.0-NoCloud-Build1.143.qcow2 -f qcow2 -F qcow2 "linux.img" "20G"
 ```
 
 Cloud-init ISO:
-```
+
+```bash
 mkdir /lab/cloud-init -p
+```
+
+```bash
 cat << EOF | tee /lab/cloud-init/network-config
 network:
   version: 1
@@ -374,7 +402,9 @@ network:
     subnets:
       - type: dhcp
 EOF
+```
 
+```bash
 cat << EOF | tee /lab/cloud-init/user-data
 #cloud-config
 users:
@@ -386,12 +416,16 @@ users:
     ssh_authorized_keys:
       - "<SSH_PUBLIC_KEY>"
 EOF
+```
 
+```bash
 cat << EOF | tee /lab/cloud-init/meta-data
 instance-id: u1
 local-hostname: u1
 EOF
+```
 
+```bash
 genisoimage -output "/lab/cloud-init.img" -volid cidata -rational-rock -joliet /lab/cloud-init/*
 ```
 
@@ -401,7 +435,7 @@ To create VM with libvirt:
 
 Create a bridge network:
 
-```
+```bash
 cat << EOF | tee /lab/bridge.xml
 <network connections='2'>
   <name>br0</name>
@@ -415,33 +449,64 @@ cat << EOF | tee /lab/bridge.xml
   </ip>
 </network>
 EOF
+```
 
+```bash
+chmod u+s /usr/lib/qemu/qemu-bridge-helper
+```
+
+```bash
+mkdir /etc/qemu/
+```
+
+```
+cat << EOF | tee /etc/qemu/bridge.conf
+allow br0
+EFO
+```
+
+```bash
 virsh net-define bridge.xml
 virsh net-start br0
 virsh net-autostart br0
 ```
 
-```
-virt-install --name="u1" --import --disk "path=linux.img,format=qcow2" --disk "path=cloud-init.img,device=cdrom" --ram="2048" --vcpus="2" --osinfo opensuse15.0 --wait 0 --noautoconsole --autostart --network bridge=br0
+```bash
+virt-install \
+--name="u1" \
+--import \
+--disk "path=linux.img,format=qcow2" \
+--disk "path=cloud-init.img,device=cdrom" \
+--ram="2048" \
+--vcpus="2" \
+--osinfo opensuse15.0 \
+--wait 0 \
+--noautoconsole \
+--autostart \
+--network bridge=br0
 ```
 
 Connect to console
-```
+```bash
 virsh console u1
 ```
 
 Connect to the display
 
-virt- u1
+```bash
+virt-viewer -u u1
+```
 
 Stop & Stop the VM
-```
+
+```bash
 virsh start u1
 virsh shutdown u1
 ```
 
 Remove the VM
-```
+
+```bash
 virsh destroy u1
 virsh undefine u1
 ```
@@ -450,38 +515,29 @@ virsh undefine u1
 
 To create a VM with QEMU, combine everything together:
 
-```
+```bash
 qemu-system-x86_64 \
 -name u1 \
--enable-kvm \
-
 # Enable KVM
-
--hda linux.img \
-
+-enable-kvm \
 # Add disk image
-
--cdrom cloud-init.img \
-
+-hda linux.img \
 # Add cloud init
-
+-cdrom cloud-init.img \
+# Config Memory and CPU
 -m 2048 \
 -smp 2 \
-
-# Memory and CPU
-
--nic user,hostfwd=tcp:127.0.0.1:1025-:22 \
--nic bridge,br=br0,model=virtio-net-pci \
-
 # First network - user network with port forward SSH to TCP 1025
+-nic user,hostfwd=tcp:127.0.0.1:1025-:22 \
 # Second network - bridge network on br0 device
-
+-nic bridge,br=br0,model=virtio-net-pci \
+# Spice
 -vga qxl \
 -spice port=3001,password=123 \
 -soundhw hda \
 -device virtio-serial \
 -chardev spicevmc,id=vdagent,debug=0,name=vdagent \
--device virtserialport,chardev=vdagent,name=com.redhat.spice.0
-
-# Spice
+-device virtserialport,chardev=vdagent,name=com.redhat.spice.0 \
+# Serial
+-serial stdio
 ```
