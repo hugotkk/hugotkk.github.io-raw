@@ -93,7 +93,7 @@ For 2Nic Test,
 <img src="images/vm-network-2.png"/>
 
 network-config
-```
+```yaml
 network:
   version: 1
   config:
@@ -113,7 +113,7 @@ For 1Nic Test
 <img src="images/vm-network-1.png" />
 
 network-config 
-```
+```yaml
 network:
   version: 1
   config:
