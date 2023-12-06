@@ -24,7 +24,11 @@ This high demand for resources can largely be attributed to Harvester's underlyi
 
 ### Operational Limitations in VM Management
 
-Operations such as changing network configurations, taking backups, or creating snapshots in VMs require stopping the VM first, which can be a significant limitation in certain scenarios.
+Tasks like
+- modifying network settings
+- recovering VM snapshots
+
+require stopping the VM first, which can be a significant limitation in certain scenarios.
 
 <img src="images/vm-snapshot.png"/>
 
