@@ -135,7 +135,7 @@ The Ubuntu guide located at https://ubuntu.com/server/docs/install/netboot-amd64
 
 Host System: Proxmox
 
-OS Tested:
+OS to be netboot:
 
 - Ubuntu 22.04
 - Rocky 9.2
