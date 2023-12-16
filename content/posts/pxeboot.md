@@ -20,9 +20,9 @@ I recently experimented with PXE boot and auto-installation for various OS in my
 ## Workflow
 
 1. Configure the dnsmasq, tftp, and Apache servers.
-2. Set up DHCP for a test virtual machine (VM).
-3. Customize the test VM to boot using grub2 and load the grub2.cfg file, optionally including a dummy menu entry.
+2. Set up DHCP for a test VM.
 4. Prepare the boot loader.
+3. Customize the test VM to boot using grub2 and load the grub2.cfg file, optionally including a dummy menu entry.
 5. Prepare the ISO, extract the kernel, initrd, repo and retrieve the boot command from the official documentation.
 6. If feasible, conduct a manual installation using qemu with a CD-ROM to obtain the auto-installation script.
 7. Further develop the auto-installation script within the qemu environment.
@@ -353,7 +353,7 @@ Source:
 
 `Harvester` and `Ubuntu` are ISO-based, meaning the entire ISO is loaded into RAM. 
 
-This requires the virtual machine to have sufficient RAM to hold the entire content of the CD.
+This requires the VM to have sufficient RAM to hold the entire content of the CD.
 
 `XCP-ng` and `Rocky` installations use repository, which involves extracting contents from the ISO and copying them to Apache.
 
