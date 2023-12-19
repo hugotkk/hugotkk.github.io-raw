@@ -182,13 +182,13 @@ vi /etc/network/interfaces
 **Bonding Setup During Installation:**
 - The Harvester documentation also provides instructions for setting up bonding during the installation process. This can be found in the [Harvester Configuration Section](https://docs.harvesterhci.io/v1.2/install/harvester-configuration#installmanagement_interface).
 
-````
+```
  install:
    mode: create
    management_interface:
      interfaces:
      - name: ens18
-+    - name: ens10    
++    - name: ens19   
      method: dhcp
      bond_options:
        mode: active-backup
