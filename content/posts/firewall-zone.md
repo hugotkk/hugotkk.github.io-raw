@@ -3,6 +3,8 @@ title: "Understanding firewalld zone"
 date: 2023-12-05
 tags:
 - firewalld
+- security
+- firewall
 ---
 
 Topology:

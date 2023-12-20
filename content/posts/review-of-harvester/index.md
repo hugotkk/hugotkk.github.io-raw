@@ -2,10 +2,11 @@
 title: "Review of Harvester"
 date: 2023-12-04
 tags:
-tags:
 - rancher
 - hypervisor
+- harvester
 - kubernetes
+- longhorn
 ---
 
 ## Drawbacks and Challenges

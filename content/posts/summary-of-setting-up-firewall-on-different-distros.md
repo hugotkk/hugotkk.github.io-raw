@@ -6,6 +6,7 @@ Tags:
 - firewalld
 - ufw
 - firewall
+- security
 ---
 
 In this article, I will cover the basics of setting up firewalls on different distros, including firewalld, ufw, and iptables. 

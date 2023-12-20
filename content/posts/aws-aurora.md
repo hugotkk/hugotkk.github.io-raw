@@ -6,7 +6,7 @@ tags:
 - aws
 - devops
 - aurora
-- database
+- db
 ---
 
 ## RDS Read Replica

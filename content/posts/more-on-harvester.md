@@ -2,9 +2,11 @@
 title: "More on harvester"
 date: 2023-12-16
 tags:
-- harvester
-- longhorn
 - rancher
+- hypervisor
+- harvester
+- kubernetes
+- longhorn
 ---
 
 I further explored the Harvester system and made some updates based on my discoveries.
