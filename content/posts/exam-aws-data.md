@@ -85,6 +85,13 @@ tags:
 - It is automatically configured, so no manual setup is needed.
 ### Glue
 
+- [Problem with maximum concurrent runs](https://repost.aws/questions/QUXqCW9gvdTUaeWf-xVhLpXg/issue-with-maximum-concurrent-runs-and-job-status
+).
+  - Once the concurrent limit is reached and a job has already been completed, attempting to rerun the same job will result in a ConcurrentRunsExceededException being triggered.
+  - Possible hidden state indicating the job is still running.
+
+- [AWS Glue and Apache Hudi Integration](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-hudi.html).
+
 **Crawler**
 - Can use S3 locations or data catalog tables as [sources](https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-source-type).
 - When S3 location is chosen, it automatically creates or updates the schema and table.
@@ -213,6 +220,7 @@ A rule includes:
 - Intelligent Tiering and Reduced Redundancy Storage are not compatible.
 - Data output can be formatted as CSV or JSON.
 - Data input can be formatted as CSV or JSON. Compression is supported, but only gzip or bzip formats are allowed. For columnar formats like Parquet, only gzip or snappy formats are allowed.
+- [S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) can help prevent Amazon S3 objects from being deleted or overwritten for a fixed amount of time or indefinitely. 
 
 ### Lake Formation
 
@@ -278,3 +286,9 @@ Here are the steps to use Lake Formation:
 **EMRFS**: 
 - S3 access should be granted through an IAM role, not an EC2 role. 
 - The EC2 role assumes the IAM role to retrieve data from S3.
+
+
+## DMS
+
+- [Metrics for monitoring database migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Monitoring.html#CHAP_Monitoring.Metrics).
+- CDCLatencySource and CDCLatencyTarget indicate latency between the source and target in replication.
