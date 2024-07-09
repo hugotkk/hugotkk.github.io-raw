@@ -12,6 +12,25 @@ tags:
 
 ## VM
 
+### Instance Type
+
+- D series: General Purpose; S for SSD
+- M / E series: Memory optimized
+- F series: Compute optimized
+- H series: HPC
+- L series: Disk optimized
+- N series: GPU (NVIDIA)
+
+## Disk Type
+
+### SSD
+- Standard SSD: General Purpose
+- Premium SSD: Support high IOPS
+- Ultra Disk: High-performance option (Overskill for most scenarios)
+
+### HDD
+- Standard HDD
+
 ### DNS Format
 
 internal: `<vm-name>.internal.cloudapp.azure.com`
