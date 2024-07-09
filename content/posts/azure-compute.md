@@ -10,13 +10,6 @@ tags:
   - container instance
 ---
 
-| Container Type     | Supported Operating Systems |
-|--------------------|-----------------------------|
-| Container Instance | Linux, Windows              |
-| Container App      | Linux                       |
-| App Service        | Linux, Windows              |
-| AKS                | Windows, Linux              |
-
 ## VM
 
 ### DNS Format
@@ -217,6 +210,13 @@ This includes the OS (Windows/Linux), Region, no of instances, instance type, an
 App refers to the actual application or code that runs on the App Service Plan.
 
 Multiple apps can share a single App Service Plan, which helps optimize resource utilization and costs.
+
+| Service            | Supported Operating Systems |
+|--------------------|-----------------------------|
+| Container Instance | Linux, Windows              |
+| Container App      | Linux                       |
+| App Service        | Linux, Windows              |
+| AKS                | Windows, Linux              |
 
 ### Runtime Support
 
