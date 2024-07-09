@@ -55,7 +55,9 @@ If we want to route all VPN traffic through VNET C, we can set a route table rul
 
 A subnet can have multiple address spaces, and additional address spaces can be added after the subnet has been created.
 
-Azure reserves the first four IP addresses in each subnet.
+Azure reserves the first four and last IP addresses (5 in total) in each subnet.
+
+The smallest subnet size in a VNet is /29.
 
 ## Diagnose & Monitor Tools
 
