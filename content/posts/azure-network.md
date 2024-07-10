@@ -296,7 +296,7 @@ The Basic SKU VPN Gateway does not support coexistence with ExpressRoute for S2S
 3. Create a local gateway (representing the on-premise site).
 4. Create a VPN connection.
 
-Each VPN gateway can support 2 connections, requiring 2 local gateways (for 2 on-premise routers) and using up 2 public IP addresses for the gateway.
+Each VPN gateway can support 2 connections for failover, requiring 2 local gateways (for 2 on-premise routers) and using up 2 public IP addresses for the gateway.
 
 - **IKEv2** supports up to 10 S2S connections.
 - **IKEv1** supports only 1 S2S connection.
