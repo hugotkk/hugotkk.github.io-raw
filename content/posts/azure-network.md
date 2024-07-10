@@ -61,6 +61,9 @@ The smallest subnet size in a VNet is /29.
 
 ## Diagnose & Monitor Tools
 
+- Azure Activity Log is equivalent to AWS CloudTrail.
+- Azure Advisor: Provides recommendations for cost savings and best practices.
+
 ### Dashboard
 - Traffic Analytics: showing statistics, summary, numbers of the network
 
