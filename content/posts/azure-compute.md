@@ -535,6 +535,11 @@ Virtual nodes can be enabled as an add-on:
 az aks enable-addons --addons virtual-node --name myAKSCluster --resource-group myResourceGroup
 ```
 
+Limitations:
+- No support for DaemonSets or init containers
+- No IPv6 support
+- Only compatible with Azure CNI
+
 To deploy applications to virtual nodes, we need to use specific nodeSelector and tolerations in pod specification
 
 ```yaml
