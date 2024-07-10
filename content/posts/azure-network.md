@@ -425,6 +425,13 @@ DNS settings can be configured at the
 - VNET
 - NIC
 
+We can either use custom DNS or Azure DNS.
+
+To use custom DNS, we can
+- Deploy DNS server in VNET
+- Config DNS server to forward Azure Domain to Azure DNS (168.63.129.16). This ensures that Azure related names can be resolved correctly.
+- Config the DNS setting at VNET / NIC with the custom DNS server IP
+
 ### Custom Domains
 
 1. Update NS records at your domain registrar.
