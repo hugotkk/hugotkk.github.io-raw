@@ -308,8 +308,8 @@ Azure provides three caching options for disks:
 - **Read and write**: Caches data for both read and write operations.
 
 For SQL Server workloads:
-- **Log files**: It is recommended to use read-only caching.
-- **Data files**: No caching is recommended.
+- **Log files**: No caching is recommended.
+- **Data files**: It is recommended to use read-only caching.
 
 For scenarios where preventing data loss is critical, read-only caching is the safest option.
 
