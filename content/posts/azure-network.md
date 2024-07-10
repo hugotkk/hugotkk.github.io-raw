@@ -61,6 +61,9 @@ The smallest subnet size in a VNet is /29.
 
 ## Diagnose & Monitor Tools
 
+### Dashboard
+- Traffic Analytics: showing statistics, summary, numbers of the network
+
 ### Diagnose NSG issue
 - IP Flow Verify (VM)
 - NSG Diagnostics (ScaleSet, NIC, Application Gateway)
