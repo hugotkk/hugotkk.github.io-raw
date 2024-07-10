@@ -577,7 +577,12 @@ However, there is a way to use Windows containers with virtual nodes in AKS, thr
 
 See https://github.com/virtual-kubelet/azure-aci/blob/master/docs/windows-virtual-node.md
 
-### Integrate ACR with AKS
+
+## ACR
+
+Geo-replication is an exclusive feature available in the premium SKU only.
+
+### Integrate with AKS
 
 ```
 az aks update -g myResourceGroup -n myAKSCluster --enable-managed-identity
@@ -588,3 +593,5 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --attach-acr 
 ```
 
 With this command, AKS will configures the AcrPull role for the managed identity, allowing the AKS cluster to pull images from the specified ACR
+
+
