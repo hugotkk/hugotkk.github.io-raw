@@ -593,5 +593,3 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --attach-acr 
 ```
 
 With this command, AKS will configures the AcrPull role for the managed identity, allowing the AKS cluster to pull images from the specified ACR
-
-
