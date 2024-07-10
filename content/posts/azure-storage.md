@@ -1,11 +1,10 @@
 ---
-title: Azure Storage & Key Vault & Backup
+title: Azure Storage & Key Vault
 date: 2024-06-26
 tags:
   - azure
   - storage account
   - key vault
-  - backup
 ---
 
 ## Quick Summary
