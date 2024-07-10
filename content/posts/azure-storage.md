@@ -1,10 +1,9 @@
 ---
-title: Azure Storage & Key Vault
+title: Azure Storage
 date: 2024-06-26
 tags:
   - azure
   - storage account
-  - key vault
 ---
 
 ## Quick Summary
@@ -338,13 +337,3 @@ Disk Encryption Set (DES) offers three types of encryption:
 1. Encryption at rest with Customer-Managed Key (CMK)
 2. Confidential Encryption with CMK
 3. Double Encryption with CMK + Platform-Managed Key (PMK)
-
-## Key Vault
-
-To enable volume encryption using the Key Vault, navigate to Resource Access and enable "Azure Disk Encryption for volume encryption".
-
-To reference secrets stored in Key Vault within an ARM Template, it is essential to enable "Access Azure Resource Manager for template deployment".
-
-To integrate Key Vault with an App Service:
-- Create a Managed Identity for App.
-- Configure IAM settings in Key Vault.
