@@ -127,11 +127,30 @@ Data Disks:
 OS disk
 - Requires the VM to be stopped and deallocated to make changes.
 
+## Host Groups
+
+- Is a collection of dedicated hosts
+- All hosts in a group must be of the same size (e.g., DSv3, ESv3)
+- Located within a single Availability Zone in a region
+
+Dedicated Hosts:
+- Physical hosts in Azure datacenters dedicated to us (rent the whole physical server!)
+
 ## Scale Set
 
 There are two mode for managing VMSS:
 - Orchestration: VMs are managed automatically by Azure
 - VM: we need to manually add or remove VM instances
+
+### Host Groups
+
+We can create VMSS using host group
+
+- The scale set can only exist in a single AZ. As all hosts in a host group are in the same AZ
+- To achieve HA across multiple AZs, we need to create multiple scale sets
+- Each scale set would use a host group in a different AZ
+- We can use Azure Load Balancer or an Application Gateway to distribute traffic across these multiple scale sets
+
 
 ### Scaling Mechanisms
 
