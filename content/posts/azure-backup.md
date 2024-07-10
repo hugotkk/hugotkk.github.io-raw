@@ -7,9 +7,30 @@ tags:
   - backup service
 ---
 
-## Recovery Service
+## Recovery Service Vault
 
 The Vault needs to be in the same region as the VM.
+
+The vault includes two primary services:
+1. Backup Service
+2. Recovery Service (for Disaster Recovery)
+
+Backup:
+- Typically has longer Recovery Point Objective (RPO) and Recovery Time Objective (RTO)
+- Backup frequency options:
+  - Hourly (every 4 hours)
+  - Daily
+  - Weekly
+- Longer RPO generally means more data to back up, which can lead to a longer RTO
+- Supports long retention periods, up to 10 years
+
+Recovery:
+- Primarily used for Failover and Disaster Recovery (DR) scenarios
+- Usually has shorter RPO and RTO (0-12 snapshots in hours)
+- Supports recovery between:
+  - Azure to Azure (different regions)
+  - On-premises to Azure
+  - Azure to on-premises
 
 ### Backup
 
