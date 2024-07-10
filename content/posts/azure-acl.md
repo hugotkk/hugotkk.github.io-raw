@@ -203,6 +203,15 @@ Example:
  
 Result: You cannot create a virtual network because the root tenant's restriction takes precedence.
 
+There are two ways of triggering Azure Policy evaluations:
+
+1. Automatic:
+- On resource creation or update: Policies are evaluated immediately when a resource is created or updated.
+- Periodic evaluation: Policies are evaluated approximately every 24 hours.
+
+2. Manual:
+- On-demand evaluation: we can manually trigger policy evaluations (if the policy supports that)
+
 ### Effects
 
 Modify:
