@@ -11,39 +11,44 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "posts"
+  name = "Posts"
   pageRef = "posts"
   weight = 1
 
 [[main]]
-  name = "tags"
+  name = "Tags"
   pageRef = "tags"
   weight = 2
 
 [[main]]
-  name = "k8s"
+  name = "Kubernetes"
   pageRef = "tags/k8s"
   weight = 3
 
 [[main]]
-  name = "openstack"
+  name = "OpenStack"
   pageRef = "tags/openstack"
   weight = 4
 
 [[main]]
-  name = "aws"
+  name = "AWS"
   pageRef = "tags/aws"
   weight = 5
 
 [[main]]
-  name = "rancher"
-  pageRef = "tags/rancher"
+  name = "Azure"
+  pageRef = "tags/azure"
   weight = 6
 
 [[main]]
-  name = "docker"
-  pageRef = "tags/docker"
+  name = "Rancher"
+  pageRef = "tags/rancher"
   weight = 7
+
+[[main]]
+  name = "Docker"
+  pageRef = "tags/docker"
+  weight = 8
 
 
 # -- Footer Menu --
