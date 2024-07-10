@@ -247,6 +247,12 @@ Firewall Premium supports public IP with:
 - Global & Regional? (to be confirmed)
 - IPv4 Only
 
+Policy:
+- Parent policies are often used to enforce organization-wide security standards.
+- Child policies allow for environment-specific or application-specific rules.
+- Rules in child policies take precedence over rules in the parent policy.
+- Parent and child policies need to be in the same region.
+
 The region of the firewall should be the same as the region of the VNET.
 
 In App Service, to control outbound traffic with a firewall, we need to enable VNET integration and then create a user-defined route table to route all traffic to the firewall.
