@@ -445,3 +445,15 @@ Azure offers PowerShell scripts to facilitate DNS zone migration, useful for tra
 - Virtual Machines (VMs) can function as custom DNS servers.
 - Each VNET can opt for Azure DNS or a custom DNS setup.
 - Ensure connectivity to the VM when using it as a DNS server.
+
+### Application Gateway
+
+- similar to AWS's ALB
+- Level 7 Application Load Balancer
+- Regional Service
+
+### Traffic Manager
+
+- DNS-based traffic routing service
+- Global service, not tied to a specific region
+- Can handle regional outages by redirecting traffic to healthy endpoints
