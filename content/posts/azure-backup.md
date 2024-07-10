@@ -150,11 +150,11 @@ When replicating a VM using Site Recovery:
 4. **Remove Linkage of Resources and Storage Account**
 5. **Stop Replication**
 
-## Backup Service
+## Backup Vault
 
-Recovery Services Backup supports VM, SQL on VM and File Share.
+Recovery Service Vault supports VM, SQL on VM and File Share.
 
-While Backup Service supports:
+While Backup Vault supports:
   - Disk
   - Blob
   - PostgreSQL / MySQL
