@@ -376,3 +376,11 @@ Azure offers PowerShell scripts to facilitate DNS zone migration, useful for tra
 - DNS-based traffic routing service
 - Global service, not tied to a specific region
 - Can handle regional outages by redirecting traffic to healthy endpoints
+- Premium version offers additional features for private networking and security
+
+### Frontdoor
+
+- Similar to AWS CloudFront
+- Global service, not tied to a specific region
+- Rate limiting can be implemented using Frontdoor (Premium) and WAF
+- Can terminate SSL certificates, similar to Application Gateway
