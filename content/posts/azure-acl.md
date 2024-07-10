@@ -160,6 +160,8 @@ While Service Endpoints can be used with various Azure services, endpoint polici
 
 ## Azure Policy
 
+### Assignment
+
 Policies can be assigned to:
 
 - Root Management Group
@@ -169,6 +171,10 @@ Policies can be assigned to:
 - Resources
 
 We can specify that a policy applies to some scopes except for specific ones. However, the Root Management group cannot be selected for the exclusion.
+
+When creating a policy assignment using the Azure portal, system-assigned managed identity will be automatic created for us. However, we still need to assign appropriate permissions to this managed identity
+
+### Evaluation
 
 Policies are cumulative and follow the most restrictive rule.
 
@@ -196,6 +202,26 @@ Example:
 - Subscription level allows creating a virtual network.
  
 Result: You cannot create a virtual network because the root tenant's restriction takes precedence.
+
+### Effects
+
+Modify:
+- Use for tag properties
+- Use case: Add / replace / remove tags duration update / creation
+
+Append:
+- Use for non-tag properties
+- Append specific properties to the resource
+- Doesn't modify existig properties, only add new one
+- Use case: Add a specific IP address to the allowed list in a storage account's firewall rules
+
+DeployIfNotExists:
+- Use for deploying related resources or configurations
+- Evaluates if the resource meet with specified conditions
+- If the resource doesn't exist or doesn't meet conditions, it deploys a template
+- Use case: Enable Transparent Data Encryption (TDE) on SQL databases if it's not enabled
+
+### Tag Management
 
 Tags can be assigned to management groups, subscriptions, resource groups, and resources, but they do not inherit from the parent level.
 
