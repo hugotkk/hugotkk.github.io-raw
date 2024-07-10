@@ -269,7 +269,12 @@ It is in the Subnet level.
 
 Virtual WAN (similar to AWS Transit Gateway) is a global resource that can span across regions, while Virtual Hubs are regional resources. 
 
-A single Virtual WAN can connect to multiple Virtual Hubs.
+Single Virtual WAN can connect to multiple Virtual Hubs.
+
+Basic VirtualWAN has limited functionality compare to the standard tier:
+- Only support S2S VPN
+- Does not support ExpressRoute connections
+- Does not support P2P connections
 
 To create a S2S VPN between a branch and a VNET:
 
