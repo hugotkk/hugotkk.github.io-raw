@@ -66,7 +66,7 @@ For HA or DR scenarios, we can deploy App Services across multiple regions:
   - **Scaling:**
     - Horizontal: Increase the no of VM instances
     - Vertical: Upgrade to a higher instance type
-  - Slot Deployment: Available for managing multiple deployment slots
+  - Slot Deployment: Available for managing multiple deployment slots (blue green deployment)
 - **Isolated Tier**: 
   - Run app on a dedicated VNet, providing network isolation and improved security.
   - Can integrate with App Service Environment (ASE) - which run app on a dedicated host
