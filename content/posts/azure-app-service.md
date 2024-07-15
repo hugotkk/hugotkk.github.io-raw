@@ -95,3 +95,9 @@ We can create `_backup.filter` to exclude specific folders from the backup.
 -/wwwroot/large_files
 +/wwwroot/important_folder
 ```
+
+## WebJob
+
+- It is used to run background tasks, similar to cron jobs in Windows.
+- It is not supported for App Service on Linux
+- For Linux, we can use Azure Functions with timer triggers instead.
