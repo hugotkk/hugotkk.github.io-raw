@@ -4,6 +4,7 @@ date: 2024-07-06
 tags:
   - azure
   - arm template
+  - blueprint
 ---
 
 We can view resources deployed via ARM templates at:
@@ -304,3 +305,17 @@ In the **protectedSettings**, proivde
 }
 ```
 
+## Blueprint
+
+Blueprints in Azure are similar to CloudFormation in AWS. They:
+- Incorporate role assignments, policy assignments, and ARM templates.
+- Handle the lifecycle of deployed resources.
+- Support versioning and updates.
+
+ARM Templates, on the other hand:
+- Are declarative JSON files that define Azure infrastructure.
+- Specify which resources to deploy but do not manage their ongoing state.
+
+Blueprints can be stored at either the management group or subscription level.
+
+To apply a Blueprint, it must be assigned to a subscription.
