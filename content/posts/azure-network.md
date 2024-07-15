@@ -395,3 +395,7 @@ Azure offers PowerShell scripts to facilitate DNS zone migration, useful for tra
 - Global service, not tied to a specific region
 - Rate limiting can be implemented using Frontdoor (Premium) and WAF
 - Can terminate SSL certificates, similar to Application Gateway
+
+### API Management
+
+- Similar to AWS API Gateway
