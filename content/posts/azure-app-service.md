@@ -23,6 +23,23 @@ Multiple apps can share a single App Service Plan, which helps optimize resource
 | App Service        | Linux, Windows              |
 | AKS                | Windows, Linux              |
 
+## Tiers
+
+### Free
+- Shared infrastructure
+- Limited compute resources
+- No custom domain or SSL support
+
+### Basic, Standard, Premium (Dedicated)
+- Dedicated VMs
+- Support for VNet integration (in Standard and above)
+- Auto-scaling (in Standard and above)
+
+### Isolated (App Service Environment)
+- Fully isolated and dedicated environment
+- Enhanced security features
+- Highest scale and performance options
+
 ## Runtime Support
 
 Both Windows and Linux
